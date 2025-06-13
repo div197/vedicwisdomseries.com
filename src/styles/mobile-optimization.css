@@ -1,0 +1,276 @@
+/* Karpatri Dham Framework - Mobile Experience Perfection */
+/* Karpatri Dham - Mobile Responsive Enhancements */
+
+/* ========== MOBILE TOUCH TARGETS ========== */
+@media (max-width: 767px) {
+  /* Ensure all interactive elements meet 44px minimum */
+  button,
+  .chakra-button,
+  .chakra-icon-button,
+  a[role="button"],
+  input[type="button"],
+  input[type="submit"],
+  .chakra-link {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    padding: 12px 16px !important;
+  }
+
+  /* Header optimizations */
+  .karpatridham-header .chakra-button {
+    min-height: 36px !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Navigation touch targets */
+  .chakra-drawer__body .chakra-stack > div {
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Form input optimizations */
+  .chakra-input,
+  .chakra-textarea,
+  .chakra-select {
+    min-height: 44px !important;
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+}
+
+/* ========== MOBILE SPACING OPTIMIZATIONS ========== */
+@media (max-width: 767px) {
+  /* Reduce excessive padding on mobile */
+  .mobile-padding-fix {
+    padding: 1.5rem !important;
+  }
+
+  /* Homepage hero section mobile spacing */
+  .karpatridham-homepage .chakra-grid > .chakra-box:first-child {
+    padding: 1.5rem !important;
+  }
+
+  .karpatridham-homepage .chakra-grid > .chakra-box:last-child {
+    padding: 1.5rem !important;
+  }
+
+  /* Achievement cards mobile optimization */
+  .achievement-card-mobile {
+    min-height: 120px !important;
+    padding: 1rem !important;
+  }
+
+  /* Card grid spacing optimization */
+  .mobile-card-grid {
+    gap: 1rem !important;
+  }
+
+  /* Text sizing for mobile readability */
+  .mobile-text-optimize {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Button spacing on mobile */
+  .mobile-button-spacing {
+    margin: 0.5rem 0 !important;
+  }
+}
+
+/* ========== TABLET OPTIMIZATION ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet-specific touch targets */
+  button,
+  .chakra-button,
+  .chakra-icon-button {
+    min-height: 48px !important;
+    min-width: 48px !important;
+  }
+
+  /* Tablet grid optimization */
+  .tablet-grid-fix {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* ========== LANDSCAPE MOBILE FIXES ========== */
+@media (max-width: 767px) and (orientation: landscape) {
+  /* Reduce header height in landscape */
+  .karpatridham-header {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  /* Optimize hero sections for landscape */
+  .hero-section-landscape {
+    min-height: 60vh !important;
+  }
+
+  /* Footer spacing in landscape */
+  .chakra-footer {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
+/* ========== IMPROVED SCROLL BEHAVIOR ========== */
+@media (max-width: 767px) {
+  /* Smoother scrolling on mobile */
+  html {
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden !important;
+  }
+
+  /* Optimize scroll containers */
+  .scroll-container {
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* ========== ACCESSIBILITY ENHANCEMENTS ========== */
+@media (max-width: 767px) {
+  /* Ensure focus indicators are visible on mobile */
+  *:focus {
+    outline: 3px solid var(--chakra-colors-blue-600) !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Improve tap highlight */
+  * {
+    -webkit-tap-highlight-color: rgba(0, 95, 204, 0.3) !important;
+  }
+
+  /* Optimize for dark mode on mobile */
+  @media (prefers-color-scheme: dark) {
+    .mobile-dark-optimize {
+          background-color: var(--chakra-colors-gray-800) !important;
+    color: var(--chakra-colors-gray-100) !important;
+    }
+  }
+}
+
+/* ========== SPECIFIC COMPONENT FIXES ========== */
+@media (max-width: 767px) {
+  /* Testimonials carousel mobile optimization */
+  .testimonials-mobile .chakra-box {
+    min-height: auto !important;
+    padding: 1rem !important;
+  }
+
+  /* Contact form mobile spacing */
+  .contact-form-mobile .chakra-form-control {
+    margin-bottom: 1rem !important;
+  }
+
+  /* Achievement stats mobile layout */
+  .achievement-stats-mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* Grade selection cards mobile */
+  .grade-cards-mobile {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Footer columns mobile stacking */
+  .footer-mobile-stack {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* ========== PERFORMANCE OPTIMIZATIONS ========== */
+@media (max-width: 767px) {
+  /* Reduce animations on slower devices */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Optimize images for mobile */
+  .mobile-image-optimize {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+
+  /* Reduce box shadows on mobile for performance */
+  .mobile-shadow-reduce {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* ========== UTILITY CLASSES ========== */
+.mobile-only {
+  display: block !important;
+}
+
+.desktop-only {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none !important;
+  }
+  
+  .desktop-only {
+    display: block !important;
+  }
+}
+
+/* Mobile text sizing utilities */
+.mobile-text-xs { font-size: 0.75rem !important; }
+.mobile-text-sm { font-size: 0.875rem !important; }
+.mobile-text-base { font-size: 1rem !important; }
+.mobile-text-lg { font-size: 1.125rem !important; }
+
+/* Mobile spacing utilities */
+.mobile-p-2 { padding: 0.5rem !important; }
+.mobile-p-4 { padding: 1rem !important; }
+.mobile-p-6 { padding: 1.5rem !important; }
+.mobile-m-2 { margin: 0.5rem !important; }
+.mobile-m-4 { margin: 1rem !important; }
+.mobile-m-6 { margin: 1.5rem !important; }
+
+/* ========== SPECIFIC PAGE OPTIMIZATIONS ========== */
+/* About Page Mobile */
+.about-page-mobile .mission-vision-cards {
+  grid-template-columns: 1fr !important;
+  gap: 1.5rem !important;
+}
+
+/* Contact Page Mobile */
+.contact-page-mobile .contact-methods {
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+}
+
+/* Courses Page Mobile */
+.courses-page-mobile .course-cards {
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+}
+
+/* Homepage Mobile Specific */
+.homepage-mobile .founder-section {
+  flex-direction: column !important;
+  text-align: center !important;
+}
+
+.homepage-mobile .achievement-stats {
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+} 

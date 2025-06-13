@@ -1,0 +1,21 @@
+/* Import accessibility styles first */
+@import './accessibility.css';
+
+/* CSS Reset to prevent white bars and spacing issues */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Remove default margins from common elements */
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+/* Base styles are handled by Chakra UI's CSSReset (included by default) */
