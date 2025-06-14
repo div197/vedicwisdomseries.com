@@ -43,22 +43,29 @@ Dr. Nischaya Nagori presents revolutionary insights connecting:
 
 ### 1. 🎵 **WEEKEND DISCOURSES**
 **Format:** Online weekend events (Saturday-Sunday)  
-**Duration:** 90 minutes each day (2 days total)  
+**Duration:** 60 minutes each day (2 days total)  
 **Pricing:** **$25 per discourse ticket**  
 **Content:** Deep Vedic philosophical discussions and spiritual insights
 
 **What You'll Experience:**
 - Authentic interpretation of Vedic texts
 - Scientific parallels to spiritual concepts
-- Interactive Q&A sessions
-- Practical spiritual guidance
+- **Interactive Q&A sessions** - Post questions before or during sessions
+- Practical spiritual guidance from qualified faculty
 - Community connection with fellow seekers
+- Direct answers to your spiritual inquiries
 
 ### 2. 🕉️ **CHANTING CLASSES**
 **Format:** Online weekday sessions (Monday, Tuesday, Thursday)  
 **Duration:** 60 minutes each day (3 days total)  
-**Pricing:** **$30 per session package**  
+**Pricing:** **$30 for ONE COMPLETE COURSE** *(3-day package)*  
 **Content:** Authentic Vedic chanting techniques and pronunciation
+
+**🌍 GLOBAL ACCESSIBILITY - FOR EVERYONE:**
+- **No Sanskrit background required** - Our instructors make it very easy for all non-Sanskrit speakers
+- **Universal approach** - You can be from any country, any ethnicity, any dialect and language
+- **Convenient learning** - Made accessible for you to learn chantings and receive profound benefits
+- **Expert guidance** - Traditional methodologies adapted for modern global learners
 
 **What You'll Learn:**
 - Proper Sanskrit pronunciation and intonation
