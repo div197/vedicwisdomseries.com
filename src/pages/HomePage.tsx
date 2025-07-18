@@ -25,27 +25,25 @@ import SEOHead from '../components/SEOHead'
 import UniversalCTA from '../components/UniversalCTA'
 import { siteConfig } from '../siteConfig'
 import { PageWrapper, HeroSectionWrapper, SectionWrapper, ContentContainer } from '../components/layout/PageWrapper'
-import { millstoneIndia, getIconComponent } from '../data/millstoneIndia'
-import { downloadIndustrialImages } from '../utils/imageManager'
-import { enhancedImageDownloader } from '../utils/enhancedImageManager'
+import { vedicWisdomSeries, getVedicIcon } from '../data/vedicWisdomSeries'
 import { useSlideAnimation, slideAnimationConfigs } from '../hooks/useSlideAnimations'
 
 export default function HomePage() {
   const heroGradient = useColorModeValue(
-    'kd.surface',
-    'kd.canvas'
+    'linear(to-br, orange.50 via blue.50 to yellow.50)',
+    'linear(to-br, gray.900 via gray.800 to gray.900)'
   )
   
-  const cardBg = useColorModeValue('kd.surface', 'kd.surfaceElevated')
+  const cardBg = useColorModeValue('white', 'gray.800')
   // DIVINE COLOR SYSTEM - Following KD Framework Semantic Tokens Only
-  const textColor = 'kd.text'                    // Pure white text for dark theme
-  const headingColor = 'kd.heading'              // Pure white headings for maximum contrast
-  const accentColor = 'kd.secondary'             // Industrial Gold (#FFC400) for accents
-  const primaryColor = 'kd.primary'              // Deep Charcoal (#242424) for primary elements
-  const tertiaryColor = 'kd.tertiary'            // Industrial Steel (#545351) for tertiary elements
+  const textColor = 'kd.text'                    // Clear readable text
+  const headingColor = 'kd.heading'              // Strong headings
+  const accentColor = 'kd.secondary'             // Serene Blue accents
+  const primaryColor = 'kd.primary'              // Deep Saffron for primary
+  const tertiaryColor = 'kd.tertiary'            // Sacred Gold for highlights
 
-  // Configuration-driven content from millstoneIndia data
-  const homeConfig = millstoneIndia
+  // Configuration-driven content from vedicWisdomSeries data
+  const homeConfig = vedicWisdomSeries
 
   // DIVINE SLIDE ANIMATIONS - Modern entrance effects with improved timing
   const heroIconAnimation = useSlideAnimation(slideAnimationConfigs.heroIcon);
@@ -60,47 +58,42 @@ export default function HomePage() {
   const productsSectionAnimation = useSlideAnimation(slideAnimationConfigs.fromBottom);
   const statsSectionAnimation = useSlideAnimation(slideAnimationConfigs.fromBottom);
 
-  // Using the icon mapping from millstoneIndia data
-
-  // Development helper - expose image download functions to console
-  React.useEffect(() => {
-    if (typeof window !== 'undefined') {
-      (window as any).downloadImages = downloadIndustrialImages;
-      (window as any).enhancedDownloader = enhancedImageDownloader;
-      console.log('🏭 Image download functions available:');
-      console.log('Basic Downloader:');
-      console.log('- downloadImages.industrial() - Download industrial facility images');
-      console.log('- downloadImages.abrasives() - Download abrasive product images');
-      console.log('- downloadImages.all() - Download all categories');
-      console.log('');
-      console.log('🤖 AI-Enhanced Downloader with Gemini Flash 2.0:');
-      console.log('- enhancedDownloader.hero() - Download AI-analyzed hero images');
-      console.log('- enhancedDownloader.abrasives() - Download AI-analyzed abrasive images');
-      console.log('- enhancedDownloader.all() - Download all categories with AI analysis');
-      console.log('- enhancedDownloader.analyzeImage(url) - Analyze single image with AI');
-    }
-  }, []);
+  // Using the icon mapping from vedicWisdomSeries data
 
   return (
     <>
       <SEOHead
         title={`${siteConfig.siteName} - ${homeConfig.hero.subtitle}`}
         description={homeConfig.hero.description}
-        keywords={['Millstone India', 'Industrial Abrasives', 'Silicon Carbide', 'Flour Mill Machinery', 'Industrial Minerals', 'ISO 9001:2015', 'Export House', 'Jodhpur']}
-        image={`${siteConfig.siteUrl}/assets/images/millstone-india-og.jpg`}
+        keywords={['Vedic Wisdom Series', 'Dr. Nischaya Nagori', 'Weekend Discourses', 'Chanting Classes', 'Teacher Training', 'Spiritual Education', 'Ancient Wisdom', 'Quantum Spirituality']}
+        image={`${siteConfig.siteUrl}/assets/images/vedic-wisdom-og.jpg`}
       />
 
       <PageWrapper hasHero={true}>
         {/* 🕉️ DIVINE HERO SECTION - Automatic spacing below transparent header */}
         <HeroSectionWrapper>
-          <Box minH="100vh" bg={heroGradient}>
+          <Box 
+            minH="100vh" 
+            bgGradient={heroGradient}
+            position="relative"
+            overflow="hidden"
+          >
+            {/* Subtle pattern overlay */}
+            <Box
+              position="absolute"
+              inset={0}
+              opacity={0.05}
+              bgImage="url('/assets/images/vedic-pattern.svg')"
+              bgRepeat="repeat"
+              bgSize="150px"
+            />
             <Container maxW="7xl" py={{ base: 12, md: 20 }}>
               <VStack spacing={8} textAlign="center" pt={{ base: 2, md: 4 }}>
-                {/* Industrial Symbol - Animated from top */}
+                {/* Spiritual Symbol - Animated from top */}
                 <Box ref={heroIconAnimation.ref} style={heroIconAnimation.style}>
-                  <Icon as={getIconComponent("industry")} boxSize={16} color="kd.tertiary" mb={4} />
+                  <Icon as={FaOm} boxSize={16} color="kd.tertiary" mb={4} filter="drop-shadow(0 0 20px rgba(242, 219, 73, 0.5))" />
                   <Text fontSize={{ base: "md", md: "lg" }} color={textColor} fontWeight="medium">
-                    🏭 THE FOUNDATION OF YOUR FINISH 🏭
+                    🕉️ ANCIENT SOUND, MODERN AWAKENING 🕉️
                   </Text>
                 </Box>
 
@@ -166,18 +159,18 @@ export default function HomePage() {
           </Box>
         </HeroSectionWrapper>
 
-        {/* 🏭 INDUSTRIAL EXCELLENCE PRINCIPLES SECTION - Automatic spacing after hero */}
+        {/* 🕉️ SPIRITUAL WISDOM PRINCIPLES SECTION - Automatic spacing after hero */}
         <SectionWrapper>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={principlesSectionAnimation.ref} style={principlesSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.secondary" color="kd.secondary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-                Core Values
+                Transform Your Life
               </Badge>
               <Heading size="xl" color={headingColor}>
-                Industrial Excellence Foundation
+                Ancient Wisdom for Modern Seekers
               </Heading>
               <Text color={textColor} maxW="3xl" fontSize={{ base: "md", md: "lg" }} lineHeight="tall">
-                Three fundamental values that drive our commitment to superior quality and customer satisfaction in industrial solutions.
+                Discover how authentic Vedic knowledge bridges quantum physics with spiritual realization for profound transformation.
               </Text>
             </VStack>
 
@@ -201,7 +194,7 @@ export default function HomePage() {
                   >
                     <CardBody p={8}>
                       <VStack spacing={6} align="start">
-                        <Icon as={getIconComponent(principle.icon)} boxSize={12} color="kd.tertiary" />
+                        <Icon as={getVedicIcon(principle.icon)} boxSize={12} color="kd.tertiary" />
                         <VStack align="start" spacing={3}>
                           <Heading size="md" color={headingColor}>
                             {principle.title}
@@ -222,18 +215,18 @@ export default function HomePage() {
           </VStack>
         </SectionWrapper>
 
-        {/* 🏭 INDUSTRIAL PRODUCT CATEGORIES SECTION - Automatic spacing */}
+        {/* 🕉️ DIVINE OFFERINGS SECTION - Automatic spacing */}
         <SectionWrapper>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={productsSectionAnimation.ref} style={productsSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.tertiary" color="kd.tertiary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-                Product Categories
+                Spiritual Programs
               </Badge>
               <Heading size="xl" color={headingColor}>
-                Industrial Excellence Portfolio
+                Transform Through Four Divine Paths
               </Heading>
               <Text color={textColor} maxW="3xl" fontSize={{ base: "md", md: "lg" }} lineHeight="tall">
-                Comprehensive range of high-quality industrial products and machinery for diverse manufacturing and processing applications.
+                Choose from Weekend Discourses, Chanting Classes, Teacher Training, or personalized Lifestyle Experiences.
               </Text>
             </VStack>
 
@@ -273,8 +266,15 @@ export default function HomePage() {
                             {category.description}
                           </Text>
                         </VStack>
-                        <Button variant="outline" borderColor="kd.secondary" color="kd.secondary" _hover={{ bg: "kd.secondaryLight" }} size="sm" w="full">
-                          Explore Category
+                        <Button 
+                          as={RouterLink} 
+                          to={offering.link || '/teachings'} 
+                          variant="solid" 
+                          colorScheme={offering.color} 
+                          size="sm" 
+                          w="full"
+                        >
+                          Learn More →
                         </Button>
                       </VStack>
                     </CardBody>
@@ -285,15 +285,15 @@ export default function HomePage() {
           </VStack>
         </SectionWrapper>
 
-        {/* 🏭 INDUSTRIAL EXCELLENCE STATS SECTION - Automatic spacing */}
+        {/* 🕉️ SPIRITUAL IMPACT STATS SECTION - Automatic spacing */}
         <SectionWrapper>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={statsSectionAnimation.ref} style={statsSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.primary" color="kd.primary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-                Industrial Excellence
+                Global Impact
               </Badge>
               <Heading size="xl" color={headingColor}>
-                Proven Track Record
+                Transforming Lives Worldwide
               </Heading>
             </VStack>
 

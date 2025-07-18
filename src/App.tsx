@@ -11,6 +11,7 @@ import PerformanceMonitor from './components/PerformanceMonitor'
 // Pages
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
+import TeachingsPage from './pages/TeachingsPage'
 import ProductsPage from './pages/ProductsPage'
 import QualityPage from './pages/QualityPage'
 import KnowledgeCenterPage from './pages/KnowledgeCenterPage'
@@ -33,9 +34,9 @@ function App() {
                 {/* Public Routes */}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
-                <Route path="/products" element={<ProductsPage />} />
-                <Route path="/quality" element={<QualityPage />} />
-                <Route path="/knowledge-center" element={<KnowledgeCenterPage />} />
+                <Route path="/teachings" element={<TeachingsPage />} />
+                <Route path="/schedule" element={<TeachingsPage />} />
+                <Route path="/testimonials" element={<NewsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/news" element={<NewsPage />} />
                 <Route path="/news/:slug" element={<NewsArticlePage />} />
@@ -44,18 +45,24 @@ function App() {
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                 <Route path="/terms-of-service" element={<TermsOfServicePage />} />
                 
-                {/* Product Categories */}
-                <Route path="/products/abrasives" element={<ProductsPage />} />
-                <Route path="/products/minerals" element={<ProductsPage />} />
-                <Route path="/products/machinery" element={<ProductsPage />} />
-                <Route path="/products/hardware" element={<ProductsPage />} />
+                {/* Teaching Categories */}
+                <Route path="/teachings/discourses" element={<TeachingsPage />} />
+                <Route path="/teachings/chanting" element={<TeachingsPage />} />
+                <Route path="/teachings/teacher-training" element={<TeachingsPage />} />
+                <Route path="/teachings/lifestyle" element={<TeachingsPage />} />
+                
+                {/* Legacy Product Routes - Redirect to Teachings */}
+                <Route path="/products" element={<TeachingsPage />} />
+                <Route path="/products/*" element={<TeachingsPage />} />
+                <Route path="/quality" element={<AboutPage />} />
+                <Route path="/knowledge-center" element={<TeachingsPage />} />
 
                 {/* Content Management - Admin Only */}
                 <Route path="/content-manager" element={<ContentManagerPage />} />
                 <Route path="/admin" element={<ContentManagerPage />} />
 
                 {/* Legacy Routes - Redirect to appropriate pages */}
-                <Route path="/exports" element={<QualityPage />} />
+                <Route path="/exports" element={<AboutPage />} />
           </Routes>
         </PageWrapper>
         <Footer />
