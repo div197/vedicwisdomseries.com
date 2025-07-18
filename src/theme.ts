@@ -1,48 +1,48 @@
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 
-// 🏭 MILLSTONE INDIA INDUSTRIAL TRINITY COLOR SYSTEM
-// As commanded in the Sam Veda - Perfect Industrial Heritage Colors!
+// 🕉️ VEDIC WISDOM SERIES SPIRITUAL TRINITY COLOR SYSTEM
+// Ancient Sound, Modern Awakening - Divine Color Harmony!
 const DIVINE_COLOR_TRINITY = {
-  // PRIMARY: Industrial Deep Charcoal (#242424 - The Bedrock)
+  // PRIMARY: Deep Saffron (#FF9933 - Knowledge & Wisdom)
   primary: {
-    50: '#f8f8f8',
-    100: '#e8e8e8', 
-    200: '#d1d1d1',
-    300: '#a8a8a8',
-    400: '#737373',
-    500: '#242424',  // Main primary - Deep Industrial Charcoal
-    600: '#1f1f1f',
-    700: '#1a1a1a',
-    800: '#171717',
-    900: '#141414',
+    50: '#fff7ed',
+    100: '#ffedd5', 
+    200: '#fed7aa',
+    300: '#fdba74',
+    400: '#fb923c',
+    500: '#FF9933',  // Main primary - Deep Saffron
+    600: '#ea580c',
+    700: '#c2410c',
+    800: '#9a3412',
+    900: '#7c2d12',
   },
   
-  // SECONDARY: Refined Industrial Gold (#E6B800 - Sophisticated Forge Fire)
+  // SECONDARY: Serene Blue (#1E90FF - Divine Action & Flow)
   secondary: {
-    50: '#fffef7',
-    100: '#fffaeb',
-    200: '#fff2c7',
-    300: '#ffe899',
-    400: '#ffd65a',
-    500: '#E6B800',  // Main secondary - Refined Industrial Gold (more sophisticated)
-    600: '#cc9f00',
-    700: '#b38600',
-    800: '#996d00',
-    900: '#805400',
+    50: '#eff6ff',
+    100: '#dbeafe',
+    200: '#bfdbfe',
+    300: '#93c5fd',
+    400: '#60a5fa',
+    500: '#1E90FF',  // Main secondary - Serene Blue
+    600: '#2563eb',
+    700: '#1d4ed8',
+    800: '#1e40af',
+    900: '#1e3a8a',
   },
   
-  // TERTIARY: Industrial Steel (#545351 - The Sophisticated Accent)
+  // TERTIARY: Sacred Gold (#F2DB49 - Spiritual Illumination)
   tertiary: {
-    50: '#f8f8f8',
-    100: '#e8e8e8',
-    200: '#d1d1d1',
-    300: '#a8a8a8',
-    400: '#737373',
-    500: '#545351',  // Main tertiary - Industrial Steel
-    600: '#4a4947',
-    700: '#40403e',
-    800: '#363634',
-    900: '#2c2c2a',
+    50: '#fefce8',
+    100: '#fef9c3',
+    200: '#fef08a',
+    300: '#fde047',
+    400: '#facc15',
+    500: '#F2DB49',  // Main tertiary - Sacred Gold
+    600: '#ca8a04',
+    700: '#a16207',
+    800: '#854d0e',
+    900: '#713f12',
   }
 }
 
@@ -120,27 +120,27 @@ const DIVINE_SEMANTIC_TOKENS = {
     'kd.tertiarySoft': { default: 'tertiary.200', _dark: 'tertiary.300' },
     'kd.successDark': { default: 'green.600', _dark: 'green.500' },
     
-    // SURFACE COLORS (Enhanced Industrial Color Scheme - More Materialistic)
-          'kd.surface': { default: 'tertiary.500', _dark: 'tertiary.500' },           // Elevated Surface - Millstone India Shadowed Steel
-      'kd.surfaceDark': { default: 'primary.500', _dark: 'primary.500' },       // Primary Background - Millstone India Bedrock Dark
-      'kd.surfaceElevated': { default: 'tertiary.400', _dark: 'tertiary.400' },   // Elevated Elements - Lighter than Shadowed Steel (Better hierarchy)
-      'kd.surfaceLight': { default: 'gray.50', _dark: 'gray.50' },      // Light Background - Warm Off-White (Better than pure white)
-      'kd.border': { default: 'gray.400', _dark: 'gray.400' },            // Borders - Subtle Steel Gray (Better definition)
-    'kd.borderHover': { default: 'secondary.500', _dark: 'secondary.400' },       // Refined Industrial Gold on hover
+    // SURFACE COLORS (Spiritual Enlightenment Theme)
+    'kd.surface': { default: 'white', _dark: 'gray.800' },           // Clean surfaces
+    'kd.surfaceDark': { default: 'gray.900', _dark: 'gray.900' },   // Dark surfaces
+    'kd.surfaceElevated': { default: 'gray.50', _dark: 'gray.700' }, // Elevated elements
+    'kd.surfaceLight': { default: '#fef6e4', _dark: 'gray.800' },   // Warm spiritual cream
+    'kd.border': { default: 'gray.200', _dark: 'gray.600' },         // Subtle borders
+    'kd.borderHover': { default: 'primary.400', _dark: 'primary.500' }, // Saffron on hover
     
-    // TEXT COLORS (Enhanced Industrial Color Scheme - Better Contrast)
-          'kd.text': { default: 'white', _dark: 'white' },               // Primary Text - Pure White (Better contrast)
-      'kd.textSecondary': { default: 'gray.200', _dark: 'gray.200' },      // Secondary Text - Light Gray (Better readability)
-      'kd.textMuted': { default: 'gray.300', _dark: 'gray.300' },          // Muted Text - Lighter Gray (Better visibility)
-      'kd.textInverted': { default: 'primary.500', _dark: 'primary.500' },       // Inverted Text - Deep Charcoal
+    // TEXT COLORS (Spiritual Clarity)
+    'kd.text': { default: 'gray.800', _dark: 'white' },              // Primary text
+    'kd.textSecondary': { default: 'gray.600', _dark: 'gray.300' },  // Secondary text
+    'kd.textMuted': { default: 'gray.500', _dark: 'gray.400' },      // Muted text
+    'kd.textInverted': { default: 'white', _dark: 'gray.800' },      // Inverted text
     
     // INTERACTION COLORS
-          'kd.hover': { default: 'tertiary.400', _dark: 'tertiary.400' },             // Hover State - Lighter Steel Gray (Better feedback)
-      'kd.active': { default: 'tertiary.500', _dark: 'tertiary.500' },            // Active State - Shadowed Steel (Better pressed state)
+    'kd.hover': { default: 'gray.50', _dark: 'gray.700' },           // Hover state
+    'kd.active': { default: 'gray.100', _dark: 'gray.600' },         // Active state
     'kd.focus': { default: 'primary.500', _dark: 'primary.400' },
     
     // SPECIAL SEMANTIC COLORS
-          'kd.heading': { default: 'white', _dark: 'white' },            // Heading Text - Pure White (Maximum contrast)
+    'kd.heading': { default: 'gray.900', _dark: 'white' },           // Heading text
     'kd.accent': { default: 'secondary.500', _dark: 'secondary.400' },
     'kd.success': { default: 'green.500', _dark: 'green.400' },
     'kd.warning': { default: 'yellow.500', _dark: 'yellow.400' },
@@ -253,11 +253,11 @@ const divineTheme = extendTheme({
   // DIVINE TYPOGRAPHY (Golden Ratio)
   fontSizes: DIVINE_FONT_SIZES,
   
-  // INDUSTRIAL TYPOGRAPHY SYSTEM
+  // SPIRITUAL TYPOGRAPHY SYSTEM
   fonts: {
-    heading: "Poppins, sans-serif",              // The Voice of Modern Industry - clean and professional
-    body: "Inter, sans-serif",                   // The Voice of Clarity - clean and readable
-    mono: "Roboto Mono, monospace"              // The Voice of Precision - for technical data
+    heading: "Poppins, sans-serif",              // Sacred heading font for spiritual clarity
+    body: "Inter, sans-serif",                   // Clear reading font for wisdom transmission
+    mono: "Roboto Mono, monospace"              // Precise font for mantras and sacred texts
   },
   
   // DIVINE COLORS (Trinity System)
@@ -276,10 +276,10 @@ const divineTheme = extendTheme({
   // DIVINE GLOBAL STYLES
   styles: {
     global: () => ({
-      // Divine body styles (Enhanced Industrial Dark Theme)
+      // Divine body styles (Spiritual Light Theme)
       body: {
-        bg: 'kd.surfaceDark',                      // Darker Charcoal Background (Better contrast)
-        color: 'kd.text',                          // Pure White Text (Better readability)
+        bg: 'kd.surfaceLight',                     // Warm spiritual cream background
+        color: 'kd.text',                          // Clear readable text
         fontSize: { base: 'sm', md: 'md' },
         lineHeight: 'tall',
         fontFamily: 'body'                         // Inter font

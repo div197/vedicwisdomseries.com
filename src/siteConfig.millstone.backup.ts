@@ -528,34 +528,34 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   // --- Basic Site Information ---
-  siteName: "Vedic Wisdom Series",
-  siteDescription: "Ancient Sound, Modern Awakening - Revolutionary Vedic education bridging quantum physics with ancient wisdom. Learn authentic Vedic knowledge through Weekend Discourses, Chanting Classes, Teacher Training, and Lifestyle Experiences with Dr. Nischaya Nagori.",
-  siteUrl: "https://vedicwisdomseries.com",
-  defaultMetaDescription: "Experience authentic Vedic education with Dr. Nischaya Nagori. Weekend Discourses, Sanskrit Chanting Classes, Teacher Training Certification, and Spiritual Lifestyle Programs. Where quantum physics meets ancient wisdom.",
-  defaultOgImage: "/assets/images/vedic-wisdom-og.jpg",
+  siteName: "Millstone India",
+  siteDescription: "The Foundation of Your Finish - Expert industrial craftsmen providing superior abrasives, minerals, machinery, and technical expertise. A unit of Sharad Enterprises, serving global industries with ISO 9001:2015 certified excellence.",
+  siteUrl: "https://millstoneindia.com",
+  defaultMetaDescription: "Premium industrial materials, abrasives, and machinery from Millstone India - The Foundation of Your Finish. ISO 9001:2015 certified expert craftsmen serving 20+ countries with superior quality and technical precision.",
+  defaultOgImage: "/assets/images/millstone-india-og.jpg",
   
   // --- Branding Assets ---
   assets: {
     logo: {
-      main: "/assets/logos/vedic-wisdom-logo.svg",         // Primary logo
-      header: "/assets/logos/vedic-wisdom-logo.svg",       // Header logo
-      footer: "/assets/logos/vedic-wisdom-logo.svg",       // Footer logo
-      favicon: "/assets/logos/vedic-wisdom-favicon.png",   // Favicon
-      ogImage: "/assets/images/vedic-wisdom-og.jpg",       // Open Graph image
+          main: "/assets/logos/millstone-logo.webp",         // Primary logo
+    header: "/assets/logos/millstone-logo.webp",       // Header logo (can be different)
+    footer: "/assets/logos/millstone-logo.webp",       // Footer logo (can be different)
+      favicon: "/assets/logos/millstone-logo.webp",        // Favicon (same as logo)
+      ogImage: "/assets/images/millstone-india-og.jpg",    // Open Graph image
     },
     images: {
-      hero: "/assets/images/vedic-wisdom-hero.jpg",
-      banner: "/assets/images/spiritual-banner.jpg",
-      placeholder: "/assets/logos/vedic-wisdom-logo.svg",
+      hero: "/assets/images/industrial-hero.jpg",
+      banner: "/assets/images/industrial-hero.jpg",
+      placeholder: "/assets/logos/millstone-logo.webp",
     },
   },
   
   // --- Theme Configuration ---
   theme: {
     colors: {
-      primary: "#FF9933",      // Deep Saffron - Knowledge & Wisdom
-      secondary: "#1E90FF",    // Serene Blue - Divine Action & Flow
-      tertiary: "#F2DB49",     // Sacred Gold - Spiritual Illumination
+      primary: "#242424",      // Millstone India Bedrock Dark (Primary Background)
+      secondary: "#555353",    // Millstone India Shadowed Steel (Secondary Surface)
+      tertiary: "#E6B800",     // Refined Industrial Gold (Action Color)
       success: "#10b981",      // Modern Success Green
       warning: "#f59e0b",      // Modern Warning Amber
       error: "#ef4444",        // Modern Error Red
@@ -563,12 +563,12 @@ export const siteConfig: SiteConfig = {
     layout: {
       header: {
         background: {
-          light: "rgba(255, 255, 255, 0.95)",  // Translucent white for light mode
-          dark: "rgba(26, 32, 44, 0.95)",       // Translucent dark for dark mode
+          light: "#f7f0f2",      // Millstone India Refined Powder (Light Background)
+          dark: "#242424",       // Millstone India Bedrock Dark
         },
         text: {
-          light: "#1a202c",      // Dark text for light mode
-          dark: "#ffffff",       // White text for dark mode
+          light: "#242424",      // Millstone India Bedrock Dark for text
+          dark: "#f7f0f2",       // Millstone India Refined Powder for dark mode
         },
         logo: {
           height: {
@@ -580,32 +580,32 @@ export const siteConfig: SiteConfig = {
       },
       footer: {
         background: {
-          light: "#1a202c",      // Deep spiritual dark for footer
-          dark: "#0d1117",       // Even deeper dark for dark mode
+          light: "#242424",      // Millstone India Bedrock Dark for footer
+          dark: "#242424",
         },
         text: {
-          light: "#ffffff",      // White text on dark footer
-          dark: "#ffffff",       // White text on dark footer
+          light: "#f7f0f2",      // Millstone India Refined Powder text
+          dark: "#f7f0f2",
         },
         logo: {
           height: {
             mobile: "40px",
             desktop: "50px",
           },
-          filter: "none", // Logo designed for dark backgrounds
+          filter: "brightness(0) invert(1)", // Make logo white for dark footer
         },
       },
       page: {
         background: {
-          light: "#fef6e4",      // Warm spiritual cream
-          dark: "#1a202c",       // Deep spiritual dark
+          light: "#f7f0f2",      // Millstone India Refined Powder
+          dark: "#242424",       // Millstone India Bedrock Dark
         },
       },
     },
     typography: {
       fonts: {
-        heading: "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",  // Sacred heading font
-        body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",  // Clear reading font
+        heading: "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",  // The Voice of Modern Industry
+        body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",  // The Voice of Clarity
       },
       fontSizes: {
         xs: "0.75rem",
@@ -700,8 +700,8 @@ export const siteConfig: SiteConfig = {
       },
       topBar: {
         enabled: true,
-        background: "linear-gradient(135deg, #FF9933 0%, #1E90FF 100%)",
-        textColor: "#ffffff",
+        background: "#242424",
+        textColor: "#f7f0f2",
         height: {
           mobile: "auto",
           desktop: "auto",
@@ -713,7 +713,7 @@ export const siteConfig: SiteConfig = {
         phoneNumbers: [
           {
             label: "Phone",
-            number: "+91-961-000-1234",
+            number: "+91 93586 55903",
             flagUrl: "",
             countryCode: "PHONE",
             displayBreakpoint: "base",
@@ -722,9 +722,9 @@ export const siteConfig: SiteConfig = {
         ],
         emailAddress: {
           label: "Email",
-          address: "info@vedicwisdomseries.com",
-          enabled: true,
-        },
+          address: "info@millstoneindia.com",
+            enabled: true,
+          },
         actionButtons: {
           primary: {
             text: "",
@@ -746,7 +746,7 @@ export const siteConfig: SiteConfig = {
           },
         },
         styling: {
-          phoneBoxBackground: "rgba(255, 255, 255, 0.1)",
+          phoneBoxBackground: "black",
           phoneBoxHoverBackground: "kd.surfaceElevated",
           phoneBoxBorderColor: "kd.border",
           phoneBoxBorderRadius: "md",
@@ -777,24 +777,24 @@ export const siteConfig: SiteConfig = {
         },
         mobileMenu: {
           drawerSize: "sm",
-          headerText: "🕉️ Vedic Wisdom Series",
-          headerIcon: "🕉️",
+          headerText: "🏭 Millstone India",
+          headerIcon: "🏭",
           showContactInfo: true,
           actionButtons: [
             {
-              text: "Explore Teachings",
-              icon: "🕉️",
-              href: "/teachings",
+              text: "Product Catalog",
+              icon: "📊",
+              href: "/products",
               variant: "solid",
-              colorScheme: "orange",
+              colorScheme: "yellow",
               enabled: true,
             },
             {
-              text: "Join Discourse",
-              icon: "📖",
+              text: "Request Quote",
+              icon: "💼",
               href: "/contact",
               variant: "outline",
-              colorScheme: "blue",
+              colorScheme: "gray",
               enabled: true,
             },
           ],
@@ -825,14 +825,14 @@ export const siteConfig: SiteConfig = {
       },
       menus: {
         menu1: {
-          title: "Divine Offerings",
+          title: "Expert Domains",
           enabled: true,
           links: [
-            { label: "Weekend Discourses", href: "/teachings/discourses" },
-            { label: "Chanting Classes", href: "/teachings/chanting" },
-            { label: "Teacher Training", href: "/teachings/teacher-training" },
-            { label: "Lifestyle Experiences", href: "/teachings/lifestyle" },
-            { label: "About Dr. Nischaya", href: "/about" },
+            { label: "Abrasives & Binders", href: "/products/abrasives" },
+            { label: "Industrial Minerals", href: "/products/minerals" },
+            { label: "Flour Mill Machinery", href: "/products/machinery" },
+            { label: "Hardware & Components", href: "/products/hardware" },
+            { label: "Technical Guides", href: "/knowledge-center" },
           ],
         },
         menu2: {
@@ -889,12 +889,12 @@ export const siteConfig: SiteConfig = {
         },
       },
       colors: {
-        primary: "#ffffff",     // Pure white for footer text
-        secondary: "#e2e8f0",   // Light gray for secondary text
-        accent: "#F2DB49",      // Sacred Gold for accents
-        muted: "#a0aec0",       // Muted gray
-        border: "rgba(255, 255, 255, 0.15)",  // Subtle white border
-        cardBackground: "rgba(255, 255, 255, 0.05)",  // Subtle white background
+        primary: "#f7f0ee",     // Millstone India Light Background
+        secondary: "#f7f0ee",   // Millstone India Light Background
+        accent: "#E6B800",      // Refined Industrial Gold for footer accents
+        muted: "#545351",       // Millstone India Industrial Steel
+        border: "rgba(247, 240, 238, 0.25)",  // Light Background with transparency
+        cardBackground: "rgba(247, 240, 238, 0.08)",  // Light Background with transparency
       },
       spacing: {
         sectionPadding: {
@@ -929,10 +929,10 @@ export const siteConfig: SiteConfig = {
   // --- Content Configuration ---
   content: {
     homepage: {
-      showVideo: true,
-      videoUrl: "https://www.youtube.com/embed/vedic-wisdom-intro", // Dr. Nischaya Introduction
+          showVideo: true,
+      videoUrl: "https://www.youtube.com/embed/industrial-process-video", // Industrial Manufacturing Excellence
       showBanner: true,
-      bannerImage: "/assets/images/spiritual-banner.jpg",
+      bannerImage: "/assets/images/industrial-hero.jpg",
       showHeroSection: true,
       showServiceCategories: true,
       showFeatures: true,
@@ -950,23 +950,23 @@ export const siteConfig: SiteConfig = {
       showFAQ: true,
       showContactForm: true,
     },
-    // Universal CTA System - Global Spiritual Education
+    // Universal CTA System - Global Industrial Excellence
     universalCTA: {
       primary: {
-        text: "🕉️ Explore Divine Offerings",
-        href: "/teachings",
-        description: "Discover our Weekend Discourses, Chanting Classes, Teacher Training, and Lifestyle Experiences",
-        icon: "FaOm",
-        colorScheme: "orange",
+        text: "🏭 Request Expert Consultation",
+        href: "/contact",
+        description: "Speak with our technical experts for customized industrial solutions",
+        icon: "FaIndustry",
+        colorScheme: "yellow",
         size: "lg",
         variant: "solid"
       },
       secondary: {
-        text: "📖 Begin Your Journey",
-        href: "/contact",
-        description: "Connect with Dr. Nischaya Nagori and start your spiritual transformation",
-        icon: "FaBook",
-        colorScheme: "blue",
+        text: "📊 Download Product Catalog",
+        href: "/products",
+        description: "Explore our comprehensive range of industrial materials and machinery",
+        icon: "FaDownload",
+        colorScheme: "gray",
         size: "md",
         variant: "outline"
       },
@@ -981,49 +981,49 @@ export const siteConfig: SiteConfig = {
   
   // --- Contact Information ---
   contact: {
-    address: "Vedic Wisdom Series<br>Ancient Sound, Modern Awakening<br>Dr. Nischaya Nagori<br>Global Spiritual Education Platform<br>Serving Seekers Worldwide<br>Email: info@vedicwisdomseries.com",
+    address: "Millstone India<br>A Unit of Sharad Enterprises<br>J-1/74, RIICO Industrial Area<br>Sangariya, Jodhpur, Rajasthan - 342001<br>Government Recognized Export House<br>ISO 9001:2015 Certified<br>GST: 08CDZPM1573Q1ZD",
     phones: [
-      { label: "Inquiries", number: "+91-961-000-1234" },
-      { label: "Support", number: "+91-961-000-1234" }
-    ],
-    email: "info@vedicwisdomseries.com",
-    googleMapsLink: "https://maps.google.com/?q=India", // Global reach
+      { label: "Export Inquiries", number: "+91 93586 55903" },
+      { label: "Technical Support", number: "+91 93586 55903" }
+  ],
+    email: "info@millstoneindia.com",
+    googleMapsLink: "https://maps.google.com/?q=Jodhpur+Rajasthan+India", // Industrial facility location
     socialLinks: [
       { 
-        label: "Spiritual Discourses", 
-        href: "https://youtube.com/@vedicwisdomseries", 
+        label: "Industrial Processes", 
+        href: "https://youtube.com/@millstoneindia", 
         icon: FaYoutube, 
         enabled: true,
         color: "#FF0000",
         hoverColor: "#E60000"
       },
       { 
-        label: "Community",
-        href: "https://facebook.com/vedicwisdomseries",
+        label: "Industry Network",
+        href: "https://facebook.com/millstoneindia",
         icon: FaFacebookF,
         enabled: true,
         color: "#1877F2",
         hoverColor: "#166FE5"
       },
       { 
-        label: "Daily Wisdom",
-        href: "https://instagram.com/vedicwisdomseries",
+        label: "Product Showcase",
+        href: "https://instagram.com/millstoneindia",
         icon: FaInstagram,
         enabled: true,
         color: "#E4405F",
         hoverColor: "#d73647"
       },
       { 
-        label: "Open Source",
-        href: "https://github.com/div197/vedicwisdomseries",
+        label: "Technical Repository",
+        href: "https://github.com/div197/millstoneindia",
         icon: FaGithub,
         enabled: true,
         color: "#333333",
         hoverColor: "#24292e"
       },
       { 
-        label: "Contact Us",
-        href: "mailto:info@vedicwisdomseries.com",
+        label: "Business Correspondence",
+        href: "mailto:info@millstoneindia.com",
         icon: FaEnvelope,
         enabled: true,
         color: "#34495e",
@@ -1035,57 +1035,57 @@ export const siteConfig: SiteConfig = {
   // --- Navigation & Links ---
   navigation: {
     main: [
-      { label: 'Home', href: '/' },
+    { label: 'Home', href: '/' },
       { label: 'About', href: '/about' },
-      { label: 'Teachings', href: '/teachings' },
-      { label: 'Schedule', href: '/schedule' },
-      { label: 'Testimonials', href: '/testimonials' },
+      { label: 'Products', href: '/products' },
+      { label: 'Quality', href: '/quality' },
+      { label: 'Knowledge Center', href: '/knowledge-center' },
       { label: 'Contact', href: '/contact' }
-    ],
+  ],
     footer: {
       quickLinks: [
-        { label: 'Weekend Discourses', href: '/teachings/discourses' },
-        { label: 'Chanting Classes', href: '/teachings/chanting' },
-        { label: 'Teacher Training', href: '/teachings/teacher-training' },
-        { label: 'Lifestyle Experiences', href: '/teachings/lifestyle' },
-        { label: 'Dr. Nischaya Nagori', href: '/about' },
-        { label: 'Join Our Community', href: '/contact' }
-      ],
+        { label: 'Product Catalog', href: '/products' },
+        { label: 'Technical Expertise', href: '/knowledge-center' },
+        { label: 'Quality Assurance', href: '/quality' },
+        { label: 'Global Exports', href: '/exports' },
+        { label: 'ISO Certification', href: '/quality' },
+        { label: 'Expert Consultation', href: '/contact' }
+  ],
       categories: [
-        {
-          label: 'Weekend Discourses', 
-          href: '/teachings/discourses',
-          image: '/assets/images/weekend-discourses.jpg',
-          description: 'Deep Vedic philosophical discussions with Dr. Nischaya Nagori',
-          classes: 'Saturday-Sunday Sessions',
-          gender: 'Spiritual',
+    {
+          label: 'Abrasives & Binders', 
+          href: '/products/abrasives',
+          image: '/assets/images/abrasives.jpg',
+          description: 'Silicon Carbide, Emery Grain, Oxychloride Binder, Carbon Black Oxide',
+          classes: 'The Agents of Transformation',
+          gender: 'Industrial',
           socialLinks: []
-        },
-        {
-          label: 'Chanting Classes', 
-          href: '/teachings/chanting',
-          image: '/assets/images/chanting-classes.jpg',
-          description: 'Learn authentic Sanskrit pronunciation and sacred mantras',
-          classes: 'Mon-Tue-Thu Classes',
-          gender: 'Spiritual',
+    },
+    {
+          label: 'Industrial Minerals', 
+          href: '/products/minerals',
+          image: '/assets/images/minerals.jpg',
+          description: 'Caustic Calcined Magnesite, Dolomite Powder, Bentonite, China Clay',
+          classes: 'The Essence of the Earth',
+          gender: 'Industrial',
           socialLinks: []
-        },
-        {
-          label: 'Teacher Training', 
-          href: '/teachings/teacher-training',
-          image: '/assets/images/teacher-training.jpg',
-          description: 'Comprehensive certification for authentic Vedic transmission',
-          classes: '15 Lecture Program',
-          gender: 'Spiritual',
+    },
+    {
+          label: 'Flour Mill Machinery', 
+          href: '/products/machinery',
+          image: '/assets/images/machinery.jpg',
+          description: 'Aata Chakki, Flour Mill Stones, precision grinding equipment',
+          classes: 'The Engines of Industry',
+          gender: 'Industrial',
           socialLinks: []
         },
         { 
-          label: 'Lifestyle Experiences', 
-          href: '/teachings/lifestyle',
-          image: '/assets/images/lifestyle-experiences.jpg',
-          description: 'Customized spiritual retreats and holistic Vedic programs',
-          classes: 'Personalized Programs',
-          gender: 'Spiritual',
+          label: 'Hardware & Components', 
+          href: '/products/hardware',
+          image: '/assets/images/hardware.jpg',
+          description: 'Bolts, Nuts, Cast Iron Flanges, M.S. Strip industrial components',
+          classes: 'The Unseen Strength',
+          gender: 'Industrial',
           socialLinks: []
         }
       ]
@@ -1094,33 +1094,33 @@ export const siteConfig: SiteConfig = {
   
   // --- Content Settings ---
   blog: {
-    title: "Spiritual Wisdom & Ancient Knowledge",
-    description: "Explore profound Vedic teachings, spiritual insights, and transformative wisdom from Dr. Nischaya Nagori bridging ancient knowledge with modern understanding"
+    title: "Industrial Insights & Technical Excellence",
+    description: "Expert guidance, technical articles, and industry knowledge from ISO 9001:2015 certified industrial craftsmen serving global markets"
   },
   
   // --- Legal & Copyright ---
   legal: {
-    copyrightText: "© 2025 Vedic Wisdom Series. All Rights Reserved.",
-    footerDescription: "Ancient Sound, Modern Awakening. Revolutionary Vedic education with Dr. Nischaya Nagori. Weekend Discourses, Chanting Classes, Teacher Training, and Spiritual Lifestyle Programs for global seekers."
+    copyrightText: "© 2025 Millstone India (A unit of Sharad Enterprises). All Rights Reserved.",
+    footerDescription: "Expert industrial craftsmen providing superior abrasives, minerals, machinery, and technical expertise. Government Recognized Export House serving 20+ countries with ISO 9001:2015 certified excellence."
   },
   
   // --- Page Configurations ---
   pages: {
     categories: {
-      title: "Divine Spiritual Offerings",
-      description: "Explore our transformative Vedic education programs designed for modern seekers"
+      title: "Industrial Product Categories",
+      description: "Explore our comprehensive range of industrial materials, machinery, and expert technical solutions"
     },
     contact: {
-      title: "Begin Your Spiritual Journey",
-      description: "Connect with Dr. Nischaya Nagori and join our global community of spiritual seekers"
+      title: "Connect with Industrial Experts",
+      description: "Reach out for technical consultation, product inquiries, or partnership opportunities"
     }
   },
   
   // --- Author Information ---
   author: {
-    name: "Dr. Nischaya Nagori",
-    image: "/assets/images/dr-nischaya-nagori.jpg",
-    fallbackImage: "/assets/images/vedic-wisdom-logo.jpg"
+    name: "Millstone India Expert Team",
+    image: "/assets/images/industrial-team.jpg",
+    fallbackImage: "/assets/images/millstone-logo.jpg"
   }
 
 
