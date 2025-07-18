@@ -268,9 +268,9 @@ export default function HomePage() {
                         </VStack>
                         <Button 
                           as={RouterLink} 
-                          to={offering.link || '/teachings'} 
+                          to={category.link || '/teachings'} 
                           variant="solid" 
-                          colorScheme={offering.color} 
+                          colorScheme={category.color} 
                           size="sm" 
                           w="full"
                         >
