@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "playwright-browser": {
+      "command": "npx",
+      "args": ["@playwright/mcp", "--config", "./playwright-mcp-settings.json"],
+      "env": {}
+    }
+  }
+}
