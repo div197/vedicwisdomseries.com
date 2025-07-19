@@ -96,7 +96,8 @@ function getSiteConfigValues() {
     // Extract default author from config
     const authorMatch = configContent.match(/name:\s*"(.*?)"/);
     const defaultAuthor = authorMatch ? authorMatch[1] : 'Content Team';
-    const navLinksMatch = configContent.match(/navLinks:\s*(\[[\s\S]*?])/);
+    // Updated to match current siteConfig structure
+    const navLinksMatch = configContent.match(/navigation:\s*{[\s\S]*?main:\s*(\[[\s\S]*?])/);
     let staticPages = [];
     if (navLinksMatch && navLinksMatch[1]) {
       try {
@@ -339,17 +340,24 @@ function generateSitemap(posts, siteUrl, staticPages) {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
+  // Add home page
+  xml += '  <url>\n';
+  xml += `    <loc>${siteUrl}</loc>\n`;
+  xml += `    <changefreq>daily</changefreq>\n`;
+  xml += `    <priority>1.0</priority>\n`;
+  xml += '  </url>\n';
+
   // Add static pages
-    staticPages.forEach(pagePath => {
+  staticPages.forEach(pagePath => {
     // Basic validation for path format
     if (pagePath && pagePath.startsWith('/')) {
         xml += '  <url>\n';
         xml += `    <loc>${siteUrl}${pagePath}</loc>\n`;
-        // Add lastmod for static pages if meaningful (e.g., based on file mod time, hardcoded, or omitted)
-        // xml += `    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n`; 
+        xml += `    <changefreq>weekly</changefreq>\n`;
+        xml += `    <priority>0.8</priority>\n`;
         xml += '  </url>\n';
     }
-    });
+  });
 
   // Add dynamic content pages (news articles)
   posts.forEach(post => {

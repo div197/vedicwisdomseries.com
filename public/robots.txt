@@ -1,4 +1,28 @@
+# Vedic Wisdom Series Robots.txt
+# Allow all search engines to crawl the site
+
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /content-manager
+Disallow: /api/
+Disallow: /*.json$
 
-Sitemap: /sitemap.xml 
+# Specific crawler optimizations
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://vedicwisdomseries.com/sitemap.xml
+
+# AI Crawlers (optional - uncomment to block)
+# User-agent: GPTBot
+# Disallow: /
+
+# User-agent: ChatGPT-User
+# Disallow: /

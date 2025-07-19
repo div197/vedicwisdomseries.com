@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Teacher Training Certification",
+  "description": "Comprehensive certification program for authentic Vedic transmission",
+  "provider": {
+    "@type": "Organization",
+    "name": "Vedic Wisdom Series"
+  },
+  "instructor": {
+    "@type": "Person",
+    "name": "Dr. Nischaya Nagori",
+    "jobTitle": "Vedic Scholar"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "duration": "PT15H",
+    "inLanguage": "en"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "100",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+}

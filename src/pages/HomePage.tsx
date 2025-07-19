@@ -60,13 +60,54 @@ export default function HomePage() {
 
   // Using the icon mapping from vedicWisdomSeries data
 
+  // Structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Vedic Wisdom Series",
+    "url": siteConfig.siteUrl,
+    "logo": `${siteConfig.siteUrl}/logo.png`,
+    "description": homeConfig.hero.description,
+    "founder": {
+      "@type": "Person",
+      "name": "Dr. Nischaya Nagori",
+      "jobTitle": "Vedic Scholar & Spiritual Guide",
+      "description": "Pioneer in bridging quantum physics with Vedic wisdom"
+    },
+    "sameAs": [
+      "https://youtube.com/@vedicwisdomseries",
+      "https://facebook.com/vedicwisdomseries",
+      "https://instagram.com/vedicwisdomseries"
+    ],
+    "offers": homeConfig.offerings.map(offering => ({
+      "@type": "Course",
+      "name": offering.title,
+      "description": offering.description,
+      "provider": {
+        "@type": "Organization",
+        "name": "Vedic Wisdom Series"
+      },
+      "instructor": {
+        "@type": "Person",
+        "name": "Dr. Nischaya Nagori"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": offering.price.replace('$', ''),
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }))
+  };
+
   return (
     <>
       <SEOHead
         title={`${siteConfig.siteName} - ${homeConfig.hero.subtitle}`}
         description={homeConfig.hero.description}
         keywords={['Vedic Wisdom Series', 'Dr. Nischaya Nagori', 'Weekend Discourses', 'Chanting Classes', 'Teacher Training', 'Spiritual Education', 'Ancient Wisdom', 'Quantum Spirituality']}
-        image={`${siteConfig.siteUrl}/assets/images/vedic-wisdom-og.jpg`}
+        image={`${siteConfig.siteUrl}/assets/images/vedic-wisdom-og.svg`}
+        structuredData={structuredData}
       />
 
       <PageWrapper hasHero={true}>

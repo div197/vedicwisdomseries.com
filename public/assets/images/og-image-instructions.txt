@@ -1,0 +1,10 @@
+
+Please create an Open Graph image (1200x630px) with:
+- Gradient background: Saffron (#FF9933) to Gold (#F2DB49) to Blue (#1E90FF)
+- Om symbol (🕉️) at top
+- Title: "Vedic Wisdom Series"
+- Subtitle: "Ancient Sound, Modern Awakening"
+- Text: "Where Einstein Meets the Rishis"
+- Teacher: "with Dr. Nischaya Nagori"
+
+Save as: public/assets/images/vedic-wisdom-og.jpg

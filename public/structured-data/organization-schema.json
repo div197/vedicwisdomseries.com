@@ -1,0 +1,34 @@
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Vedic Wisdom Series",
+  "url": "https://vedicwisdomseries.com",
+  "logo": "https://vedicwisdomseries.com/logo.png",
+  "description": "Revolutionary Vedic education bridging quantum physics with ancient wisdom",
+  "founder": {
+    "@type": "Person",
+    "name": "Dr. Nischaya Nagori",
+    "jobTitle": "Vedic Scholar & Spiritual Guide"
+  },
+  "sameAs": [
+    "https://youtube.com/@vedicwisdomseries",
+    "https://facebook.com/vedicwisdomseries",
+    "https://instagram.com/vedicwisdomseries"
+  ],
+  "offers": [
+    {
+      "@type": "Course",
+      "name": "Weekend Discourses",
+      "description": "Deep Vedic philosophical discussions bridging quantum physics with spirituality",
+      "provider": {
+        "@type": "Organization",
+        "name": "Vedic Wisdom Series"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "25",
+        "priceCurrency": "USD"
+      }
+    }
+  ]
+}
