@@ -23,6 +23,7 @@ import GalleryPage from './pages/GalleryPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsOfServicePage from './pages/TermsOfServicePage'
 import ContentManagerPage from './pages/ContentManagerPage'
+import TestimonialsPage from './pages/TestimonialsPage'
 
 function App() {
   return (
@@ -35,8 +36,8 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/teachings" element={<TeachingsPage />} />
-                <Route path="/schedule" element={<TeachingsPage />} />
-                <Route path="/testimonials" element={<NewsPage />} />
+                <Route path="/schedule" element={<SchedulePage />} />
+                <Route path="/testimonials" element={<TestimonialsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/news" element={<NewsPage />} />
                 <Route path="/news/:slug" element={<NewsArticlePage />} />

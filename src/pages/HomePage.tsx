@@ -164,13 +164,13 @@ export default function HomePage() {
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={principlesSectionAnimation.ref} style={principlesSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.secondary" color="kd.secondary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-                Transform Your Life
+                The Quantum Revolution Begins
               </Badge>
               <Heading size="xl" color={headingColor}>
-                Ancient Wisdom for Modern Seekers
+                Your Scientific Proof of the Divine Awaits
               </Heading>
               <Text color={textColor} maxW="3xl" fontSize={{ base: "md", md: "lg" }} lineHeight="tall">
-                Discover how authentic Vedic knowledge bridges quantum physics with spiritual realization for profound transformation.
+                Finally understand why Einstein would have been a devoted student of the Vedas. Join 1000+ seekers discovering the quantum code hidden in ancient texts.
               </Text>
             </VStack>
 
@@ -220,13 +220,13 @@ export default function HomePage() {
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={productsSectionAnimation.ref} style={productsSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.tertiary" color="kd.tertiary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-                Spiritual Programs
+                Limited Seats Available
               </Badge>
               <Heading size="xl" color={headingColor}>
-                Transform Through Four Divine Paths
+                Choose Your Sacred Journey to Spiritual Mastery
               </Heading>
               <Text color={textColor} maxW="3xl" fontSize={{ base: "md", md: "lg" }} lineHeight="tall">
-                Choose from Weekend Discourses, Chanting Classes, Teacher Training, or personalized Lifestyle Experiences.
+                Four transformative paths await. Each one scientifically designed to activate your dormant spiritual DNA. Which calls to your soul?
               </Text>
             </VStack>
 
@@ -290,10 +290,10 @@ export default function HomePage() {
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={statsSectionAnimation.ref} style={statsSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.primary" color="kd.primary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-                Global Impact
+                Join The Movement
               </Badge>
               <Heading size="xl" color={headingColor}>
-                Transforming Lives Worldwide
+                The Numbers Speak: Consciousness Is Rising
               </Heading>
             </VStack>
 

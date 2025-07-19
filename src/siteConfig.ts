@@ -529,7 +529,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   // --- Basic Site Information ---
   siteName: "Vedic Wisdom Series",
-  siteDescription: "Ancient Sound, Modern Awakening - Revolutionary Vedic education bridging quantum physics with ancient wisdom. Learn authentic Vedic knowledge through Weekend Discourses, Chanting Classes, Teacher Training, and Lifestyle Experiences with Dr. Nischaya Nagori.",
+  siteDescription: "MIT Scientist Discovers Ancient Code That Proves Your Soul's Quantum Nature. Transform Your Reality in 30 Days with Dr. Nischaya Nagori's Revolutionary Vedic Teachings Where Einstein Meets the Rishis.",
   siteUrl: "https://vedicwisdomseries.com",
   defaultMetaDescription: "Experience authentic Vedic education with Dr. Nischaya Nagori. Weekend Discourses, Sanskrit Chanting Classes, Teacher Training Certification, and Spiritual Lifestyle Programs. Where quantum physics meets ancient wisdom.",
   defaultOgImage: "/assets/images/vedic-wisdom-og.jpg",

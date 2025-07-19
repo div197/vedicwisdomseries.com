@@ -6,10 +6,10 @@ export const vedicWisdomSeries = {
   // HERO SECTION CONFIGURATION
   hero: {
     title: "Vedic Wisdom Series",
-    subtitle: "Ancient Sound, Modern Awakening",
-    description: "Revolutionary Vedic education bridging quantum physics with ancient wisdom. Learn authentic Vedic knowledge through Weekend Discourses, Chanting Classes, Teacher Training, and Lifestyle Experiences with Dr. Nischaya Nagori.",
-    primaryAction: { text: "🕉️ Explore Divine Offerings", link: "/teachings" },
-    secondaryAction: { text: "📖 Meet Dr. Nischaya", link: "/about" }
+    subtitle: "Where Your Quantum Mind Meets Your Eternal Soul",
+    description: "MIT Scientist Discovers Ancient Code That Proves Your Soul's Quantum Nature. Join 1000+ seekers worldwide who've awakened their spiritual genius through Dr. Nischaya Nagori's revolutionary teachings where Einstein meets the Rishis.",
+    primaryAction: { text: "🕉️ Claim Your Spiritual Awakening Now", link: "/teachings" },
+    secondaryAction: { text: "📖 Discover The Quantum Secret", link: "/about" }
   },
 
   // CORE PRINCIPLES/FEATURES
@@ -39,7 +39,7 @@ export const vedicWisdomSeries = {
     {
       badge: "Weekend",
       title: "Weekend Discourses",
-      description: "Deep Vedic philosophical discussions and spiritual insights. Interactive Q&A sessions with Dr. Nischaya Nagori every Saturday-Sunday.",
+      description: "Experience Mind-Blowing Revelations Where Einstein Meets Krishna. Every weekend, Dr. Nischaya reveals how quantum physics proves ancient spiritual truths in live interactive sessions.",
       price: "$25",
       duration: "per discourse ticket",
       details: "60 minutes each day (2 days)",
@@ -56,7 +56,7 @@ export const vedicWisdomSeries = {
     {
       badge: "Chanting", 
       title: "Chanting Classes",
-      description: "Learn authentic Vedic chanting techniques and Sanskrit pronunciation. No prior Sanskrit knowledge required - perfect for global learners.",
+      description: "Unlock Your Voice's Sacred Power - No Sanskrit Required, Just Pure Intention. Scientifically proven frequencies that rewire your neural pathways for peace and clarity.",
       price: "$30",
       duration: "ONE COMPLETE COURSE",
       details: "Monday, Tuesday, Thursday (60 min each)",
@@ -73,7 +73,7 @@ export const vedicWisdomSeries = {
     {
       badge: "Certification",
       title: "Teacher Training",
-      description: "Comprehensive certification program for authentic Vedic transmission. Includes bonus chanting classes and weekend discourse access.",
+      description: "Become a Beacon of Ancient Light in a Modern World. Limited to 50 souls ready to carry the torch of authentic Vedic wisdom. Transform from confused seeker to confident teacher.",
       price: "$100",
       duration: "complete certification",
       details: "15 lectures × 1 hour each",
@@ -91,7 +91,7 @@ export const vedicWisdomSeries = {
     {
       badge: "Lifestyle",
       title: "Vedic Lifestyle Experiences",
-      description: "Customized immersive experiences for individuals, families, or groups. Personal spiritual retreats and holistic Vedic living programs.",
+      description: "Your Soul's Calling Deserves a Sacred Response. Whether seeking personal breakthrough or family transformation, we create your perfect spiritual awakening journey.",
       price: "Custom Quote",
       duration: "based on requirements",
       details: "Share preferences for planning",
