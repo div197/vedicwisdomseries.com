@@ -24,6 +24,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsOfServicePage from './pages/TermsOfServicePage'
 import ContentManagerPage from './pages/ContentManagerPage'
 import TestimonialsPage from './pages/TestimonialsPage'
+import SchedulePage from './pages/SchedulePage'
 
 function App() {
   return (

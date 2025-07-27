@@ -41,7 +41,7 @@ import {
   FaGraduationCap,
   FaHeart,
   FaBook,
-  FaMeditation,
+  FaLeaf,
   FaUserGraduate,
   FaGlobe,
   FaCheckCircle,
@@ -80,7 +80,7 @@ export default function TestimonialsPage() {
   const categories = [
     { name: "All Stories", icon: FaOm, color: "purple" },
     { name: "Weekend Discourses", icon: FaBook, color: "orange" },
-    { name: "Chanting Classes", icon: FaMeditation, color: "blue" },
+    { name: "Chanting Classes", icon: FaLeaf, color: "blue" },
     { name: "Teacher Training", icon: FaGraduationCap, color: "green" },
     { name: "Life Transformations", icon: FaHeart, color: "pink" }
   ];
