@@ -413,6 +413,7 @@ const Header: React.FC = () => {
       {/* 🕉️ DIVINE TOP CONTACT BAR - Configuration-driven */}
       {topBar.enabled && !isScrolled && (
         <Box 
+          data-header-topbar
           bg={topBar.background}
           color={topBar.textColor}
           py={topBar.padding}
@@ -440,6 +441,7 @@ const Header: React.FC = () => {
 
       {/* 🕉️ DIVINE MAIN HEADER - Configuration-driven transparent/opaque design */}
       <Box
+        data-header-main
         bg={hasHero && mainHeader.transparentOnHero
           ? "transparent"
           : "kd.surface"

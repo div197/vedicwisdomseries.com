@@ -1,6 +1,6 @@
 import { useBreakpointValue } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
-import { useMemo } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 
 /**
  * 🕉️ KARPATRI DHAM FRAMEWORK - DIVINE UNIVERSAL LAYOUT SYSTEM
@@ -27,29 +27,54 @@ const PAGES_WITH_HERO = [
 ];
 
 /**
- * Enhanced hook that calculates exact header height for proper page spacing.
- * Accounts for both the top contact bar and main header sections.
+ * FIXED: Dynamic header height calculation that matches actual Header.tsx implementation.
+ * Measures real DOM elements instead of using wrong magic numbers.
  */
 export const useHeaderHeight = () => {
-  // Top contact bar height calculation
-  const topBarHeight = useBreakpointValue({ 
-    base: 52,  // Mobile: py={2} + content height + mobile stacking
-    md: 44     // Desktop: py={2} + single line content
-  });
+  const [actualHeight, setActualHeight] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+  
+  // Dynamic measurement instead of magic numbers
+  useEffect(() => {
+    const measureHeaderHeight = () => {
+      const topBar = document.querySelector('[data-header-topbar]');
+      const mainHeader = document.querySelector('[data-header-main]');
+      
+      let totalHeight = 0;
+      if (topBar) totalHeight += topBar.getBoundingClientRect().height;
+      if (mainHeader) totalHeight += mainHeader.getBoundingClientRect().height;
+      
+      setActualHeight(totalHeight || 98); // Fallback for SSR
+    };
 
-  // Main header height calculation  
-  const mainHeaderHeight = useBreakpointValue({
-    base: 66,  // Mobile: py={3} + logo height (54px) + padding
-    md: 78     // Desktop: py={3} + logo height (66px) + padding
-  });
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
 
-  // Total header height
-  const totalHeight = (topBarHeight || 52) + (mainHeaderHeight || 66);
+    // Initial measurement
+    measureHeaderHeight();
+    
+    // Re-measure on resize and scroll
+    window.addEventListener('resize', measureHeaderHeight);
+    window.addEventListener('scroll', handleScroll);
+    
+    // Re-measure after fonts load
+    const timer = setTimeout(measureHeaderHeight, 100);
+    
+    return () => {
+      window.removeEventListener('resize', measureHeaderHeight);
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const totalHeight = actualHeight;
 
   return {
-    topBarHeight: topBarHeight || 52,
-    mainHeaderHeight: mainHeaderHeight || 66,
+    topBarHeight: Math.round(actualHeight * 0.4), // Approximate top bar portion
+    mainHeaderHeight: Math.round(actualHeight * 0.6), // Approximate main header portion
     totalHeight,
+    isScrolled,
     // CSS values for direct use
     totalHeightPx: `${totalHeight}px`,
     totalHeightRem: `${totalHeight / 16}rem`
