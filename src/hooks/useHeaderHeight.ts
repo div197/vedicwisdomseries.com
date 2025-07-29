@@ -16,15 +16,7 @@ import { useMemo, useEffect, useState } from 'react';
  * - Configuration-driven layout management
  */
 
-// Pages that have hero sections and should use transparent headers
-const PAGES_WITH_HERO = [
-  '/',                    // HomePage - HeroSlider component
-  '/about',              // AboutPage - Hero section with bgImage  
-  '/contact',            // ContactPage - Hero section with bgImage
-  '/teachings',          // TeachingsPage - Hero section
-  '/library',            // LibraryPage - Hero section (newly added)
-  '/services'            // CategoriesPage (aliased as services) - Hero section
-];
+// REMOVED HARDCODED ARRAY - Now uses configuration-driven detection
 
 /**
  * FIXED: Dynamic header height calculation that matches actual Header.tsx implementation.
@@ -82,8 +74,8 @@ export const useHeaderHeight = () => {
 };
 
 /**
- * 🕉️ DIVINE HERO PAGE DETECTION HOOK
- * Automatically detects if current page should have hero layout
+ * 🕉️ DIVINE HERO PAGE DETECTION HOOK - NOW CONFIGURATION-DRIVEN
+ * Uses siteConfig.navigation to determine hero pages automatically
  */
 export const useHeroPageDetection = () => {
   const location = useLocation();
@@ -91,18 +83,25 @@ export const useHeroPageDetection = () => {
   return useMemo(() => {
     const currentPath = location.pathname;
     
-    // Check exact matches
-    if (PAGES_WITH_HERO.includes(currentPath)) {
+    // Import siteConfig inside useMemo to avoid circular dependency
+    const { siteConfig } = require('../siteConfig');
+    
+    // Check main navigation routes
+    const heroPage = siteConfig.navigation.main.find((item: any) => 
+      item.href === currentPath && item.hasHero === true
+    );
+    
+    if (heroPage) {
       return true;
     }
     
     // Check for dynamic routes that should have hero sections
     if (currentPath.startsWith('/teachings/') && currentPath !== '/teachings') {
-      return true;
+      return true; // Teaching sub-pages inherit hero from parent
     }
     
     if (currentPath.startsWith('/news/') && currentPath !== '/news') {
-      return true;
+      return true; // News articles inherit hero from parent
     }
     
     return false;

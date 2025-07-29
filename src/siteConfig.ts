@@ -478,7 +478,7 @@ export interface SiteConfig {
   
   // Navigation & Links
   navigation: {
-    main: Array<{ label: string; href: string; icon?: IconType }>;
+    main: Array<{ label: string; href: string; icon?: IconType; hasHero?: boolean }>;
     footer: {
       quickLinks: Array<{ label: string; href: string }>;
       categories: Array<{ 
@@ -1035,12 +1035,12 @@ export const siteConfig: SiteConfig = {
   // --- Navigation & Links ---
   navigation: {
     main: [
-      { label: 'Home', href: '/' },
-      { label: 'About', href: '/about' },
-      { label: 'Teachings', href: '/teachings' },
-      { label: 'Schedule', href: '/schedule' },
-      { label: 'Testimonials', href: '/testimonials' },
-      { label: 'Contact', href: '/contact' }
+      { label: 'Home', href: '/', hasHero: true },
+      { label: 'About', href: '/about', hasHero: true },
+      { label: 'Teachings', href: '/teachings', hasHero: true },
+      { label: 'Schedule', href: '/schedule', hasHero: false },
+      { label: 'Testimonials', href: '/testimonials', hasHero: false },
+      { label: 'Contact', href: '/contact', hasHero: true }
     ],
     footer: {
       quickLinks: [
