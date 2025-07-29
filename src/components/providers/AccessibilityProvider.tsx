@@ -441,4 +441,4 @@ export const AccessibilityControls: React.FC = () => {
       </div>
     </div>
   );
-}; 
+};

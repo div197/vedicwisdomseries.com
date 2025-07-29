@@ -1,71 +1,120 @@
-import React from 'react';
-import { Box, Spinner, VStack, Text } from '@chakra-ui/react';
-import { keyframes } from '@emotion/react';
+// 🕉️ SOPHISTICATED LOADING COMPONENTS
+// State-of-the-art loading experience with spiritual aesthetics
 
-const pulse = keyframes`
-  0% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.8; }
+import React from 'react';
+import { Box, Spinner, VStack, Center } from '@chakra-ui/react';
+import { keyframes } from '@emotion/react';
+import { siteConfig } from '../siteConfig';
+
+// Sacred geometry loading animation
+const sacredPulse = keyframes`
+  0% { 
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: scale(1.1) rotate(180deg);
+    opacity: 1;
+  }
+  100% { 
+    transform: scale(0.8) rotate(360deg);
+    opacity: 0.6;
+  }
+`;
+
+const divineGlow = keyframes`
+  0%, 100% { 
+    box-shadow: 0 0 20px ${siteConfig.colors.primary}40;
+  }
+  50% { 
+    box-shadow: 0 0 40px ${siteConfig.colors.primary}80, 0 0 60px ${siteConfig.colors.secondary}40;
+  }
 `;
 
 interface LoadingSpinnerProps {
-  message?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
-  showMessage?: boolean;
+  message?: string;
+  fullPage?: boolean;
 }
 
 export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
-  message = "Loading...",
   size = 'lg',
-  showMessage = true
+  message = 'Loading spiritual wisdom...',
+  fullPage = false
 }) => {
-  return (
-    <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      minH="200px"
-      w="full"
-    >
-      <VStack spacing={4}>
+  const sizeMap = {
+    sm: '32px',
+    md: '48px', 
+    lg: '64px',
+    xl: '96px'
+  };
+
+  const content = (
+    <VStack spacing={6}>
+      <Box
+        width={sizeMap[size]}
+        height={sizeMap[size]}
+        borderRadius="50%"
+        bg={`linear-gradient(45deg, ${siteConfig.colors.primary}, ${siteConfig.colors.secondary})`}
+        animation={`${sacredPulse} 2s ease-in-out infinite, ${divineGlow} 3s ease-in-out infinite`}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Spinner
+          thickness="3px"
+          speed="0.8s"
+          emptyColor="whiteAlpha.300"
+          color="white"
+          size={size}
+        />
+      </Box>
+      {message && (
         <Box
-          animation={`${pulse} 2s ease-in-out infinite`}
+          fontSize="sm"
+          color="gray.600"
+          fontWeight="medium"
+          textAlign="center"
+          opacity={0.8}
         >
-          <Spinner
-            size={size}
-            color="kd.primary"
-            thickness="4px"
-            speed="0.65s"
-          />
+          {message}
         </Box>
-        {showMessage && (
-          <Text
-            color="kd.text"
-            fontSize="sm"
-            fontWeight="medium"
-            opacity={0.8}
-          >
-            {message}
-          </Text>
-        )}
-      </VStack>
-    </Box>
+      )}
+    </VStack>
+  );
+
+  if (fullPage) {
+    return (
+      <Center
+        minH="100vh"
+        bg="linear-gradient(135deg, orange.50 0%, blue.50 50%, yellow.50 100%)"
+      >
+        {content}
+      </Center>
+    );
+  }
+
+  return (
+    <Center py={8}>
+      {content}
+    </Center>
   );
 };
 
-export const PageLoadingSpinner: React.FC = () => (
-  <LoadingSpinner
-    message="Preparing your spiritual journey..."
-    size="xl"
-    showMessage={true}
+// Specialized page loading spinner for route transitions
+export const PageLoadingSpinner = () => (
+  <LoadingSpinner 
+    size="lg"
+    message="🕉️ Preparing divine content..."
+    fullPage
   />
 );
 
-export const ComponentLoadingSpinner: React.FC = () => (
-  <LoadingSpinner
-    message="Loading content..."
-    size="md"
-    showMessage={false}
+// Minimal loading spinner for components
+export const CompactLoadingSpinner = () => (
+  <LoadingSpinner 
+    size="sm"
+    message=""
   />
 );
 

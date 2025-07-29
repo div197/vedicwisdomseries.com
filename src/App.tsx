@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { AccessibilityProvider } from './components/providers/AccessibilityProvider'
+import { AccessibilityProvider, SkipLinks } from './components/providers/AccessibilityProvider'
 import { PageLoadingSpinner } from './components/LoadingSpinner'
 
 // Layout Components (Critical - keep synchronous)
@@ -30,9 +30,10 @@ const SchedulePage = React.lazy(() => import('./pages/SchedulePage'))
 function App() {
   return (
     <AccessibilityProvider>
+      <SkipLinks />
       <div className="App">
-        <Header />
-        <PageWrapper>
+        <Header id="main-navigation" />
+        <PageWrapper id="main-content">
           <Suspense fallback={<PageLoadingSpinner />}>
             <Routes>
               {/* Public Routes */}
