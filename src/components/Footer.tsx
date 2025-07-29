@@ -33,6 +33,7 @@ import {
   FaTools,
 } from 'react-icons/fa';
 import { siteConfig } from '../siteConfig';
+import { PremiumCard } from './premium/PremiumCard';
 
 // Icon mapping for navigation links
 const getNavIcon = (href: string) => {
@@ -296,21 +297,10 @@ const Footer: React.FC = () => {
         >
           {/* About Section */}
           {footerConfig.showAboutSection && (
-            <Box
-              bg="rgba(255, 255, 255, 0.08)"
+            <PremiumCard
+              variant="glass"
+              premium={true}
               p={cardPadding}
-              borderRadius="xl"
-              border="1px solid"
-              borderColor="rgba(255, 255, 255, 0.2)"
-              backdropFilter="blur(10px)"
-              boxShadow="0 4px 20px rgba(0, 0, 0, 0.15)"
-              _hover={{
-                bg: "rgba(255, 255, 255, 0.12)",
-                borderColor: 'rgba(255, 255, 255, 0.3)',
-                transform: 'translateY(-1px)',
-                boxShadow: "0 6px 25px rgba(0, 0, 0, 0.2)",
-              }}
-              transition="all 0.3s ease"
             >
               <VStack align="start" spacing={6}>
                 <Heading 
@@ -364,26 +354,15 @@ const Footer: React.FC = () => {
                   </Box>
                 )}
               </VStack>
-            </Box>
+            </PremiumCard>
           )}
 
           {/* Menu 1 - Configurable */}
           {footerConfig.menus.menu1.enabled && (
-            <Box
-              bg="rgba(255, 255, 255, 0.08)"
+            <PremiumCard
+              variant="glass"
+              premium={true}
               p={cardPadding}
-              borderRadius="xl"
-              border="1px solid"
-              borderColor="rgba(255, 255, 255, 0.2)"
-              backdropFilter="blur(10px)"
-              boxShadow="0 4px 20px rgba(0, 0, 0, 0.15)"
-              _hover={{
-                bg: "rgba(255, 255, 255, 0.12)",
-                borderColor: 'rgba(255, 255, 255, 0.3)',
-                transform: 'translateY(-1px)',
-                boxShadow: "0 6px 25px rgba(0, 0, 0, 0.2)",
-              }}
-              transition="all 0.3s ease"
             >
               <VStack align="start" spacing={6}>
                 <Heading 
@@ -409,26 +388,15 @@ const Footer: React.FC = () => {
                   ))}
                 </VStack>
               </VStack>
-            </Box>
+            </PremiumCard>
           )}
 
           {/* Menu 2 - Configurable */}
           {footerConfig.menus.menu2.enabled && (
-            <Box
-              bg="rgba(255, 255, 255, 0.08)"
+            <PremiumCard
+              variant="glass"
+              premium={true}
               p={cardPadding}
-              borderRadius="xl"
-              border="1px solid"
-              borderColor="rgba(255, 255, 255, 0.2)"
-              backdropFilter="blur(10px)"
-              boxShadow="0 4px 20px rgba(0, 0, 0, 0.15)"
-              _hover={{
-                bg: "rgba(255, 255, 255, 0.12)",
-                borderColor: 'rgba(255, 255, 255, 0.3)',
-                transform: 'translateY(-1px)',
-                boxShadow: "0 6px 25px rgba(0, 0, 0, 0.2)",
-              }}
-              transition="all 0.3s ease"
             >
               <VStack align="start" spacing={6}>
                 <Heading 
@@ -454,26 +422,15 @@ const Footer: React.FC = () => {
                   ))}
                 </VStack>
               </VStack>
-            </Box>
+            </PremiumCard>
           )}
 
           {/* Contact Information Section */}
           {footerConfig.showContactInfo && (
-            <Box
-              bg="rgba(255, 255, 255, 0.08)"
+            <PremiumCard
+              variant="glass"
+              premium={true}
               p={cardPadding}
-              borderRadius="xl"
-              border="1px solid"
-              borderColor="rgba(255, 255, 255, 0.2)"
-              backdropFilter="blur(10px)"
-              boxShadow="0 4px 20px rgba(0, 0, 0, 0.15)"
-              _hover={{
-                bg: "rgba(255, 255, 255, 0.12)",
-                borderColor: 'rgba(255, 255, 255, 0.3)',
-                transform: 'translateY(-1px)',
-                boxShadow: "0 6px 25px rgba(0, 0, 0, 0.2)",
-              }}
-              transition="all 0.3s ease"
             >
               <VStack align="start" spacing={6}>
                 <Heading 
@@ -615,31 +572,53 @@ const Footer: React.FC = () => {
                   )}
                 </VStack>
               </VStack>
-            </Box>
+            </PremiumCard>
           )}
         </SimpleGrid>
       </Container>
 
-      {/* Footer Bottom Section */}
+      {/* Premium Footer Bottom Section */}
       <Box
         borderTop="1px solid"
-        borderColor="rgba(255, 255, 255, 0.25)"
-        bg="rgba(0, 0, 0, 0.3)"
-        backdropFilter="blur(10px)"
+        borderColor="rgba(255, 153, 51, 0.2)"
+        bg="linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%)"
+        backdropFilter="blur(20px) saturate(180%)"
+        position="relative"
+        _before={{
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '1px',
+          bg: 'linear-gradient(90deg, transparent, rgba(255,153,51,0.5), transparent)',
+        }}
       >
         <Container
           maxW="container.xl"
           py={bottomPadding}
         >
-          <Text 
-            fontSize={copyrightFontSize}
-            color="white" 
-            textAlign="center"
-            fontWeight="normal"
-            fontFamily={siteConfig.theme.typography.fonts.body}
-          >
-            {siteConfig.legal.copyrightText}
-          </Text>
+          <VStack spacing={3}>
+            <Text 
+              fontSize={copyrightFontSize}
+              color="white" 
+              textAlign="center"
+              fontWeight="500"
+              fontFamily={siteConfig.theme.typography.fonts.body}
+              textShadow="0 2px 4px rgba(0,0,0,0.3)"
+            >
+              {siteConfig.legal.copyrightText}
+            </Text>
+            <Text 
+              fontSize="xs"
+              color="rgba(255, 255, 255, 0.7)" 
+              textAlign="center"
+              fontWeight="400"
+              fontFamily={siteConfig.theme.typography.fonts.body}
+            >
+              Crafted with 🕉️ by the Karpatri Dham Framework
+            </Text>
+          </VStack>
         </Container>
       </Box>
     </Box>

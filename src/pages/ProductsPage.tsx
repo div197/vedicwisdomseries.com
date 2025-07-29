@@ -4,12 +4,13 @@ import {
   Image, Button, Icon, Stat, StatLabel, StatNumber, StatHelpText, Flex, Divider,
   useColorModeValue, AspectRatio, Grid, GridItem
 } from '@chakra-ui/react';
-import { FaIndustry, FaCog, FaTools, FaShippingFast, FaCertificate, FaGlobe, FaPhone, FaDownload } from 'react-icons/fa';
+import { FaOm, FaBook, FaGraduationCap, FaHeart, FaGlobe, FaCalendarCheck, FaPlay, FaUsers } from 'react-icons/fa';
 import SEOHead from '../components/SEOHead';
 import { PageWrapper, HeroSectionWrapper, SectionWrapper } from '../components/layout/PageWrapper';
 import UniversalCTA from '../components/UniversalCTA';
 import { useSlideAnimation } from '../hooks/useSlideAnimations';
 import { siteConfig } from '../siteConfig';
+import { vedicWisdomSeries } from '../data/vedicWisdomSeries';
 
 const ProductsPage: React.FC = () => {
   // Color scheme
@@ -22,233 +23,28 @@ const ProductsPage: React.FC = () => {
   // Animations
   const heroAnimation = useSlideAnimation({ direction: 'from-bottom', duration: 800, delay: 200 });
   const statsAnimation = useSlideAnimation({ direction: 'from-bottom', duration: 700, delay: 400 });
-  const categoriesAnimation = useSlideAnimation({ direction: 'from-bottom', duration: 800, delay: 300 });
+  const offeringsAnimation = useSlideAnimation({ direction: 'from-bottom', duration: 800, delay: 300 });
 
-  // Enhanced product categories with technical specifications
-  const productCategories = [
-    {
-      id: "abrasives",
-      category: "Abrasives & Binders",
-      tagline: "The Agents of Transformation",
-      description: "Premium abrasive materials and specialized binding agents for superior grinding, polishing, and finishing applications across diverse industrial sectors.",
-      image: "/assets/images/products/1.jpeg", // Stone mill grinding surface
-      icon: FaTools,
-      color: "kd.primary",
-      applications: ["Precision Grinding", "Surface Finishing", "Industrial Polishing", "Material Shaping"],
-      certifications: ["ISO 9001:2015", "Export Quality"],
-      products: [
-        { 
-          name: "Silicon Carbide", 
-          hsn: "28492010",
-          grade: "Industrial Grade",
-          mesh: "Various (16-220)",
-          purity: "98.5%+",
-          applications: "Grinding wheels, abrasive papers, refractory materials"
-        },
-        { 
-          name: "Natural Emery Grain / Flint", 
-          hsn: "25171020",
-          grade: "Premium Natural",
-          mesh: "8-120",
-          hardness: "7-9 Mohs",
-          applications: "Non-slip surfaces, abrasive cloths, grinding stones"
-        },
-        { 
-          name: "Millstone Production Emery Grain", 
-          hsn: "25132010",
-          grade: "Millstone Specific",
-          mesh: "Custom",
-          origin: "Rajasthan Mines",
-          applications: "Traditional flour mill stones, grain processing"
-        },
-        { 
-          name: "Aluminium Oxide", 
-          hsn: "28182090",
-          grade: "Technical Grade",
-          purity: "99%+",
-          mesh: "Various",
-          applications: "Precision grinding, polishing compounds, ceramics"
-        },
-        { 
-          name: "Oxychloride Binder", 
-          hsn: "34029019",
-          type: "Magnesium Based",
-          strength: "High Bond",
-          curing: "Air Setting",
-          applications: "Grinding wheel manufacturing, abrasive bonding"
-        },
-        { 
-          name: "Carbon Black Oxide", 
-          hsn: "28030010",
-          grade: "Industrial",
-          particle: "Fine",
-          purity: "95%+",
-          applications: "Rubber reinforcement, pigments, conductive materials"
-        },
-        { 
-          name: "Mould Releasing Wax", 
-          hsn: "34052000",
-          type: "Industrial Grade",
-          melting: "60-80°C",
-          form: "Solid/Liquid",
-          applications: "Casting, molding, release agent"
-        }
-      ]
-    },
-    {
-      id: "minerals",
-      category: "Industrial Minerals",
-      tagline: "The Essence of the Earth",
-      description: "High-grade industrial minerals sourced from premium deposits, processed to exact specifications for diverse manufacturing and processing applications.",
-      image: "/assets/images/products/5.jpeg", // Export container showing quality
-      icon: FaIndustry,
-      color: "kd.secondary",
-      applications: ["Refractory Materials", "Chemical Processing", "Construction", "Agriculture"],
-      certifications: ["Government Recognized", "Export House"],
-      products: [
-        { 
-          name: "Caustic Calcined Magnesite", 
-          hsn: "25199040",
-          grade: "CCM 85-97%",
-          mgo: "85-97%",
-          cao: "1.5-3%",
-          applications: "Refractory bricks, steel making, chemical industry"
-        },
-        { 
-          name: "Dolomite Powder", 
-          hsn: "25181000",
-          grade: "Industrial",
-          mesh: "100-325",
-          cao: "30-32%",
-          applications: "Steel making, glass industry, ceramics, agriculture"
-        },
-        { 
-          name: "Bentonite Powder", 
-          hsn: "25091090",
-          type: "Sodium/Calcium",
-          mesh: "200-325",
-          moisture: "<12%",
-          applications: "Drilling mud, foundry, civil engineering, cosmetics"
-        },
-        { 
-          name: "China Clay (Kaolin)", 
-          hsn: "25070010",
-          grade: "Ceramic Grade",
-          al2o3: "36-38%",
-          whiteness: "80-85%",
-          applications: "Ceramics, paper, paint, rubber, cosmetics"
-        },
-        { 
-          name: "Magnesium Chloride Flakes", 
-          hsn: "28273100",
-          purity: "46-47%",
-          form: "Flakes/Powder",
-          solubility: "High",
-          applications: "De-icing, dust control, chemical synthesis"
-        },
-        { 
-          name: "Magnesium Sulphate", 
-          hsn: "25302000",
-          grade: "Technical/Agricultural",
-          purity: "99%+",
-          form: "Crystals/Powder",
-          applications: "Agriculture, pharmaceuticals, textiles, paper"
-        },
-        { 
-          name: "Henna Powder", 
-          hsn: "33059090",
-          grade: "Export Quality",
-          mesh: "100-200",
-          origin: "Rajasthan",
-          applications: "Cosmetics, hair care, natural dyes, traditional medicine"
-        }
-      ]
-    },
-    {
-      id: "machinery",
-      category: "Flour Mill Machinery",
-      tagline: "The Engines of Industry",
-      description: "Traditional and modern flour mill machinery combining time-tested craftsmanship with precision engineering for optimal grain processing efficiency.",
-      image: "/assets/images/products/2.jpeg", // Mill stone with grooves
-      icon: FaCog,
-      color: "kd.tertiary",
-      applications: ["Grain Processing", "Flour Production", "Spice Grinding", "Traditional Milling"],
-      certifications: ["Traditional Craftsmanship", "Modern Engineering"],
-      products: [
-        { 
-          name: "Flour Mill Machinery - Aata Chakki", 
-          hsn: "84378010",
-          type: "Traditional/Modern",
-          capacity: "5-100 kg/hr",
-          power: "1-15 HP",
-          applications: "Wheat flour, grain processing, commercial milling"
-        },
-        { 
-          name: "Flour Mill Stone", 
-          hsn: "84379010",
-          material: "Natural Stone",
-          diameter: "12\"-36\"",
-          surface: "Hand Carved Grooves",
-          applications: "Traditional flour mills, grain grinding, spice processing"
-        }
-      ]
-    },
-    {
-      id: "hardware",
-      category: "Hardware & Components",
-      tagline: "The Unseen Strength",
-      description: "Essential industrial hardware components manufactured to precise specifications, ensuring reliable performance in demanding industrial applications.",
-      image: "/assets/images/products/3.jpeg", // Pulley wheel component
-      icon: FaTools,
-      color: "kd.primary",
-      applications: ["Industrial Assembly", "Machinery Components", "Structural Support", "Mechanical Systems"],
-      certifications: ["Quality Tested", "Industrial Grade"],
-      products: [
-        { 
-          name: "Bolts, Nuts, Union Tread", 
-          hsn: "73181900",
-          material: "Carbon Steel/SS",
-          grade: "8.8/10.9",
-          coating: "Zinc Plated/Hot Dip",
-          applications: "Industrial assembly, machinery, structural connections"
-        },
-        { 
-          name: "Cast Iron Flange", 
-          hsn: "73259910",
-          material: "Cast Iron",
-          pressure: "PN10-PN40",
-          standard: "IS/ANSI/DIN",
-          applications: "Pipe connections, industrial piping, machinery mounting"
-        },
-        { 
-          name: "M.S. Strip", 
-          hsn: "72112950",
-          material: "Mild Steel",
-          thickness: "1-10mm",
-          width: "10-200mm",
-          applications: "Industrial fabrication, machinery parts, structural components"
-        }
-      ]
-    }
-  ];
+  // Spiritual offerings with premium positioning
+  const spiritualOfferings = vedicWisdomSeries.offerings || [];
 
-  // Industrial statistics
-  const industrialStats = [
-    { label: "Product Categories", value: "50+", trend: "Comprehensive Range" },
-    { label: "Countries Served", value: "20+", trend: "Global Reach" },
-    { label: "Years Experience", value: "30+", trend: "Proven Excellence" },
-    { label: "Quality Certified", value: "ISO 9001:2015", trend: "International Standards" }
+  // Spiritual authority statistics
+  const spiritualStats = [
+    { label: "Global Students", value: "1000+", trend: "Growing Community" },
+    { label: "Countries Reached", value: "25+", trend: "Worldwide Impact" },
+    { label: "Spiritual Programs", value: "4", trend: "Comprehensive Path" },
+    { label: "Teacher Authority", value: "MIT Scientist", trend: "Vedic Scholar" }
   ];
 
   return (
     <PageWrapper hasHero={true}>
       <SEOHead
-        title="Industrial Products - Millstone India | Abrasives, Minerals & Machinery"
-        description="Premium industrial materials: Silicon Carbide, Emery Grain, Dolomite, Bentonite, Flour Mill Machinery. Government Recognized Export House with ISO 9001:2015 certification."
-        keywords={['Industrial Products', 'Abrasives', 'Minerals', 'Flour Mill Machinery', 'Export Quality', 'ISO Certified']}
+        title="Spiritual Programs - Vedic Wisdom Series | Dr. Nischaya Nagori's Teachings"
+        description="Transform your life with authentic Vedic education programs. MIT Scientist Dr. Nischaya Nagori reveals quantum-spiritual convergence through Weekend Discourses, Chanting Classes, Teacher Training & Lifestyle Experiences."
+        keywords={['Vedic Wisdom', 'Spiritual Programs', 'Dr. Nischaya Nagori', 'Vedic Education', 'Quantum Spirituality', 'MIT Scientist']}
       />
       
-      {/* 🏭 INDUSTRIAL HERO SECTION */}
+      {/* 🕉️ SPIRITUAL HERO SECTION */}
       <HeroSectionWrapper>
         <Box
           minH="70vh"
@@ -269,18 +65,18 @@ const ProductsPage: React.FC = () => {
         >
           <Container maxW="7xl" position="relative" zIndex={2}>
             <VStack spacing={8} textAlign="center" color="white" ref={heroAnimation.ref} style={heroAnimation.style}>
-              <Icon as={FaIndustry} boxSize={16} />
+              <Icon as={FaOm} boxSize={16} />
               
               <VStack spacing={4}>
                 <Heading as="h1" size="2xl" fontWeight="bold">
-                  Industrial Products Catalog
+                  Divine Spiritual Programs
                 </Heading>
                 <Text fontSize="xl" maxW="4xl" lineHeight="tall">
-                  The Foundation of Your Finish - Comprehensive range of industrial materials, 
-                  machinery, and expert technical solutions serving global manufacturing industries.
+                  Where Your Quantum Mind Meets Your Eternal Soul - Authentic Vedic education programs 
+                  from MIT Scientist Dr. Nischaya Nagori serving 1000+ global seekers across 25+ countries.
                 </Text>
                 <Text fontSize="lg" fontStyle="italic" opacity={0.9}>
-                  "Expert Craftsmen • Premium Quality • Global Standards"
+                  "Ancient Wisdom • Modern Science • Global Authority"
                 </Text>
               </VStack>
 
@@ -290,15 +86,15 @@ const ProductsPage: React.FC = () => {
         </Box>
       </HeroSectionWrapper>
 
-      {/* 🏭 INDUSTRIAL STATISTICS SECTION */}
+      {/* 🕉️ SPIRITUAL AUTHORITY STATISTICS SECTION */}
       <SectionWrapper>
         <VStack spacing={8}>
           <Heading size="xl" color={headingColor} textAlign="center">
-            Industrial Excellence by Numbers
+            Global Spiritual Impact by Numbers
           </Heading>
           
           <SimpleGrid columns={{ base: 2, md: 4 }} spacing={6} w="full" ref={statsAnimation.ref} style={statsAnimation.style}>
-            {industrialStats.map((stat, index) => (
+            {spiritualStats.map((stat, index) => (
               <Card key={index} bg={cardBg} textAlign="center" shadow="md">
                 <CardBody>
                   <Stat>
@@ -319,39 +115,56 @@ const ProductsPage: React.FC = () => {
         </VStack>
       </SectionWrapper>
 
-      {/* 🏭 PRODUCT CATEGORIES SECTION */}
+      {/* 🕉️ SPIRITUAL OFFERINGS SECTION */}
       <SectionWrapper>
-        <VStack spacing={12} ref={categoriesAnimation.ref} style={categoriesAnimation.style}>
+        <VStack spacing={12} ref={offeringsAnimation.ref} style={offeringsAnimation.style}>
           <VStack spacing={4} textAlign="center">
             <Badge colorScheme="primary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-              Product Categories
+              Divine Offerings
             </Badge>
             <Heading size="xl" color={headingColor}>
-              Industrial Excellence Portfolio
+              Transformative Spiritual Programs
             </Heading>
             <Text color={textColor} maxW="4xl" fontSize="lg" lineHeight="tall">
-              Four specialized categories of industrial products, each crafted with precision 
-              and backed by decades of expertise in serving global manufacturing industries.
+              Four sacred pathways to spiritual awakening, each designed with precision 
+              and backed by authentic Vedic wisdom serving global seekers across 25+ countries.
             </Text>
           </VStack>
 
           <VStack spacing={16} w="full">
-            {productCategories.map((category, index) => {
+            {spiritualOfferings.map((offering, index) => {
               const isEven = index % 2 === 0;
+              const iconMap = {
+                'Weekend': FaCalendarCheck,
+                'Chanting': FaOm,
+                'Certification': FaGraduationCap,
+                'Lifestyle': FaHeart
+              };
+              const OfferingIcon = iconMap[offering.badge] || FaBook;
+              
               return (
-                <Card key={category.id} bg={cardBg} shadow="lg" w="full" overflow="hidden">
+                <Card key={offering.badge} bg={cardBg} shadow="lg" w="full" overflow="hidden">
                   <CardBody p={0}>
                     <Grid templateColumns={{ base: "1fr", lg: isEven ? "1fr 1fr" : "1fr 1fr" }} gap={0}>
                       {/* Image Section */}
                       <GridItem order={{ base: 1, lg: isEven ? 1 : 2 }}>
                         <AspectRatio ratio={4/3}>
-                          <Image 
-                            src={category.image}
-                            alt={`${category.category} - Millstone India`}
-                            objectFit="cover"
-                            w="full"
-                            h="full"
-                          />
+                          <Box 
+                            bg={`${offering.color}.50`}
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="center"
+                            flexDirection="column"
+                            p={8}
+                          >
+                            <Icon as={OfferingIcon} boxSize={20} color={`${offering.color}.500`} mb={4} />
+                            <Text fontSize="2xl" fontWeight="bold" color={`${offering.color}.600`}>
+                              {offering.price}
+                            </Text>
+                            <Text fontSize="sm" color={`${offering.color}.500`}>
+                              {offering.duration}
+                            </Text>
+                          </Box>
                         </AspectRatio>
                       </GridItem>
 
@@ -360,64 +173,77 @@ const ProductsPage: React.FC = () => {
                         <VStack align="start" spacing={6} h="full" justify="center">
                           <VStack align="start" spacing={3}>
                             <HStack>
-                              <Icon as={category.icon} boxSize={6} color={category.color} />
-                              <Badge bg={category.color} color="white" px={3} py={1}>
-                                {category.tagline}
+                              <Icon as={OfferingIcon} boxSize={6} color={`${offering.color}.500`} />
+                              <Badge bg={`${offering.color}.500`} color="white" px={3} py={1}>
+                                {offering.badge}
                               </Badge>
                             </HStack>
                             
                             <Heading size="lg" color={headingColor}>
-                              {category.category}
+                              {offering.title}
                             </Heading>
                             
                             <Text color={textColor} lineHeight="tall">
-                              {category.description}
+                              {offering.description}
+                            </Text>
+                            
+                            <Text fontSize="sm" color={textColor} fontStyle="italic">
+                              Duration: {offering.details}
                             </Text>
                           </VStack>
 
                           <VStack align="start" spacing={3} w="full">
                             <Text fontWeight="bold" color={headingColor} fontSize="sm">
-                              Key Applications:
+                              What You'll Experience:
                             </Text>
-                            <SimpleGrid columns={2} spacing={2} w="full">
-                              {category.applications.map((app, appIndex) => (
-                                <Badge key={appIndex} variant="outline" colorScheme="gray" fontSize="xs">
-                                  {app}
-                                </Badge>
+                            <VStack align="start" spacing={1} w="full">
+                              {offering.features.slice(0, 4).map((feature, featureIndex) => (
+                                <HStack key={featureIndex} spacing={2}>
+                                  <Icon as={FaPlay} boxSize={2} color={`${offering.color}.500`} />
+                                  <Text fontSize="xs" color={textColor}>
+                                    {feature}
+                                  </Text>
+                                </HStack>
                               ))}
-                            </SimpleGrid>
+                            </VStack>
                           </VStack>
 
                           <HStack spacing={4}>
                             <Button 
+                              as="a"
+                              href={offering.link}
                               variant="solid" 
-                              bg={category.color} 
+                              bg={`${offering.color}.500`} 
                               color="white"
                               _hover={{ transform: 'translateY(-2px)', shadow: 'lg' }}
-                              leftIcon={<Icon as={FaDownload} />}
+                              leftIcon={<Icon as={FaCalendarCheck} />}
                               size="sm"
                             >
-                              Product Specs
+                              Join Program
                             </Button>
                             <Button 
+                              as="a"
+                              href="/contact"
                               variant="outline" 
-                              borderColor={category.color}
-                              color={category.color}
-                              _hover={{ bg: category.color, color: 'white' }}
-                              leftIcon={<Icon as={FaPhone} />}
+                              borderColor={`${offering.color}.500`}
+                              color={`${offering.color}.500`}
+                              _hover={{ bg: `${offering.color}.500`, color: 'white' }}
+                              leftIcon={<Icon as={FaUsers} />}
                               size="sm"
                             >
-                              Get Quote
+                              Learn More
                             </Button>
                           </HStack>
 
                           <HStack spacing={3}>
-                            {category.certifications.map((cert, certIndex) => (
-                              <HStack key={certIndex} spacing={1}>
-                                <Icon as={FaCertificate} boxSize={3} color="green.500" />
-                                <Text fontSize="xs" color={textColor}>{cert}</Text>
-                              </HStack>
-                            ))}
+                            <HStack spacing={1}>
+                              <Icon as={FaUsers} boxSize={3} color="green.500" />
+                              <Text fontSize="xs" color={textColor}>1000+ Global Students</Text>
+                            </HStack>
+                            <HStack spacing={1}>
+                              <Icon as={FaGlobe} boxSize={3} color="green.500" />
+                              <Text fontSize="xs" color={textColor}>25+ Countries</Text>
+                            </HStack>
                           </HStack>
                         </VStack>
                       </GridItem>
@@ -430,19 +256,19 @@ const ProductsPage: React.FC = () => {
         </VStack>
       </SectionWrapper>
 
-      {/* 🏭 EXPORT EXCELLENCE SECTION */}
+      {/* 🕉️ GLOBAL AUTHORITY SECTION */}
       <SectionWrapper bg={cardBg}>
         <VStack spacing={8}>
           <VStack spacing={4} textAlign="center">
             <Badge colorScheme="tertiary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-              Export Excellence
+              Global Authority
             </Badge>
             <Heading size="xl" color={headingColor}>
-              Global Industrial Standards
+              International Vishwaguru Leadership
             </Heading>
             <Text color={textColor} maxW="3xl" fontSize="lg" lineHeight="tall">
-              Government Recognized Export House with ISO 9001:2015 certification, 
-              serving manufacturing industries across 20+ countries with consistent quality.
+              MIT Scientist Dr. Nischaya Nagori establishes India's spiritual authority globally, 
+              serving seekers across 25+ countries with authentic Vedic wisdom and quantum-spiritual insights.
             </Text>
           </VStack>
 
@@ -453,7 +279,7 @@ const ProductsPage: React.FC = () => {
                   <Icon as={FaGlobe} boxSize={12} color="kd.primary" />
                   <Heading size="md" color={headingColor}>Global Reach</Heading>
                   <Text color={textColor} fontSize="sm">
-                    Serving 20+ countries with reliable supply chains and international quality standards.
+                    Serving 1000+ students across 25+ countries with authentic Vedic education and spiritual guidance.
                   </Text>
                 </VStack>
               </CardBody>
@@ -462,10 +288,10 @@ const ProductsPage: React.FC = () => {
             <Card bg="white" shadow="md" textAlign="center">
               <CardBody>
                 <VStack spacing={4}>
-                  <Icon as={FaCertificate} boxSize={12} color="kd.secondary" />
-                  <Heading size="md" color={headingColor}>Quality Certified</Heading>
+                  <Icon as={FaGraduationCap} boxSize={12} color="kd.secondary" />
+                  <Heading size="md" color={headingColor}>MIT Authority</Heading>
                   <Text color={textColor} fontSize="sm">
-                    ISO 9001:2015 certified processes ensuring consistent quality and customer satisfaction.
+                    MIT Scientist credentials establishing scientific credibility for ancient spiritual wisdom.
                   </Text>
                 </VStack>
               </CardBody>
@@ -474,10 +300,10 @@ const ProductsPage: React.FC = () => {
             <Card bg="white" shadow="md" textAlign="center">
               <CardBody>
                 <VStack spacing={4}>
-                  <Icon as={FaShippingFast} boxSize={12} color="kd.tertiary" />
-                  <Heading size="md" color={headingColor}>Export House</Heading>
+                  <Icon as={FaOm} boxSize={12} color="kd.tertiary" />
+                  <Heading size="md" color={headingColor}>Vedic Lineage</Heading>
                   <Text color={textColor} fontSize="sm">
-                    Government Recognized Export House with complete documentation and logistics support.
+                    Authentic lineage-based transmission preserving ancient Guru-Shishya tradition with modern accessibility.
                   </Text>
                 </VStack>
               </CardBody>
@@ -486,7 +312,7 @@ const ProductsPage: React.FC = () => {
         </VStack>
       </SectionWrapper>
 
-      {/* 🏭 UNIVERSAL CTA */}
+      {/* 🕉️ UNIVERSAL CTA */}
       <UniversalCTA />
     </PageWrapper>
   );

@@ -3,7 +3,7 @@ import {
   Box, Container, Heading, Text, SimpleGrid, VStack, HStack, Image, Button, Icon, 
   useColorModeValue, Flex, Badge, Card, CardBody, AspectRatio, Grid, GridItem
 } from '@chakra-ui/react';
-import { FaShieldAlt, FaCertificate, FaGlobe, FaCheckCircle, FaAward, FaIndustry, FaPhone, FaDownload } from 'react-icons/fa';
+import { FaOm, FaGraduationCap, FaGlobe, FaCheckCircle, FaAward, FaBook, FaCalendarCheck, FaUsers } from 'react-icons/fa';
 import SEOHead from '../components/SEOHead';
 import { PageWrapper, HeroSectionWrapper, SectionWrapper } from '../components/layout/PageWrapper';
 import UniversalCTA from '../components/UniversalCTA';
@@ -30,12 +30,12 @@ const QualityPage: React.FC = () => {
   return (
     <PageWrapper hasHero={true}>
       <SEOHead
-        title="Quality Assurance - Millstone India | ISO 9001:2015 Certified Excellence"
-        description="ISO 9001:2015 certified quality management system ensuring superior industrial materials. Government Recognized Export House with rigorous quality control processes."
-        keywords={['Quality Assurance', 'ISO 9001:2015', 'Quality Control', 'Export Quality', 'Industrial Standards']}
+        title="Spiritual Authority - Vedic Wisdom Series | Dr. Nischaya Nagori's Credentials"
+        description="MIT Scientist Dr. Nischaya Nagori's spiritual authority establishing India's Vishwaguru leadership. Authentic Vedic lineage, quantum-spiritual convergence, serving 1000+ global students across 25+ countries."
+        keywords={['Spiritual Authority', 'MIT Scientist', 'Vedic Scholar', 'Dr. Nischaya Nagori', 'Vishwaguru Leadership', 'Quantum Spirituality']}
       />
 
-      {/* 🏭 HERO SECTION */}
+      {/* 🕉️ HERO SECTION */}
       <HeroSectionWrapper bgGradient={bgGradient}>
         <Container maxW="container.xl">
           <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={12} alignItems="center">
@@ -43,9 +43,9 @@ const QualityPage: React.FC = () => {
               <VStack spacing={8} textAlign={{ base: "center", lg: "left" }} pt={{ base: 2, md: 4 }}>
                 {/* Hero Icon */}
                 <Box ref={heroIconRef.ref} style={heroIconRef.style}>
-                  <Icon as={FaShieldAlt} boxSize={16} color="kd.tertiary" />
+                  <Icon as={FaOm} boxSize={16} color="kd.tertiary" />
                   <Text color="kd.textInverted" fontSize="lg" fontWeight="bold" mt={2}>
-                    🏭 QUALITY ASSURANCE EXCELLENCE 🏭
+                    🕉️ SPIRITUAL AUTHORITY EXCELLENCE 🕉️
                   </Text>
                 </Box>
 
@@ -58,24 +58,24 @@ const QualityPage: React.FC = () => {
                     textAlign={{ base: "center", lg: "left" }}
                     lineHeight="shorter"
                   >
-                    Quality{' '}
+                    Spiritual{' '}
                     <Text as="span" color="kd.tertiary">
-                      Assurance Excellence
+                      Authority Excellence
                     </Text>
                   </Heading>
                   <Text color="kd.textInverted" fontSize="xl" fontWeight="medium">
-                    From Earth's Core to Your Factory Floor
+                    From Ancient Wisdom to Modern Awakening
                   </Text>
                   <Text color="kd.textInverted" fontSize="lg" maxW="600px">
-                    Our commitment to quality is not a final checkpoint; it is our fundamental dharma. Every product meets the highest standards with ISO 9001:2015 certification and Government Recognition.
+                    Our commitment to authentic spiritual transmission is not just teaching; it is our sacred dharma. Every program meets the highest standards of Vedic lineage with MIT scientific credibility.
                   </Text>
                 </VStack>
 
                 {/* Hero Actions */}
                 <VStack spacing={4}>
                   <HStack spacing={4} flexWrap="wrap" justify={{ base: "center", lg: "flex-start" }}>
-                    <Text color="kd.textInverted" fontSize="sm">Internationally recognized quality management system</Text>
-                    <Text color="kd.textInverted" fontSize="sm">Government Recognized Export House excellence</Text>
+                    <Text color="kd.textInverted" fontSize="sm">MIT Scientist establishing spiritual authority globally</Text>
+                    <Text color="kd.textInverted" fontSize="sm">Authentic Vedic lineage with quantum-spiritual insights</Text>
                   </HStack>
                   <HStack spacing={4} flexWrap="wrap" justify={{ base: "center", lg: "flex-start" }}>
                     <Button
@@ -85,28 +85,28 @@ const QualityPage: React.FC = () => {
                       bg="kd.tertiary"
                       color="white"
                       _hover={{ bg: "yellow.500", transform: "translateY(-2px)" }}
-                      leftIcon={<Icon as={FaPhone} />}
+                      leftIcon={<Icon as={FaCalendarCheck} />}
                       boxShadow="0 4px 15px rgba(230, 184, 0, 0.3)"
                       transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                     >
-                      🏭 Request Quality Consultation
+                      🕉️ Request Spiritual Guidance
                     </Button>
                     <Button
                       as="a"
-                      href="/products"
+                      href="/teachings"
                       size="lg"
                       variant="outline"
                       borderColor="kd.tertiary"
                       color="kd.tertiary"
                       _hover={{ bg: "kd.tertiary", color: "white", transform: "translateY(-2px)" }}
-                      leftIcon={<Icon as={FaDownload} />}
+                      leftIcon={<Icon as={FaBook} />}
                       transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                     >
-                      📊 Download Quality Certificate
+                      📖 Explore Divine Programs
                     </Button>
                   </HStack>
                   <Text color="kd.textInverted" fontSize="sm" fontStyle="italic">
-                    Zero Compromise Quality - Industrial Excellence Since 1990
+                    Zero Compromise Authenticity - Vishwaguru Leadership Since Ancient Times
                   </Text>
                 </VStack>
               </VStack>
@@ -114,56 +114,62 @@ const QualityPage: React.FC = () => {
 
             <GridItem display={{ base: "none", lg: "block" }}>
               <AspectRatio ratio={4/3}>
-                <Image
-                  src="/assets/images/hero/quality-assurance.jpg"
-                  alt="Quality Assurance Excellence"
+                <Box
+                  bg="rgba(255,255,255,0.1)"
                   borderRadius="xl"
-                  objectFit="cover"
-                  fallback={
-                    <Box bg="rgba(255,255,255,0.1)" borderRadius="xl" display="flex" alignItems="center" justifyContent="center">
-                      <Icon as={FaShieldAlt} boxSize={20} color="kd.tertiary" />
-                    </Box>
-                  }
-                />
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  flexDirection="column"
+                  p={8}
+                >
+                  <Icon as={FaOm} boxSize={20} color="kd.tertiary" mb={4} />
+                  <Text color="kd.textInverted" fontSize="xl" fontWeight="bold" textAlign="center">
+                    Dr. Nischaya Nagori
+                  </Text>
+                  <Text color="kd.textInverted" fontSize="md" textAlign="center">
+                    MIT Scientist & Vedic Scholar
+                  </Text>
+                </Box>
               </AspectRatio>
             </GridItem>
           </Grid>
         </Container>
       </HeroSectionWrapper>
 
-      {/* 🏭 QUALITY CERTIFICATIONS SECTION */}
+      {/* 🕉️ SPIRITUAL CREDENTIALS SECTION */}
       <SectionWrapper py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <VStack spacing={16}>
             <VStack spacing={6} textAlign="center" ref={certificationsRef.ref} style={certificationsRef.style}>
-              <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Quality Certifications</Badge>
-              <Heading size="xl" color={headingColor}>International Standards Excellence</Heading>
+              <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Spiritual Credentials</Badge>
+              <Heading size="xl" color={headingColor}>International Authority Excellence</Heading>
               <Text fontSize="lg" color={textColor} maxW="800px" lineHeight="tall">
-                Our quality management system meets and exceeds international standards, ensuring consistent excellence in all processes and products.
+                Our spiritual authority system establishes and exceeds international Vishwaguru standards, ensuring consistent excellence in all teachings and spiritual transmissions.
               </Text>
             </VStack>
 
             <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
               {[
                 {
-                  icon: FaCertificate,
-                  title: "ISO 9001:2015 Certified",
-                  description: "Internationally recognized quality management system ensuring consistent excellence in all our processes and products."
+                  icon: FaGraduationCap,
+                  title: "MIT Scientist Credentials",
+                  description: "Internationally recognized scientific credentials establishing modern credibility for ancient spiritual wisdom and quantum-consciousness research."
                 },
                 {
                   icon: FaGlobe,
-                  title: "Government Recognized Export House",
-                  description: "Official recognition from the Government of India for our export excellence and contribution to international trade."
+                  title: "Global Vishwaguru Authority",
+                  description: "Establishing India's spiritual leadership globally through authentic Vedic education serving seekers across 25+ countries worldwide."
                 },
                 {
                   icon: FaAward,
-                  title: "Global Quality Standards",
-                  description: "Our products meet and exceed international quality standards, trusted by industries across 20+ countries."
+                  title: "Global Spiritual Standards",
+                  description: "Our teachings meet and exceed international spiritual education standards, trusted by 1000+ students across 25+ countries."
                 },
                 {
                   icon: FaCheckCircle,
-                  title: "End-to-End Quality Control",
-                  description: "From raw material sourcing to final delivery, every step is monitored and tested for superior quality assurance."
+                  title: "End-to-End Authenticity",
+                  description: "From ancient lineage transmission to modern delivery, every teaching is monitored for authentic spiritual transmission and student transformation."
                 }
               ].map((cert, index) => (
                 <Card key={index} bg={cardBg} shadow="xl" borderRadius="xl" _hover={{ transform: "translateY(-8px)", shadow: "2xl" }} transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)">
@@ -185,33 +191,33 @@ const QualityPage: React.FC = () => {
         </Container>
       </SectionWrapper>
 
-      {/* 🏭 QUALITY PROMISE SECTION */}
+      {/* 🕉️ SPIRITUAL PROMISE SECTION */}
       <SectionWrapper bg="gray.50" py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <VStack spacing={16}>
             <VStack spacing={6} textAlign="center" ref={promiseRef.ref} style={promiseRef.style}>
-              <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Our Quality Promise</Badge>
-              <Heading size="xl" color={headingColor}>The Foundation of Your Finish</Heading>
+              <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Our Spiritual Promise</Badge>
+              <Heading size="xl" color={headingColor}>The Foundation of Your Awakening</Heading>
               <Text fontSize="lg" color={textColor} maxW="800px" fontStyle="italic" lineHeight="tall">
-                "We guarantee that every product leaving our facility meets the exacting standards that have made us a trusted partner to industries worldwide."
+                "We guarantee that every teaching leaving our sacred space meets the exacting standards that have made us a trusted guide to spiritual seekers worldwide."
               </Text>
             </VStack>
 
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
               {[
                 {
-                  title: "Zero Compromise Quality",
-                  description: "No shortcuts, no compromises - only the highest quality standards in every product we deliver.",
-                  icon: FaShieldAlt
+                  title: "Zero Compromise Authenticity",
+                  description: "No shortcuts, no compromises - only the highest authenticity standards in every spiritual transmission we deliver.",
+                  icon: FaOm
                 },
                 {
-                  title: "Rigorous Testing",
-                  description: "Multi-stage testing throughout the production process with continuous quality checks and expert supervision.",
+                  title: "Rigorous Lineage Testing",
+                  description: "Multi-stage verification throughout the teaching process with continuous authenticity checks and lineage supervision.",
                   icon: FaCheckCircle
                 },
                 {
-                  title: "Global Standards",
-                  description: "Meeting and exceeding international quality standards trusted by industries across 20+ countries.",
+                  title: "Global Spiritual Standards",
+                  description: "Meeting and exceeding international Vishwaguru standards trusted by spiritual seekers across 25+ countries.",
                   icon: FaGlobe
                 }
               ].map((promise, index) => (
@@ -234,26 +240,26 @@ const QualityPage: React.FC = () => {
         </Container>
       </SectionWrapper>
 
-      {/* 🏭 QUALITY PROCESS SECTION */}
+      {/* 🕉️ SPIRITUAL PROCESS SECTION */}
       <SectionWrapper py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={16} alignItems="center">
             <GridItem ref={processRef.ref} style={processRef.style}>
               <VStack spacing={8} align="start">
                 <VStack spacing={4} align="start">
-                  <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Quality Process</Badge>
-                  <Heading size="xl" color={headingColor}>Our Quality Management System</Heading>
+                  <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Spiritual Process</Badge>
+                  <Heading size="xl" color={headingColor}>Our Authority Establishment System</Heading>
                   <Text color={textColor} fontSize="md" lineHeight="tall">
-                    Every step of our process is designed to ensure consistent quality, from raw material selection to final product delivery.
+                    Every step of our spiritual process is designed to ensure consistent authenticity, from ancient lineage verification to modern global delivery.
                   </Text>
                 </VStack>
 
                 <VStack spacing={4} align="start" w="full">
                   {[
-                    "Raw Material Quality Assessment & Sourcing",
-                    "In-Process Quality Control & Monitoring",
-                    "Final Product Testing & Certification",
-                    "Packaging & Delivery Quality Assurance"
+                    "Ancient Lineage Verification & Transmission",
+                    "Modern Scientific Integration & Validation",
+                    "Global Student Testing & Transformation",
+                    "International Authority & Recognition Assurance"
                   ].map((step, index) => (
                     <HStack key={index} spacing={4} w="full" p={4} borderRadius="md" _hover={{ bg: "gray.50" }} transition="all 0.3s ease">
                       <Box minW="8" h="8" borderRadius="full" bg="kd.tertiary" color="white" display="flex" alignItems="center" justifyContent="center" fontSize="sm" fontWeight="bold">
@@ -269,31 +275,31 @@ const QualityPage: React.FC = () => {
             <GridItem ref={standardsRef.ref} style={standardsRef.style}>
               <VStack spacing={8}>
                 <VStack spacing={4} textAlign="center">
-                  <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Quality Standards</Badge>
+                  <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Authority Standards</Badge>
                   <Heading size="xl" color={headingColor}>International Compliance</Heading>
                 </VStack>
 
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} w="full">
                   {[
                     {
-                      icon: FaCertificate,
-                      title: "ISO 9001:2015",
-                      description: "Quality Management System"
+                      icon: FaGraduationCap,
+                      title: "MIT Credentials",
+                      description: "Scientific Authority System"
                     },
                     {
                       icon: FaGlobe,
-                      title: "Export House",
-                      description: "Government Recognition"
+                      title: "Vishwaguru Leadership",
+                      description: "Global Recognition"
                     },
                     {
-                      icon: FaIndustry,
-                      title: "Industrial Standards",
+                      icon: FaBook,
+                      title: "Vedic Standards",
                       description: "International Compliance"
                     },
                     {
                       icon: FaAward,
-                      title: "Quality Excellence",
-                      description: "30+ Years Experience"
+                      title: "Spiritual Excellence",
+                      description: "Ancient Lineage + Modern Authority"
                     }
                   ].map((standard, index) => (
                     <Card key={index} bg={cardBg} shadow="lg" borderRadius="lg" _hover={{ transform: "translateY(-4px)", shadow: "xl" }} transition="all 0.3s ease">
@@ -315,7 +321,7 @@ const QualityPage: React.FC = () => {
         </Container>
       </SectionWrapper>
 
-      {/* 🏭 CTA SECTION */}
+      {/* 🕉️ CTA SECTION */}
       <UniversalCTA />
     </PageWrapper>
   );

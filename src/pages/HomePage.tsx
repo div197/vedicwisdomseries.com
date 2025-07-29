@@ -28,17 +28,23 @@ import { SimpleLayout, HeroSection, ContentSection } from '../components/layout/
 import { contentMaster, getCTAData, getPageContent, getContentIcon } from '../data/contentMaster'
 import { vedicWisdomSeries } from '../data/vedicWisdomSeries'
 import { useSlideAnimation, slideAnimationConfigs } from '../hooks/useSlideAnimations'
+import { PremiumCard } from '../components/premium/PremiumCard'
+import { PremiumButton } from '../components/premium/PremiumButton'
 
 export default function HomePage() {
+  // Premium gradients for luxury feel
   const heroGradient = useColorModeValue(
-    'linear(to-br, orange.50 via blue.50 to yellow.50)',
-    'linear(to-br, gray.900 via gray.800 to gray.900)'
+    'linear(135deg, rgba(255,153,51,0.08) 0%, rgba(30,144,255,0.05) 35%, rgba(242,219,73,0.08) 100%)',
+    'linear(135deg, rgba(255,153,51,0.1) 0%, rgba(30,144,255,0.08) 35%, rgba(242,219,73,0.1) 100%)'
   )
   
-  const cardBg = useColorModeValue('white', 'gray.800')
-  // SOPHISTICATED DIRECT COLORS - Using Chakra UI's excellent semantic system
-  const textColor = useColorModeValue('gray.800', 'white')           // Clear readable text
-  const headingColor = useColorModeValue('gray.900', 'white')        // Strong headings  
+  // Premium glass morphism backgrounds
+  const premiumCardBg = useColorModeValue('rgba(255, 255, 255, 0.9)', 'rgba(26, 32, 44, 0.9)')
+  const glassOverlay = useColorModeValue('rgba(255, 255, 255, 0.7)', 'rgba(45, 55, 72, 0.7)')
+  
+  // Enhanced color system for premium feel
+  const textColor = useColorModeValue('gray.700', 'gray.200')        // Softer, premium text
+  const headingColor = useColorModeValue('gray.800', 'white')        // Strong but elegant headings  
   const accentColor = 'secondary.500'                               // Serene Blue accents
   const primaryColor = 'primary.500'                                // Deep Saffron for primary
   const tertiaryColor = 'tertiary.500'                              // Sacred Gold for highlights
@@ -122,21 +128,77 @@ export default function HomePage() {
             position="relative"
             overflow="hidden"
           >
+            {/* Premium floating orbs background */}
+            <Box
+              position="absolute"
+              top="10%"
+              left="10%"
+              w="300px"
+              h="300px"
+              bg="radial-gradient(circle, rgba(255,153,51,0.15) 0%, transparent 70%)"
+              borderRadius="full"
+              filter="blur(80px)"
+              animate="float 6s ease-in-out infinite"
+            />
+            <Box
+              position="absolute"
+              top="60%"
+              right="15%"
+              w="200px"
+              h="200px"
+              bg="radial-gradient(circle, rgba(30,144,255,0.1) 0%, transparent 70%)"
+              borderRadius="full"
+              filter="blur(60px)"
+              animate="float 8s ease-in-out infinite reverse"
+            />
             {/* Subtle pattern overlay */}
             <Box
               position="absolute"
               inset={0}
-              opacity={0.05}
+              opacity={0.03}
               bgImage="url('/assets/images/vedic-pattern.svg')"
               bgRepeat="repeat"
               bgSize="150px"
             />
             <Container maxW="7xl" py={{ base: 12, md: 20 }}>
               <VStack spacing={8} textAlign="center" pt={{ base: 2, md: 4 }}>
-                {/* Attention-grabbing Icon */}
+                {/* Premium attention-grabbing Icon */}
                 <Box ref={heroIconAnimation.ref} style={heroIconAnimation.style}>
-                  <Icon as={FaLightbulb} boxSize={20} color="kd.tertiary" mb={4} filter="drop-shadow(0 0 25px rgba(242, 219, 73, 0.7))" />
-                  <Badge colorScheme="orange" fontSize="sm" px={4} py={2} borderRadius="full" mb={2}>
+                  <Box 
+                    position="relative"
+                    display="inline-block"
+                    p={6}
+                    bg={glassOverlay}
+                    backdropFilter="blur(20px)"
+                    borderRadius="full"
+                    border="1px solid"
+                    borderColor="whiteAlpha.200"
+                    mb={6}
+                    _before={{
+                      content: '""',
+                      position: 'absolute',
+                      inset: 0,
+                      p: '2px',
+                      bg: 'linear-gradient(45deg, #FF9933, #1E90FF, #F2DB49)',
+                      borderRadius: 'full',
+                      mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                      maskComposite: 'subtract'
+                    }}
+                  >
+                    <Icon as={FaLightbulb} boxSize={16} color="kd.tertiary" filter="drop-shadow(0 0 20px rgba(242, 219, 73, 0.6))" />
+                  </Box>
+                  <Badge 
+                    bg="linear-gradient(45deg, rgba(255,153,51,0.9), rgba(255,179,102,0.9))"
+                    color="white"
+                    fontSize="sm" 
+                    px={6} 
+                    py={3} 
+                    borderRadius="full" 
+                    mb={2}
+                    backdropFilter="blur(10px)"
+                    border="1px solid rgba(255,153,51,0.3)"
+                    boxShadow="0 8px 32px rgba(255,153,51,0.2)"
+                  >
                     🔬 SCIENTIFIC BREAKTHROUGH
                   </Badge>
                 </Box>
@@ -186,47 +248,51 @@ export default function HomePage() {
                   </Badge>
                 </VStack>
 
-                {/* Conversion-Optimized CTAs */}
-                <VStack spacing={4} ref={heroCTAAnimation.ref} style={heroCTAAnimation.style}>
-                  <HStack spacing={4} flexWrap="wrap" justify="center">
-                    <Button
+                {/* Premium Conversion-Optimized CTAs */}
+                <VStack spacing={6} ref={heroCTAAnimation.ref} style={heroCTAAnimation.style}>
+                  <HStack spacing={6} flexWrap="wrap" justify="center">
+                    <PremiumButton
                       as="a"
                       href={pageContent.primaryCtaData.href}
                       size="lg"
-                      colorScheme={pageContent.primaryCtaData.colorScheme}
-                      variant={pageContent.primaryCtaData.variant}
-                      leftIcon={<Icon as={pageContent.primaryCtaData.icon} />}
-                      px={8}
-                      py={6}
+                      variant="premium"
+                      icon={pageContent.primaryCtaData.icon}
+                      shimmer={true}
+                      px={10}
+                      py={7}
                       fontSize="lg"
                       fontWeight="bold"
-                      _hover={{
-                        transform: 'translateY(-3px)',
-                        boxShadow: 'xl'
-                      }}
-                      transition="all 0.3s"
+                      minW="200px"
+                      h="56px"
                     >
                       {pageContent.primaryCtaData.text}
-                    </Button>
-                    <Button
+                    </PremiumButton>
+                    <PremiumButton
                       as="a"
                       href={pageContent.secondaryCtaData.href}
                       size="lg"
-                      colorScheme={pageContent.secondaryCtaData.colorScheme}
-                      variant={pageContent.secondaryCtaData.variant}
-                      leftIcon={<Icon as={pageContent.secondaryCtaData.icon} />}
-                      px={8}
-                      py={6}
+                      variant="glass"
+                      icon={pageContent.secondaryCtaData.icon}
+                      px={10}
+                      py={7}
                       fontSize="lg"
                       fontWeight="medium"
+                      minW="200px"
+                      h="56px"
+                      bg={glassOverlay}
+                      backdropFilter="blur(20px)"
+                      border="1px solid"
+                      borderColor="whiteAlpha.300"
+                      color="gray.700"
                       _hover={{
-                        transform: 'translateY(-3px)',
-                        boxShadow: 'lg'
+                        bg: 'whiteAlpha.800',
+                        borderColor: 'whiteAlpha.400',
+                        transform: 'translateY(-4px)',
+                        boxShadow: '0 20px 60px rgba(0,0,0,0.15)'
                       }}
-                      transition="all 0.3s"
                     >
                       {pageContent.secondaryCtaData.text}
-                    </Button>
+                    </PremiumButton>
                   </HStack>
                   
                   {/* Urgency Trigger */}
@@ -278,31 +344,53 @@ export default function HomePage() {
                   distance: 50
                 });
                 return (
-                  <Card 
+                  <PremiumCard 
                     key={index} 
-                    bg={cardBg} 
-                    shadow="md" 
-                    _hover={{ transform: 'translateY(-4px)', shadow: 'lg' }} 
+                    variant="glass"
+                    premium={true}
                     ref={cardAnimation.ref}
                     style={cardAnimation.style}
                   >
                     <CardBody p={8}>
                       <VStack spacing={6} align="start">
-                        <Icon as={getContentIcon(principle.icon)} boxSize={12} color="kd.tertiary" />
+                        <Box
+                          p={4}
+                          bg="linear-gradient(135deg, rgba(242,219,73,0.1), rgba(242,219,73,0.05))"
+                          borderRadius="full"
+                          display="inline-flex"
+                          alignItems="center"
+                          justifyContent="center"
+                        >
+                          <Icon as={getContentIcon(principle.icon)} boxSize={8} color="kd.tertiary" />
+                        </Box>
                         <VStack align="start" spacing={3}>
-                          <Heading size="md" color={headingColor}>
+                          <Heading size="md" color={headingColor} fontWeight="600">
                             {principle.title}
                           </Heading>
-                          <Text color={textColor} lineHeight="tall">
+                          <Text color={textColor} lineHeight="tall" fontSize="md">
                             {principle.description}
                           </Text>
                         </VStack>
-                        <Button as={RouterLink} to={principle.link} variant="outline" borderColor="kd.primary" color="kd.primary" _hover={{ bg: "kd.primaryLight" }} size="sm">
+                        <PremiumButton 
+                          as={RouterLink} 
+                          to={principle.link} 
+                          variant="glass"
+                          size="sm"
+                          bg="rgba(255,153,51,0.1)"
+                          color="primary.600"
+                          border="1px solid"
+                          borderColor="primary.200"
+                          _hover={{ 
+                            bg: "rgba(255,153,51,0.15)",
+                            borderColor: "primary.300",
+                            transform: "translateY(-2px)"
+                          }}
+                        >
                           Learn More
-                        </Button>
+                        </PremiumButton>
                       </VStack>
                     </CardBody>
-                  </Card>
+                  </PremiumCard>
                 );
               })}
             </SimpleGrid>
@@ -334,45 +422,62 @@ export default function HomePage() {
                   distance: 60
                 });
                 return (
-                  <Card 
+                  <PremiumCard 
                     key={index} 
-                    bg={cardBg} 
-                    shadow="md" 
-                    _hover={{ transform: 'translateY(-4px)', shadow: 'lg' }}
+                    variant="elevated"
+                    premium={true}
                     ref={offeringAnimation.ref}
                     style={offeringAnimation.style}
                   >
                     <CardBody p={8}>
                       <VStack spacing={6} align="start">
                         <HStack justify="space-between" w="full">
-                          <Badge bg="kd.secondary" color="kd.secondaryContrast" variant="solid" fontSize="sm">
+                          <Badge 
+                            bg="linear-gradient(45deg, rgba(30,144,255,0.9), rgba(30,144,255,0.7))"
+                            color="white"
+                            fontSize="sm"
+                            px={4}
+                            py={2}
+                            borderRadius="full"
+                            backdropFilter="blur(10px)"
+                            border="1px solid rgba(30,144,255,0.3)"
+                          >
                             {offering.badge}
                           </Badge>
-                          <Text fontSize="sm" color={textColor} fontWeight="medium">
-                            {offering.price}
-                          </Text>
+                          <Box
+                            bg="linear-gradient(135deg, rgba(242,219,73,0.1), rgba(242,219,73,0.05))"
+                            px={4}
+                            py={2}
+                            borderRadius="full"
+                            border="1px solid rgba(242,219,73,0.2)"
+                          >
+                            <Text fontSize="sm" color="primary.600" fontWeight="bold">
+                              {offering.price}
+                            </Text>
+                          </Box>
                         </HStack>
-                        <VStack align="start" spacing={3}>
-                          <Heading size="md" color={headingColor}>
+                        <VStack align="start" spacing={4}>
+                          <Heading size="md" color={headingColor} fontWeight="600">
                             {offering.title}
                           </Heading>
-                          <Text color={textColor} lineHeight="tall">
+                          <Text color={textColor} lineHeight="tall" fontSize="md">
                             {offering.description}
                           </Text>
                         </VStack>
-                        <Button 
+                        <PremiumButton 
                           as={RouterLink} 
                           to={offering.link || '/teachings'} 
-                          variant="solid" 
-                          colorScheme={offering.color} 
-                          size="sm" 
+                          variant="premium"
+                          size="md" 
                           w="full"
+                          h="48px"
+                          shimmer={true}
                         >
                           Learn More →
-                        </Button>
+                        </PremiumButton>
                       </VStack>
                     </CardBody>
-                  </Card>
+                  </PremiumCard>
                 );
               })}
             </SimpleGrid>
@@ -401,29 +506,33 @@ export default function HomePage() {
                   distance: 40
                 });
                 return (
-                  <Card 
+                  <PremiumCard 
                     key={index} 
-                    bg={cardBg} 
-                    shadow="md" 
+                    variant="glass"
                     textAlign="center"
                     ref={statAnimation.ref}
                     style={statAnimation.style}
                   >
                     <CardBody p={6}>
                       <Stat>
-                        <StatNumber fontSize="3xl" fontWeight="bold" color={accentColor}>
+                        <StatNumber 
+                          fontSize="3xl" 
+                          fontWeight="bold" 
+                          color={accentColor}
+                          textShadow="0 2px 4px rgba(0,0,0,0.1)"
+                        >
                           {stat.value}
                         </StatNumber>
-                        <StatLabel fontSize="md" color={headingColor} fontWeight="medium">
+                        <StatLabel fontSize="md" color={headingColor} fontWeight="600" mt={2}>
                           {stat.label}
                         </StatLabel>
-                        <StatHelpText fontSize="sm" color={textColor}>
-                          <StatArrow type="increase" />
+                        <StatHelpText fontSize="sm" color={textColor} mt={1}>
+                          <StatArrow type="increase" color="green.400" />
                           {stat.trend}
                         </StatHelpText>
                       </Stat>
                     </CardBody>
-                  </Card>
+                  </PremiumCard>
                 );
               })}
             </SimpleGrid>

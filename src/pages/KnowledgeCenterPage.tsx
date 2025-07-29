@@ -3,7 +3,7 @@ import {
   Box, Container, Heading, Text, SimpleGrid, VStack, HStack, Image, Button, Icon, 
   useColorModeValue, Flex, Badge, Card, CardBody, AspectRatio, Grid, GridItem
 } from '@chakra-ui/react';
-import { FaBook, FaLightbulb, FaGraduationCap, FaUsers, FaPhone, FaDownload, FaEnvelope, FaGlobe, FaClock, FaArrowRight } from 'react-icons/fa';
+import { FaBook, FaOm, FaGraduationCap, FaUsers, FaCalendarCheck, FaPlay, FaEnvelope, FaGlobe, FaClock, FaArrowRight } from 'react-icons/fa';
 import SEOHead from '../components/SEOHead';
 import { PageWrapper, HeroSectionWrapper, SectionWrapper } from '../components/layout/PageWrapper';
 import UniversalCTA from '../components/UniversalCTA';
@@ -30,12 +30,12 @@ const KnowledgeCenterPage: React.FC = () => {
   return (
     <PageWrapper hasHero={true}>
       <SEOHead
-        title="Knowledge Center - Millstone India | Industrial Expertise & Insights"
-        description="Expert insights on industrial materials, abrasives, and machinery. Technical guides, industry trends, and professional consultation from experienced craftsmen."
-        keywords={['Knowledge Center', 'Industrial Expertise', 'Technical Guides', 'Industry Insights', 'Professional Consultation']}
+        title="Vedic Wisdom Library - Vedic Wisdom Series | Dr. Nischaya Nagori's Teachings"
+        description="Access profound Vedic wisdom teachings and quantum-spiritual insights. Sacred texts, spiritual guides, and transformational content from MIT Scientist Dr. Nischaya Nagori."
+        keywords={['Vedic Wisdom Library', 'Spiritual Teachings', 'Quantum Spirituality', 'Dr. Nischaya Nagori', 'Vedic Education', 'MIT Scientist']}
       />
 
-      {/* 🏭 HERO SECTION */}
+      {/* 🕉️ HERO SECTION */}
       <HeroSectionWrapper bgGradient={bgGradient}>
         <Container maxW="container.xl">
           <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={12} alignItems="center">
@@ -45,7 +45,7 @@ const KnowledgeCenterPage: React.FC = () => {
                 <Box ref={heroIconRef.ref} style={heroIconRef.style}>
                   <Icon as={FaBook} boxSize={16} color="kd.tertiary" />
                   <Text color="kd.textInverted" fontSize="lg" fontWeight="bold" mt={2}>
-                    🏭 KNOWLEDGE CENTER EXCELLENCE 🏭
+                    🕉️ VEDIC WISDOM LIBRARY EXCELLENCE 🕉️
                   </Text>
                 </Box>
 
@@ -58,24 +58,24 @@ const KnowledgeCenterPage: React.FC = () => {
                     textAlign={{ base: "center", lg: "left" }}
                     lineHeight="shorter"
                   >
-                    Knowledge{' '}
+                    Vedic Wisdom{' '}
                     <Text as="span" color="kd.tertiary">
-                      Center
+                      Library
                     </Text>
                   </Heading>
                   <Text color="kd.textInverted" fontSize="xl" fontWeight="medium">
-                    Expert Industrial Guidance
+                    Ancient Knowledge, Modern Awakening
                   </Text>
                   <Text color="kd.textInverted" fontSize="lg" maxW="600px">
-                    Expert guidance, technical articles, and industry knowledge from our team of certified industrial craftsmen serving global markets.
+                    Sacred teachings, quantum-spiritual insights, and transformational wisdom from MIT Scientist Dr. Nischaya Nagori serving 1000+ global seekers.
                   </Text>
                 </VStack>
 
                 {/* Hero Actions */}
                 <VStack spacing={4}>
                   <HStack spacing={4} flexWrap="wrap" justify={{ base: "center", lg: "flex-start" }}>
-                    <Text color="kd.textInverted" fontSize="sm">Technical expertise from certified professionals</Text>
-                    <Text color="kd.textInverted" fontSize="sm">Comprehensive industrial knowledge base</Text>
+                    <Text color="kd.textInverted" fontSize="sm">Spiritual expertise from authentic Vedic lineage</Text>
+                    <Text color="kd.textInverted" fontSize="sm">Comprehensive quantum-spiritual knowledge base</Text>
                   </HStack>
                   <HStack spacing={4} flexWrap="wrap" justify={{ base: "center", lg: "flex-start" }}>
                     <Button
@@ -85,28 +85,28 @@ const KnowledgeCenterPage: React.FC = () => {
                       bg="kd.tertiary"
                       color="white"
                       _hover={{ bg: "yellow.500", transform: "translateY(-2px)" }}
-                      leftIcon={<Icon as={FaPhone} />}
+                      leftIcon={<Icon as={FaCalendarCheck} />}
                       boxShadow="0 4px 15px rgba(230, 184, 0, 0.3)"
                       transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                     >
-                      🏭 Request Expert Consultation
+                      🕉️ Request Spiritual Guidance
                     </Button>
                     <Button
                       as="a"
-                      href="/products"
+                      href="/teachings"
                       size="lg"
                       variant="outline"
                       borderColor="kd.tertiary"
                       color="kd.tertiary"
                       _hover={{ bg: "kd.tertiary", color: "white", transform: "translateY(-2px)" }}
-                      leftIcon={<Icon as={FaDownload} />}
+                      leftIcon={<Icon as={FaBook} />}
                       transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                     >
-                      📊 Download Technical Guides
+                      📖 Access Sacred Teachings
                     </Button>
                   </HStack>
                   <Text color="kd.textInverted" fontSize="sm" fontStyle="italic">
-                    Industrial Excellence Through Knowledge - Since 1990
+                    Spiritual Excellence Through Ancient Wisdom - Since Vedic Times
                   </Text>
                 </VStack>
               </VStack>
@@ -114,80 +114,88 @@ const KnowledgeCenterPage: React.FC = () => {
 
             <GridItem display={{ base: "none", lg: "block" }}>
               <AspectRatio ratio={4/3}>
-                <Image
-                  src="/assets/images/hero/knowledge-center.jpg"
-                  alt="Knowledge Center Excellence"
+                <Box
+                  bg="rgba(255,255,255,0.1)"
                   borderRadius="xl"
-                  objectFit="cover"
-                  fallback={
-                    <Box bg="rgba(255,255,255,0.1)" borderRadius="xl" display="flex" alignItems="center" justifyContent="center">
-                      <Icon as={FaBook} boxSize={20} color="kd.tertiary" />
-                    </Box>
-                  }
-                />
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  flexDirection="column"
+                  p={8}
+                >
+                  <Icon as={FaBook} boxSize={20} color="kd.tertiary" mb={4} />
+                  <Text color="kd.textInverted" fontSize="xl" fontWeight="bold" textAlign="center">
+                    Sacred Texts &
+                  </Text>
+                  <Text color="kd.textInverted" fontSize="md" textAlign="center">
+                    Quantum Insights
+                  </Text>
+                </Box>
               </AspectRatio>
             </GridItem>
           </Grid>
         </Container>
       </HeroSectionWrapper>
 
-      {/* 🏭 FEATURED TECHNICAL ARTICLES SECTION */}
+      {/* 🕉️ FEATURED SPIRITUAL TEACHINGS SECTION */}
       <SectionWrapper py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <VStack spacing={16}>
             <VStack spacing={6} textAlign="center" ref={articlesRef.ref} style={articlesRef.style}>
-              <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Featured Articles</Badge>
-              <Heading size="xl" color={headingColor}>Featured Technical Articles</Heading>
+              <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Featured Teachings</Badge>
+              <Heading size="xl" color={headingColor}>Sacred Wisdom Collection</Heading>
               <Text fontSize="lg" color={textColor} maxW="800px" lineHeight="tall">
-                Comprehensive guides and expert insights from our team of certified industrial professionals.
+                Profound teachings and quantum-spiritual insights from MIT Scientist Dr. Nischaya Nagori's authentic Vedic education programs.
               </Text>
             </VStack>
 
             <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8}>
               {[
                 {
-                  category: "Technical Guide",
-                  readTime: "8 min read",
-                  title: "How to Choose the Right Abrasive for Your Application",
-                  description: "Comprehensive guide to selecting the optimal abrasive materials based on your specific industrial requirements and surface finishing needs.",
+                  category: "Quantum Teaching",
+                  readTime: "15 min experience",
+                  title: "How Quantum Physics Proves Your Soul's Eternal Nature",
+                  description: "Revolutionary insights connecting Einstein's discoveries with ancient Vedic wisdom, revealing the scientific foundation of spiritual consciousness.",
                   color: "blue"
                 },
                 {
-                  category: "Maintenance",
-                  readTime: "12 min read", 
-                  title: "The Complete Guide to Millstone Maintenance & Dressing",
-                  description: "Expert techniques for maintaining and dressing millstones to ensure optimal performance and longevity in flour milling operations.",
+                  category: "Sacred Practice",
+                  readTime: "30 min practice", 
+                  title: "The Complete Guide to Vedic Meditation & Consciousness",
+                  description: "Authentic meditation techniques from ancient lineage combined with modern neuroscience for profound spiritual transformation.",
                   color: "green"
                 },
                 {
-                  category: "Compliance",
-                  readTime: "6 min read",
-                  title: "Understanding HSN Codes: A Guide for Procurement Managers",
-                  description: "Detailed explanation of HSN classification system for industrial materials, helping procurement teams navigate import/export requirements.",
+                  category: "Spiritual Science",
+                  readTime: "20 min study",
+                  title: "Understanding Karma: The Universal Law of Spiritual Physics",
+                  description: "Detailed exploration of karmic principles through both Vedic scriptures and quantum mechanics, revealing the scientific nature of spiritual law.",
                   color: "purple"
                 },
                 {
-                  category: "Industry Insights",
-                  readTime: "10 min read",
-                  title: "Industrial Mineral Applications in Modern Manufacturing",
-                  description: "Explore the diverse applications of industrial minerals like magnesite, dolomite, and bentonite in contemporary manufacturing processes.",
+                  category: "Consciousness Insights",
+                  readTime: "25 min revelation",
+                  title: "Consciousness Evolution: From Einstein to Enlightenment",
+                  description: "Explore the revolutionary convergence of consciousness research and ancient spiritual wisdom in Dr. Nischaya's groundbreaking teachings.",
                   color: "orange"
                 }
-              ].map((article, index) => (
+              ].map((teaching, index) => (
                 <Card key={index} bg={cardBg} shadow="xl" borderRadius="xl" _hover={{ transform: "translateY(-8px)", shadow: "2xl" }} transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)" overflow="hidden">
-                  <Box h="4" bg={`${article.color}.400`} />
+                  <Box h="4" bg={`${teaching.color}.400`} />
                   <CardBody p={6}>
                     <VStack spacing={4} align="start" h="full">
                       <HStack spacing={2} flexWrap="wrap">
-                        <Badge colorScheme={article.color} fontSize="xs" px={2} py={1}>{article.category}</Badge>
+                        <Badge colorScheme={teaching.color} fontSize="xs" px={2} py={1}>{teaching.category}</Badge>
                         <HStack spacing={1}>
                           <Icon as={FaClock} boxSize={3} color="gray.400" />
-                          <Text fontSize="xs" color="gray.400">{article.readTime}</Text>
+                          <Text fontSize="xs" color="gray.400">{teaching.readTime}</Text>
                         </HStack>
                       </HStack>
-                      <Heading size="sm" color={headingColor} lineHeight="short">{article.title}</Heading>
-                      <Text color={textColor} fontSize="sm" lineHeight="tall" flex="1">{article.description}</Text>
+                      <Heading size="sm" color={headingColor} lineHeight="short">{teaching.title}</Heading>
+                      <Text color={textColor} fontSize="sm" lineHeight="tall" flex="1">{teaching.description}</Text>
                       <Button 
+                        as="a"
+                        href="/teachings"
                         size="sm" 
                         colorScheme="orange" 
                         variant="outline" 
@@ -196,7 +204,7 @@ const KnowledgeCenterPage: React.FC = () => {
                         transition="all 0.3s ease"
                         w="full"
                       >
-                        Read Article
+                        Experience Teaching
                       </Button>
                     </VStack>
                   </CardBody>
@@ -207,7 +215,7 @@ const KnowledgeCenterPage: React.FC = () => {
         </Container>
       </SectionWrapper>
 
-      {/* 🏭 EXPERTISE AREAS SECTION */}
+      {/* 🕉️ SPIRITUAL EXPERTISE SECTION */}
       <SectionWrapper bg="gray.50" py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={16} alignItems="center">
@@ -215,20 +223,20 @@ const KnowledgeCenterPage: React.FC = () => {
               <VStack spacing={8} align="start">
                 <VStack spacing={4} align="start">
                   <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Our Expertise</Badge>
-                  <Heading size="xl" color={headingColor}>Our Expertise Areas</Heading>
+                  <Heading size="xl" color={headingColor}>Spiritual Authority Areas</Heading>
                   <Text color={textColor} fontSize="md" lineHeight="tall">
-                    Decades of experience in industrial materials and machinery, backed by ISO 9001:2015 certification and global market presence.
+                    Ancient wisdom combined with modern science, backed by MIT credentials and authentic Vedic lineage serving global seekers.
                   </Text>
                 </VStack>
 
                 <VStack spacing={4} align="start" w="full">
                   {[
-                    { icon: FaLightbulb, text: "Abrasive Selection & Application" },
-                    { icon: FaGraduationCap, text: "Millstone Technology & Maintenance" },
-                    { icon: FaUsers, text: "Industrial Mineral Processing" },
-                    { icon: FaBook, text: "Quality Control & Testing" },
-                    { icon: FaGlobe, text: "Export Documentation & Compliance" },
-                    { icon: FaLightbulb, text: "Custom Solution Development" }
+                    { icon: FaOm, text: "Quantum-Spiritual Convergence Studies" },
+                    { icon: FaGraduationCap, text: "Vedic Text Interpretation & Teaching" },
+                    { icon: FaUsers, text: "Consciousness Evolution & Transformation" },
+                    { icon: FaBook, text: "Sacred Sanskrit & Mantra Science" },
+                    { icon: FaGlobe, text: "Global Spiritual Community Building" },
+                    { icon: FaOm, text: "Authentic Lineage Transmission" }
                   ].map((expertise, index) => (
                     <HStack key={index} spacing={4} w="full" p={4} borderRadius="lg" _hover={{ bg: "white", shadow: "md" }} transition="all 0.3s ease">
                       <Box p={2} borderRadius="full" bg="orange.50">
@@ -248,17 +256,17 @@ const KnowledgeCenterPage: React.FC = () => {
                   <VStack spacing={6}>
                     <VStack spacing={4} textAlign="center">
                       <Icon as={FaUsers} boxSize={12} color="kd.tertiary" />
-                      <Heading size="lg" color={headingColor}>Need Expert Consultation?</Heading>
+                      <Heading size="lg" color={headingColor}>Need Spiritual Guidance?</Heading>
                       <Text color={textColor} fontSize="md" lineHeight="tall">
-                        Our technical experts are available to provide customized guidance for your specific industrial requirements.
+                        Dr. Nischaya Nagori is available to provide personalized spiritual guidance for your consciousness evolution journey.
                       </Text>
                     </VStack>
 
                     <VStack spacing={4} w="full">
                       {[
-                        { icon: FaPhone, text: "Technical Support: +91 93586 55903" },
-                        { icon: FaEnvelope, text: "Email: info@millstoneindia.com" },
-                        { icon: FaGlobe, text: "Serving 20+ Countries Worldwide" }
+                        { icon: FaCalendarCheck, text: "Spiritual Consultations Available" },
+                        { icon: FaEnvelope, text: "Email: contact@vedicwisdomseries.com" },
+                        { icon: FaGlobe, text: "Serving 1000+ Students in 25+ Countries" }
                       ].map((contact, index) => (
                         <HStack key={index} spacing={4} w="full" p={3} borderRadius="md" bg="gray.50">
                           <Icon as={contact.icon} color="kd.tertiary" boxSize={4} />
@@ -275,11 +283,11 @@ const KnowledgeCenterPage: React.FC = () => {
                       color="white"
                       _hover={{ bg: "yellow.500", transform: "translateY(-2px)" }}
                       w="full"
-                      leftIcon={<Icon as={FaPhone} />}
+                      leftIcon={<Icon as={FaCalendarCheck} />}
                       boxShadow="0 4px 15px rgba(230, 184, 0, 0.3)"
                       transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                     >
-                      Request Expert Consultation
+                      Request Spiritual Guidance
                     </Button>
                   </VStack>
                 </CardBody>
@@ -289,15 +297,15 @@ const KnowledgeCenterPage: React.FC = () => {
         </Container>
       </SectionWrapper>
 
-      {/* 🏭 NEWSLETTER SECTION */}
+      {/* 🕉️ SPIRITUAL COMMUNITY SECTION */}
       <SectionWrapper py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <VStack spacing={12} ref={newsletterRef.ref} style={newsletterRef.style}>
             <VStack spacing={6} textAlign="center">
-              <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Stay Updated</Badge>
-              <Heading size="xl" color={headingColor}>Stay Updated with Industry Insights</Heading>
+              <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">Join Community</Badge>
+              <Heading size="xl" color={headingColor}>Join Global Spiritual Community</Heading>
               <Text fontSize="lg" color={textColor} maxW="800px" lineHeight="tall">
-                Subscribe to our technical newsletter for the latest industry trends, product updates, and expert guidance from Millstone India.
+                Connect with 1000+ fellow seekers for the latest spiritual insights, quantum wisdom updates, and transformational guidance from Dr. Nischaya Nagori.
               </Text>
             </VStack>
 
@@ -306,9 +314,9 @@ const KnowledgeCenterPage: React.FC = () => {
                 <VStack spacing={6}>
                   <VStack spacing={4} textAlign="center">
                     <Icon as={FaEnvelope} boxSize={10} color="kd.tertiary" />
-                    <Heading size="md" color={headingColor}>Technical Newsletter</Heading>
+                    <Heading size="md" color={headingColor}>Spiritual Wisdom Updates</Heading>
                     <Text color={textColor} fontSize="sm">
-                      Get expert insights, technical guides, and industry updates delivered to your inbox.
+                      Receive profound spiritual insights, quantum teachings, and consciousness evolution guidance.
                     </Text>
                   </VStack>
 
@@ -320,6 +328,8 @@ const KnowledgeCenterPage: React.FC = () => {
                       </Box>
                     </HStack>
                     <Button 
+                      as="a"
+                      href="/contact"
                       size="lg" 
                       bg="kd.tertiary"
                       color="white"
@@ -329,12 +339,12 @@ const KnowledgeCenterPage: React.FC = () => {
                       boxShadow="0 4px 15px rgba(230, 184, 0, 0.3)"
                       transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                     >
-                      Subscribe to Newsletter
+                      Join Spiritual Community
                     </Button>
                   </VStack>
 
                   <Text fontSize="xs" color="gray.400" textAlign="center">
-                    We respect your privacy. Unsubscribe at any time.
+                    Sacred wisdom shared with utmost respect. Transform at your own pace.
                   </Text>
                 </VStack>
               </CardBody>
@@ -343,7 +353,7 @@ const KnowledgeCenterPage: React.FC = () => {
         </Container>
       </SectionWrapper>
 
-      {/* 🏭 CTA SECTION */}
+      {/* 🕉️ CTA SECTION */}
       <UniversalCTA />
     </PageWrapper>
   );

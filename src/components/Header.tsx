@@ -19,7 +19,8 @@ import {
   Button,
   Text,
   Icon,
-  Divider
+  Divider,
+  useColorModeValue
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { 
@@ -31,6 +32,7 @@ import { useLocation } from 'react-router-dom';
 import { siteConfig } from '../siteConfig';
 import useNavigationWithScroll from '../hooks/useNavigationWithScroll';
 import { useHeroPageDetection } from '../hooks/useHeaderHeight';
+import { PremiumButton } from './premium/PremiumButton';
 
 // 🕉️ DIVINE CONFIGURATION-DRIVEN HEADER COMPONENT
 // Following Nishkaam Karma Yoga principles - Zero hardcoding, infinite adaptability
@@ -52,7 +54,7 @@ const useScrollDetection = () => {
   return isScrolled;
 };
 
-// 🕉️ DIVINE PHONE NUMBER COMPONENT - Configuration-driven
+// 🕉️ PREMIUM PHONE NUMBER COMPONENT - Configuration-driven with glassmorphism
 const PhoneNumberBox: React.FC<{
   phone: {
     label: string;
@@ -69,20 +71,20 @@ const PhoneNumberBox: React.FC<{
   
   return (
     <Box
-      bg={topBar.styling.phoneBoxBackground}
+      bg="rgba(255, 255, 255, 0.15)"
+      backdropFilter="blur(10px)"
       color="white"
-      px={{ base: 2, md: 3 }}
-      py={{ base: 1.5, md: 2 }}
-      borderRadius={topBar.styling.phoneBoxBorderRadius}
+      px={{ base: 3, md: 4 }}
+      py={{ base: 2, md: 2.5 }}
+      borderRadius="full"
       display={{ base: phone.displayBreakpoint === 'base' ? 'flex' : 'none', [phone.displayBreakpoint]: 'flex' }}
       _hover={{ 
-        bg: topBar.styling.phoneBoxHoverBackground,
-        transform: 'translateY(-1px)',
-        boxShadow: 'md'
+        bg: "rgba(255, 255, 255, 0.25)",
+        transform: 'translateY(-2px)',
+        boxShadow: '0 8px 25px rgba(255,255,255,0.15)'
       }}
-      transition="all 0.2s ease"
-      border="1px solid"
-      borderColor={topBar.styling.phoneBoxBorderColor}
+      transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+      border="1px solid rgba(255, 255, 255, 0.2)"
       minH={topBar.styling.phoneBoxMinHeight}
       alignItems="center"
     >
@@ -91,13 +93,15 @@ const PhoneNumberBox: React.FC<{
           as={FaPhone}
           color="kd.secondary"
           boxSize={{ base: "14px", md: "16px" }}
+          filter="drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
         />
         <ChakraLink 
           href={`tel:${phone.number}`}
-          _hover={{ color: "kd.secondary" }}
+          _hover={{ color: "rgba(242,219,73,1)" }}
           fontWeight="semibold"
           fontSize={{ base: "sm", md: "md" }}
           color="white"
+          textShadow="0 1px 2px rgba(0,0,0,0.3)"
         >
           {phone.number}
         </ChakraLink>
@@ -106,7 +110,7 @@ const PhoneNumberBox: React.FC<{
   );
 };
 
-// 🕉️ DIVINE EMAIL COMPONENT - Configuration-driven
+// 🕉️ PREMIUM EMAIL COMPONENT - Configuration-driven with glassmorphism
 const EmailBox: React.FC<{
   email: {
     label: string;
@@ -120,20 +124,20 @@ const EmailBox: React.FC<{
   
   return (
     <Box
-      bg={topBar.styling.phoneBoxBackground}
+      bg="rgba(255, 255, 255, 0.15)"
+      backdropFilter="blur(10px)"
       color="white"
-      px={{ base: 2, md: 3 }}
-      py={{ base: 1.5, md: 2 }}
-      borderRadius={topBar.styling.phoneBoxBorderRadius}
+      px={{ base: 3, md: 4 }}
+      py={{ base: 2, md: 2.5 }}
+      borderRadius="full"
       display="flex"
       _hover={{ 
-        bg: topBar.styling.phoneBoxHoverBackground,
-        transform: 'translateY(-1px)',
-        boxShadow: 'md'
+        bg: "rgba(255, 255, 255, 0.25)",
+        transform: 'translateY(-2px)',
+        boxShadow: '0 8px 25px rgba(255,255,255,0.15)'
       }}
-      transition="all 0.2s ease"
-      border="1px solid"
-      borderColor={topBar.styling.phoneBoxBorderColor}
+      transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+      border="1px solid rgba(255, 255, 255, 0.2)"
       minH={topBar.styling.phoneBoxMinHeight}
       alignItems="center"
     >
@@ -142,13 +146,15 @@ const EmailBox: React.FC<{
           as={FaEnvelope}
           color="kd.secondary"
           boxSize={{ base: "14px", md: "16px" }}
+          filter="drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
         />
         <ChakraLink 
           href={`mailto:${email.address}`}
-          _hover={{ color: "kd.secondary" }}
+          _hover={{ color: "rgba(242,219,73,1)" }}
           fontWeight="semibold"
           fontSize={{ base: "sm", md: "md" }}
           color="white"
+          textShadow="0 1px 2px rgba(0,0,0,0.3)"
         >
           {email.address}
         </ChakraLink>
@@ -242,7 +248,7 @@ const ActionButton: React.FC<{
   );
 };
 
-// 🕉️ DIVINE NAVIGATION LINK COMPONENT - Configuration-driven
+// 🕉️ PREMIUM NAVIGATION LINK COMPONENT - Configuration-driven with luxury styling
 const NavLink = ({ to, children, onClick, hasDropdown = false }: { 
   to: string; 
   children: React.ReactNode; 
@@ -256,18 +262,17 @@ const NavLink = ({ to, children, onClick, hasDropdown = false }: {
   const isActive = (path: string) => location.pathname === path;
   const { navigation } = siteConfig.layout.header;
 
-  // DIVINE COLOR SYSTEM - Enhanced with Footer-inspired professional styling
-  // Following the sophisticated approach from Footer component
+  // PREMIUM COLOR SYSTEM - Enhanced with luxury gradients and glass effects
   const baseTextColor = hasHero 
-    ? (isScrolled ? 'kd.text' : 'rgba(255, 255, 255, 0.95)')   // Hero page: bright white for visibility
-    : 'kd.text';                                               // Non-hero page: always kd.text
+    ? (isScrolled ? 'gray.700' : 'rgba(255, 255, 255, 0.95)')   // Hero page: bright white for visibility
+    : 'gray.700';                                               // Non-hero page: professional dark
     
-  const textColor = isActive(to) ? '#FFD700' : baseTextColor;  // Active items use bright golden color
-  const activeColor = '#FFD700';                               // Bright golden for active state
-  const hoverColor = '#FFC107';                                // Slightly different golden for hover state
+  const textColor = isActive(to) ? '#FF9933' : baseTextColor;  // Active items use primary orange
+  const activeColor = '#FF9933';                               // Primary orange for active state
+  const hoverColor = '#FFB366';                                 // Lighter orange for hover state
 
-  const paddingX = useBreakpointValue({ base: 3, md: 4 });
-  const paddingY = useBreakpointValue({ base: 2, md: 3 });
+  const paddingX = useBreakpointValue({ base: 4, md: 5 });
+  const paddingY = useBreakpointValue({ base: 2.5, md: 3 });
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -288,33 +293,42 @@ const NavLink = ({ to, children, onClick, hasDropdown = false }: {
         px={paddingX}
         py={paddingY}
         fontSize={navigation.fontSize}
-        fontWeight={isActive(to) ? "bold" : navigation.fontWeight}
+        fontWeight={isActive(to) ? "600" : "500"}
         textTransform="uppercase"
-        letterSpacing="0.5px"
+        letterSpacing="0.75px"
         color={textColor}
-        textShadow={hasHero && !isScrolled ? "2px 2px 4px rgba(0,0,0,0.8)" : "none"}
-        borderRadius="md"
+        textShadow={hasHero && !isScrolled ? "2px 2px 8px rgba(0,0,0,0.6)" : "none"}
+        borderRadius="full"
         position="relative"
-        bg={isActive(to) ? "rgba(255, 215, 0, 0.15)" : "transparent"}
-        border={isActive(to) ? "1px solid rgba(255, 215, 0, 0.3)" : "1px solid transparent"}
+        bg={isActive(to) 
+          ? "linear-gradient(135deg, rgba(255,153,51,0.15), rgba(255,153,51,0.05))" 
+          : "transparent"
+        }
+        backdropFilter={isActive(to) ? "blur(10px)" : "none"}
+        border={isActive(to) 
+          ? "1px solid rgba(255,153,51,0.3)" 
+          : "1px solid transparent"
+        }
         _hover={{
           textDecoration: 'none',
           color: hoverColor,
           transform: 'translateY(-2px)',
-          bg: "rgba(255, 193, 7, 0.1)",
-          border: "1px solid rgba(255, 193, 7, 0.2)"
+          bg: "linear-gradient(135deg, rgba(255,179,102,0.15), rgba(255,179,102,0.05))",
+          backdropFilter: "blur(10px)",
+          border: "1px solid rgba(255,179,102,0.3)",
+          boxShadow: "0 4px 20px rgba(255,153,51,0.15)"
         }}
         _after={isActive(to) ? {
           content: '""',
           position: "absolute",
-          bottom: "-2px",
+          bottom: "-4px",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "80%",
+          width: "60%",
           height: "3px",
-          bg: "#FFD700",
+          bg: "linear-gradient(90deg, #FF9933, #FFB366)",
           borderRadius: "full",
-          boxShadow: "0 0 8px rgba(255, 215, 0, 0.6)"
+          boxShadow: "0 2px 8px rgba(255,153,51,0.4)"
         } : {}}
         transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
       >
@@ -323,9 +337,10 @@ const NavLink = ({ to, children, onClick, hasDropdown = false }: {
       {hasDropdown && (
         <Icon 
           as={FaChevronDown} 
-          ml={1} 
+          ml={2} 
           boxSize={3} 
           color={textColor}
+          filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"
           transition="all 0.3s ease"
         />
       )}
@@ -439,31 +454,33 @@ const Header: React.FC = () => {
         </Box>
       )}
 
-      {/* 🕉️ DIVINE MAIN HEADER - Configuration-driven transparent/opaque design */}
+      {/* 🕉️ PREMIUM MAIN HEADER - Configuration-driven with glassmorphism */}
       <Box
         data-header-main
         bg={hasHero && mainHeader.transparentOnHero
-          ? "transparent"
-          : "kd.surface"
+          ? (isScrolled 
+            ? "rgba(255, 255, 255, 0.95)" 
+            : "transparent")
+          : "rgba(255, 255, 255, 0.95)"
         }
         backdropFilter={mainHeader.blurEffect 
           ? (hasHero 
-            ? (isScrolled ? "blur(20px)" : "none")
-            : "blur(20px)")
+            ? (isScrolled ? "blur(20px) saturate(180%)" : "none")
+            : "blur(20px) saturate(180%)")
           : "none"
         }
         borderBottom={mainHeader.borderOnScroll 
           ? (hasHero 
-            ? (isScrolled ? "1px solid rgba(227, 87, 35, 0.1)" : "none")
-            : "1px solid rgba(227, 87, 35, 0.1)")
+            ? (isScrolled ? "1px solid rgba(255,153,51,0.15)" : "none")
+            : "1px solid rgba(255,153,51,0.15)")
           : "none"
         }
-        transition="all 0.3s ease-in-out"
+        transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
         py={isScrolled ? { base: 2, md: 3 } : header.padding.vertical}
         boxShadow={mainHeader.shadowOnScroll 
           ? (hasHero 
-            ? (isScrolled ? "0 2px 20px rgba(227, 87, 35, 0.08)" : "none")
-            : "0 2px 20px rgba(227, 87, 35, 0.08)")
+            ? (isScrolled ? "0 8px 32px rgba(0,0,0,0.08)" : "none")
+            : "0 8px 32px rgba(0,0,0,0.08)")
           : "none"
         }
       >
@@ -531,89 +548,162 @@ const Header: React.FC = () => {
               </HStack>
             )}
 
-            {/* 🕉️ DIVINE MOBILE MENU BUTTON - Configuration-driven touch target */}
+            {/* 🕉️ PREMIUM MOBILE MENU BUTTON - Configuration-driven with glass effect */}
             <IconButton
               display={{ base: 'flex', [header.mobileBreakpoint]: 'none' }}
               onClick={onOpen}
               variant="ghost"
               aria-label="Open navigation menu"
-              icon={<HamburgerIcon />}
+              icon={<HamburgerIcon boxSize={5} />}
               size="lg"
-              minW="44px"
-              minH="44px"
+              minW="48px"
+              minH="48px"
+              borderRadius="full"
               color={hasHero 
-                ? (isScrolled ? "kd.text" : "kd.textInverted")
-                : "kd.text"
+                ? (isScrolled ? "gray.700" : "white")
+                : "gray.700"
+              }
+              bg={hasHero && !isScrolled 
+                ? "rgba(255,255,255,0.15)" 
+                : "rgba(255,153,51,0.1)"
+              }
+              backdropFilter="blur(10px)"
+              border="1px solid"
+              borderColor={hasHero && !isScrolled 
+                ? "rgba(255,255,255,0.2)" 
+                : "rgba(255,153,51,0.2)"
               }
               _hover={{
-                bg: 'rgba(227, 87, 35, 0.1)',
-                color: "kd.secondary",
-                transform: 'scale(1.1)'
+                bg: hasHero && !isScrolled 
+                  ? "rgba(255,255,255,0.25)" 
+                  : "rgba(255,153,51,0.15)",
+                color: hasHero && !isScrolled ? "white" : "primary.600",
+                transform: 'translateY(-2px) scale(1.05)',
+                boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
               }}
-              transition="all 0.2s ease"
+              transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
             />
           </Flex>
         </Container>
       </Box>
 
-      {/* 🕉️ DIVINE MOBILE DRAWER - Configuration-driven */}
+      {/* 🕉️ PREMIUM MOBILE DRAWER - Configuration-driven with luxury design */}
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={mainHeader.mobileMenu.drawerSize}>
-        <DrawerOverlay />
-        <DrawerContent bg="white">
-          <DrawerCloseButton color="kd.text" />
+        <DrawerOverlay bg="blackAlpha.600" backdropFilter="blur(8px)" />
+        <DrawerContent 
+          bg="rgba(255, 255, 255, 0.95)"
+          backdropFilter="blur(20px) saturate(180%)"
+          borderLeft="1px solid rgba(255,153,51,0.15)"
+        >
+          <DrawerCloseButton 
+            color="gray.600" 
+            size="lg"
+            borderRadius="full"
+            _hover={{
+              bg: "rgba(255,153,51,0.1)",
+              color: "primary.600",
+              transform: "scale(1.1)"
+            }}
+            transition="all 0.2s ease"
+          />
           <DrawerHeader 
             borderBottomWidth="1px" 
-            borderBottomColor="kd.border"
-            bg={topBar.background}
-            color={topBar.textColor}
+            borderBottomColor="rgba(255,153,51,0.15)"
+            bg="linear-gradient(135deg, rgba(255,153,51,0.05), rgba(30,144,255,0.03))"
+            backdropFilter="blur(10px)"
           >
-            <Text fontWeight="bold" fontSize="lg">
+            <Text fontWeight="600" fontSize="lg" color="gray.700">
               {mainHeader.mobileMenu.headerText}
             </Text>
           </DrawerHeader>
 
           <DrawerBody py={6}>
-            <VStack spacing={4} align="stretch">
+            <VStack spacing={3} align="stretch">
               {siteConfig.navigation.main.map((item) => (
-                <Box key={item.href} py={2} px={3} borderRadius="lg" _hover={{ bg: "kd.hover" }} transition="all 0.2s ease">
+                <Box 
+                  key={item.href} 
+                  py={3} 
+                  px={4} 
+                  borderRadius="xl" 
+                  bg="rgba(255,255,255,0.5)"
+                  backdropFilter="blur(10px)"
+                  border="1px solid rgba(255,153,51,0.1)"
+                  _hover={{ 
+                    bg: "rgba(255,153,51,0.1)",
+                    borderColor: "rgba(255,153,51,0.2)",
+                    transform: "translateX(4px)"
+                  }} 
+                  transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+                >
                   <NavLink to={item.href} onClick={onClose}>
-                    🕉️ {item.label}
+                    <HStack spacing={3}>
+                      <Text fontSize="lg">🕉️</Text>
+                      <Text fontWeight="500" color="gray.700">{item.label}</Text>
+                    </HStack>
                   </NavLink>
                 </Box>
               ))}
             </VStack>
               
-            <Divider my={4} />
+            <Divider my={6} borderColor="rgba(255,153,51,0.2)" />
             
             {/* Configuration-driven mobile action buttons */}
             {mainHeader.mobileMenu.actionButtons.map((button, index) => (
               <MobileActionButton key={index} button={button} onClose={onClose} />
             ))}
             
-            {/* Configuration-driven contact info */}
+            {/* Premium contact info */}
             {mainHeader.mobileMenu.showContactInfo && (
-              <Box mt={6} p={4} bg="kd.surfaceElevated" borderRadius="md">
-                <Text fontSize="sm" fontWeight="semibold" mb={2} color="kd.text">
+              <Box 
+                mt={6} 
+                p={4} 
+                bg="linear-gradient(135deg, rgba(255,153,51,0.08), rgba(30,144,255,0.05))"
+                backdropFilter="blur(10px)"
+                borderRadius="xl" 
+                border="1px solid rgba(255,153,51,0.15)"
+              >
+                <Text fontSize="sm" fontWeight="600" mb={3} color="gray.700">
                   📞 Quick Contact
                 </Text>
-                <VStack spacing={2} align="stretch">
+                <VStack spacing={3} align="stretch">
                   {topBar.phoneNumbers.filter(phone => phone.enabled).map((phone, index) => (
                     <ChakraLink 
                       key={index}
                       href={`tel:${phone.number}`} 
-                      fontSize="xs" 
-                      color="kd.secondary" 
+                      fontSize="sm" 
+                      color="primary.600" 
                       display="flex" 
                       alignItems="center" 
-                      gap={2}
+                      gap={3}
+                      p={2}
+                      borderRadius="lg"
+                      _hover={{
+                        bg: "rgba(255,153,51,0.1)",
+                        transform: "translateX(2px)"
+                      }}
+                      transition="all 0.2s ease"
                     >
-                      <Image src={phone.flagUrl} alt={`${phone.countryCode} Flag`} width="20px" height="15px" borderRadius="2px" />
-                      {phone.label}: {phone.number}
+                      <Image src={phone.flagUrl} alt={`${phone.countryCode} Flag`} width="20px" height="15px" borderRadius="4px" />
+                      <Text fontWeight="500">{phone.label}: {phone.number}</Text>
                     </ChakraLink>
                   ))}
                   {siteConfig.contact.email && (
-                    <ChakraLink href={`mailto:${siteConfig.contact.email}`} fontSize="xs" color="kd.secondary">
-                      ✉️ {siteConfig.contact.email}
+                    <ChakraLink 
+                      href={`mailto:${siteConfig.contact.email}`} 
+                      fontSize="sm" 
+                      color="primary.600"
+                      p={2}
+                      borderRadius="lg"
+                      _hover={{
+                        bg: "rgba(255,153,51,0.1)",
+                        transform: "translateX(2px)"
+                      }}
+                      transition="all 0.2s ease"
+                    >
+                      <HStack spacing={2}>
+                        <Text fontSize="md">✉️</Text>
+                        <Text fontWeight="500">{siteConfig.contact.email}</Text>
+                      </HStack>
                     </ChakraLink>
                   )}
                 </VStack>

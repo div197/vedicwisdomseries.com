@@ -1,584 +1,514 @@
 import React from 'react'
-import { 
-  Box, 
-  Container, 
-  Heading, 
-  Text, 
-  SimpleGrid, 
-  VStack, 
-  HStack,
-  Card, 
-  CardBody,
-  CardHeader,
-  CardFooter,
-  Badge,
-  Button,
-  Icon,
-  List,
-  ListItem,
-  ListIcon,
-  Divider,
-  useColorModeValue,
-  Flex,
-  Grid,
-  GridItem,
-  Progress,
-  Circle
-} from '@chakra-ui/react'
-import { 
-  FaCheckCircle, 
-  FaArrowRight, 
-  FaOm, 
-  FaBook, 
-  FaGraduationCap, 
-  FaHeart, 
-  FaClock,
-  FaUsers,
-  FaStar,
-  FaGift,
-  FaFire,
-  FaGlobe,
-  FaLightbulb
-} from 'react-icons/fa'
-import { Link as RouterLink } from 'react-router-dom'
+import { FaOm, FaGraduationCap, FaGlobe, FaUsers, FaStar, FaClock, FaCheckCircle, FaArrowRight, FaRocket, FaInfinity, FaAtom, FaLightbulb, FaCertificate, FaFire, FaGift, FaHeart, FaUniversity, FaBookOpen, FaDollarSign, FaCalendarAlt } from 'react-icons/fa'
 import SEOHead from '../components/SEOHead'
-import { siteConfig } from '../siteConfig'
-import { vedicWisdomSeries, getOfferingColor } from '../data/vedicWisdomSeries'
-import { useSlideAnimation, slideAnimationConfigs } from '../hooks/useSlideAnimations'
+import { vedicWisdomSeries } from '../data/vedicWisdomSeries'
 import { contentMaster, getPageContent } from '../data/contentMaster'
-import { OptimizedCTA } from '../components/OptimizedCTA'
+import {
+  // Premium Layout System
+  Section,
+  Container,
+  Grid,
+  VStack,
+  HStack,
+  
+  // Premium Typography
+  Heading,
+  Text,
+  Badge,
+  Quote,
+  
+  // Premium Animation System
+  Animation,
+  Stagger,
+  Hover,
+  
+  // Premium Core Components
+  PremiumCard as Card,
+  PremiumButton as Button
+} from '../components/premium'
+import { Box, Image, AspectRatio, Icon, List, ListItem, Divider, SimpleGrid, Stat, StatNumber, StatLabel, StatHelpText, useColorModeValue, Progress } from '@chakra-ui/react'
 
-export default function TeachingsPage() {
-  // Enhanced content from contentMaster for 2025 conversion optimization
+// 🌍 INTERNATIONAL VISHWAGURU TEACHINGS PAGE - ULTRA-AGENTIC TRANSFORMATION
+// Global Premium Program Showcase for International Spiritual Education
+
+const TeachingsPage: React.FC = () => {
   const pageContent = getPageContent('teachings')
   
-  // Modern color scheme with conversion psychology
-  const bgGradient = useColorModeValue(
-    'linear(to-br, orange.50 via blue.50 to yellow.50)',
-    'linear(to-br, gray.900 via gray.800 to gray.900)'
-  )
-  const cardBg = useColorModeValue('white', 'gray.800')
-  const borderColor = useColorModeValue('gray.200', 'gray.600')
-  const priceColor = useColorModeValue('green.600', 'green.400')
-  const mutedText = useColorModeValue('gray.600', 'gray.400')
-  const urgentColor = useColorModeValue('red.500', 'red.400')
-  const successColor = useColorModeValue('green.500', 'green.400')
-  
-  // Advanced animations for conversion focus
-  const heroIconAnimation = useSlideAnimation(slideAnimationConfigs.heroIcon)
-  const heroTitleAnimation = useSlideAnimation(slideAnimationConfigs.heroTitle)
-  const heroSubtitleAnimation = useSlideAnimation(slideAnimationConfigs.heroSubtitle)
-  const heroDescAnimation = useSlideAnimation(slideAnimationConfigs.heroDescription)
-  const heroCTAAnimation = useSlideAnimation(slideAnimationConfigs.heroButtons)
-  const offeringsAnimation = useSlideAnimation(slideAnimationConfigs.fromBottom)
-  
-  // Enhanced offering data with conversion psychology
-  const enhancedOfferings = vedicWisdomSeries.offerings.map((offering, index) => ({
+  // International program data with global appeal
+  const globalPrograms = vedicWisdomSeries.offerings.map((offering, index) => ({
     ...offering,
-    urgency: index === 0 ? "🔥 Most Popular Choice" : 
-             index === 1 ? "⚡ Quick Start Option" :
-             index === 2 ? "🎓 Professional Certification" : "💎 Exclusive Experience",
-    socialProof: index === 0 ? "500+ students enrolled" :
-                 index === 1 ? "Perfect for beginners" :
-                 index === 2 ? "25+ certified teachers" : "100% personalized",
-    conversionBenefits: index === 0 ? ["Immediate access to recordings", "7-day money-back guarantee"] :
-                        index === 1 ? ["Learn in 30 days or less", "No Sanskrit knowledge required"] :
-                        index === 2 ? ["Lifetime certification", "Teaching support included"] :
-                                     ["Direct access to Dr. Nischaya", "Fully customized program"]
+    globalAppeal: index === 0 ? "🌍 Most Popular Worldwide" : 
+                  index === 1 ? "🕉️ Perfect for International Beginners" :
+                  index === 2 ? "🎓 Global Teacher Certification" : "💎 Personalized International Experience",
+    internationalBenefits: index === 0 ? [
+      "Live sessions across all time zones",
+      "Recordings accessible globally",
+      "International community forum",
+      "Multilingual support available"
+    ] : index === 1 ? [
+      "No Sanskrit background required",
+      "Cultural context explanations",
+      "International pronunciation guide",
+      "Global practice community"
+    ] : index === 2 ? [
+      "Internationally recognized certification",
+      "Teaching methodology for all cultures",
+      "Global teacher network access",
+      "Worldwide mentorship support"
+    ] : [
+      "Direct access to Dr. Nischaya Nagori",
+      "Customized for your cultural context",
+      "Personal spiritual guidance",
+      "One-on-one international sessions"
+    ],
+    globalStats: index === 0 ? "500+ students from 25+ countries" :
+                 index === 1 ? "Perfect for global beginners" :
+                 index === 2 ? "Training teachers worldwide" : "100% personalized approach"
   }))
   
   return (
     <>
-      <SEOHead 
-        title={`${pageContent.headline} - ${siteConfig.siteName}`}
-        description={pageContent.description}
-        keywords={['Quantum Awakening Programs', 'Scientific Spirituality Courses', 'Dr. Nischaya Nagori Training', 'Vedic Science Integration', 'Consciousness Transformation', 'Authentic Spiritual Education']}
-        image={`${siteConfig.siteUrl}/assets/images/teachings-quantum-og.jpg`}
+      <SEOHead
+        title="Global Vedic Programs - International Spiritual Education by Dr. Nischaya Nagori"
+        description="Join 1000+ international students learning authentic Vedic wisdom from India's Vishwaguru. Scientific spirituality programs for global seekers across 25+ countries."
+        keywords={[
+          'International Vedic Programs', 'Global Spiritual Education', 'Dr. Nischaya Nagori Courses', 'Vishwaguru Teachings',
+          'Scientific Spirituality Training', 'Quantum Consciousness Programs', 'Authentic Vedic Learning',
+          'International Meditation Teacher', 'Global Sanskrit Training', 'Worldwide Spiritual Community',
+          'India Spiritual Authority', 'International Guru Training', 'Global Vedic Certification'
+        ]}
+        image="/assets/images/teachings-global-vishwaguru.jpg"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "EducationalOrganization",
-          "name": "Vedic Wisdom Series Teachings",
-          "description": pageContent.description,
-          "offers": enhancedOfferings.map(offering => ({
+          "name": "Vedic Wisdom Series - International Programs",
+          "description": "Global spiritual education programs serving international students with authentic Vedic wisdom from India's spiritual authority.",
+          "provider": {
+            "@type": "Person",
+            "name": "Dr. Nischaya Nagori",
+            "jobTitle": "International Vedic Authority & Quantum Consciousness Pioneer"
+          },
+          "offers": globalPrograms.map(program => ({
             "@type": "Course",
-            "name": offering.title,
-            "description": offering.description,
-            "price": offering.price.replace('$', ''),
-            "priceCurrency": "USD"
+            "name": program.title,
+            "description": program.description,
+            "price": program.price.replace('$', ''),
+            "priceCurrency": "USD",
+            "audience": "International Students",
+            "availableLanguage": "English"
           }))
         }}
       />
 
-      <Box bgGradient={bgGradient} minH="100vh">
-        {/* 🚀 CONVERSION-OPTIMIZED HERO SECTION */}
-        <Box 
-          bgGradient="linear(45deg, #FF9933 0%, #1E90FF 50%, #F2DB49 100%)"
-          color="white" 
-          py={{ base: 16, md: 24 }}
-          position="relative"
-          overflow="hidden"
-        >
-          {/* Quantum animation overlay */}
-          <Box
-            position="absolute"
-            inset={0}
-            opacity={0.1}
-            bgImage="url('/assets/images/quantum-pattern.svg')"
-            bgRepeat="repeat"
-            bgSize="300px"
-            animation="float 6s ease-in-out infinite"
-          />
-          
-          <Container maxW="7xl" position="relative">
-            <VStack spacing={8} textAlign="center">
-              {/* Attention-grabbing icon with urgency */}
-              <Box ref={heroIconAnimation.ref} style={heroIconAnimation.style}>
-                <Circle size="120px" bg="rgba(255,255,255,0.2)" backdropFilter="blur(10px)">
-                  <Icon as={FaGraduationCap} boxSize={16} color="yellow.300" filter="drop-shadow(0 0 20px rgba(242, 219, 73, 0.8))" />
-                </Circle>
-                <Badge colorScheme="red" fontSize="sm" px={4} py={2} borderRadius="full" mt={4}>
-                  🔥 ENROLLMENT CLOSING SOON
-                </Badge>
-              </Box>
-
-              {/* Conversion-focused headlines */}
-              <VStack spacing={6}>
-                <Heading 
-                  as="h1" 
-                  size={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight="bold"
-                  textShadow="2px 2px 4px rgba(0,0,0,0.3)"
-                  ref={heroTitleAnimation.ref}
-                  style={heroTitleAnimation.style}
-                  maxW="5xl"
-                  lineHeight="shorter"
-                >
-                  {pageContent.headline}
-                </Heading>
-                
-                <Text 
-                  fontSize={{ base: 'xl', md: '2xl' }} 
-                  maxW="4xl"
-                  fontWeight="medium"
-                  ref={heroSubtitleAnimation.ref}
-                  style={heroSubtitleAnimation.style}
-                >
-                  {pageContent.subheading}
-                </Text>
-                
-                <Text 
-                  fontSize={{ base: 'lg', md: 'xl' }} 
-                  maxW="3xl"
-                  opacity={0.95}
-                  ref={heroDescAnimation.ref}
-                  style={heroDescAnimation.style}
-                >
-                  {pageContent.description}
-                </Text>
-                
-                {/* Social proof badge */}
-                <Badge colorScheme="green" fontSize="md" px={6} py={2} borderRadius="full">
-                  ⭐ {pageContent.socialProof}
-                </Badge>
-              </VStack>
-
-              {/* Conversion CTAs with urgency */}
-              <VStack spacing={4} ref={heroCTAAnimation.ref} style={heroCTAAnimation.style}>
-                <HStack spacing={4} flexWrap="wrap" justify="center">
-                  <Button
-                    as="a"
-                    href={pageContent.primaryCtaData.href}
-                    size="lg"
-                    colorScheme="yellow"
-                    color="black"
-                    variant="solid"
-                    leftIcon={<Icon as={pageContent.primaryCtaData.icon} />}
-                    px={8}
-                    py={6}
-                    fontSize="lg"
-                    fontWeight="bold"
-                    boxShadow="xl"
-                    _hover={{
-                      transform: 'translateY(-3px)',
-                      boxShadow: '2xl',
-                      bg: 'yellow.400'
-                    }}
-                    transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
-                  >
-                    {pageContent.primaryCtaData.text}
-                  </Button>
-                  <Button
-                    as="a"
-                    href={pageContent.secondaryCtaData.href}
-                    size="lg"
-                    variant="outline"
-                    borderColor="white"
-                    color="white"
-                    leftIcon={<Icon as={pageContent.secondaryCtaData.icon} />}
-                    px={8}
-                    py={6}
-                    fontSize="lg"
-                    fontWeight="medium"
-                    _hover={{
-                      transform: 'translateY(-3px)',
-                      bg: 'whiteAlpha.200',
-                      borderColor: 'whiteAlpha.800'
-                    }}
-                    transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
-                  >
-                    {pageContent.secondaryCtaData.text}
-                  </Button>
-                </HStack>
-                
-                {/* Urgency trigger */}
-                <Text fontSize="sm" color="yellow.200" fontWeight="medium" textAlign="center">
-                  ⏰ {pageContent.urgency}
-                </Text>
-                
-                {/* Trust indicators */}
-                <HStack spacing={6} fontSize="sm" opacity={0.9} flexWrap="wrap" justify="center">
-                  <Text>✓ 98% Completion Rate</Text>
-                  <Text>✓ 500+ Success Stories</Text>
-                  <Text>✓ 24hr Support</Text>
-                </HStack>
-              </VStack>
-            </VStack>
-          </Container>
-        </Box>
-
-        {/* 🎯 CONVERSION-OPTIMIZED OFFERINGS SECTION */}
-        <Container maxW="7xl" py={{ base: 12, md: 20 }}>
-          {/* Section intro with conversion focus */}
-          <VStack spacing={12} ref={offeringsAnimation.ref} style={offeringsAnimation.style}>
-            <VStack spacing={6} textAlign="center">
-              <Badge colorScheme="orange" fontSize="md" px={4} py={2} borderRadius="full">
-                🎯 CHOOSE YOUR TRANSFORMATION PATH
+      {/* 🕉️ HERO SECTION - INTERNATIONAL VISHWAGURU AUTHORITY */}
+      <Section variant="hero" background="gradient" animate>
+        <Container size="xl">
+          <Animation variant="fadeIn" duration={1.2}>
+            <VStack spacing={10} textAlign="center">
+              {/* Global Authority Badge */}
+              <Badge variant="glass" size="xl" icon={<FaGlobe />}>
+                🌍 INDIA AS VISHWAGURU - GLOBAL SPIRITUAL EDUCATION
               </Badge>
-              <Heading size={{ base: "lg", md: "xl" }} color="gray.800">
-                {pageContent.programsTitle || "4 Proven Programs for Quantum Awakening"}
-              </Heading>
-              <Text fontSize={{ base: "md", md: "lg" }} color={mutedText} maxW="3xl" lineHeight="tall">
-                {pageContent.programsDescription || "Each program is scientifically designed to meet you exactly where you are while accelerating your spiritual evolution through authentic Vedic practices."}
-              </Text>
-            </VStack>
-
-            <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 6, md: 8 }} w="full">
-              {enhancedOfferings.map((offering, index) => {
-                // Staggered animations for each offering
-                const offeringAnimation = useSlideAnimation({
-                  direction: index % 2 === 0 ? 'from-left' : 'from-right',
-                  duration: 800,
-                  delay: index * 150,
-                  distance: 60
-                })
-                
-                return (
-                <Box key={offering.title} ref={offeringAnimation.ref} style={offeringAnimation.style}>
-                  <Card
-                    bg={cardBg}
-                    borderWidth={3}
-                    borderColor={index === 0 ? `${getOfferingColor(offering.color)}.400` : borderColor}
-                    borderRadius="xl"
-                    overflow="hidden"
-                    transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
-                    _hover={{
-                      transform: 'translateY(-8px)',
-                      shadow: '2xl',
-                      borderColor: `${getOfferingColor(offering.color)}.500`
-                    }}
-                    height="full"
-                    position="relative"
-                    {...(index === 0 && {
-                      borderGradient: 'linear(45deg, orange.400, yellow.400)',
-                      boxShadow: 'lg'
-                    })}
-                  >
-                    {/* Popular choice badge */}
-                    {index === 0 && (
-                      <Badge
-                        position="absolute"
-                        top={-2}
-                        right={4}
-                        colorScheme="red"
-                        fontSize="xs"
-                        px={3}
-                        py={1}
-                        borderRadius="full"
-                        zIndex={2}
-                        bg="red.500"
-                        color="white"
-                      >
-                        🔥 MOST POPULAR
-                      </Badge>
-                    )}
-
-                    <CardHeader 
-                      bg={`${getOfferingColor(offering.color)}.50`} 
-                      pb={4}
-                      bgGradient={index === 0 ? `linear(135deg, ${getOfferingColor(offering.color)}.50, ${getOfferingColor(offering.color)}.100)` : undefined}
-                    >
-                      <VStack spacing={3} align="start">
-                        <HStack justify="space-between" w="full">
-                          <Badge
-                            colorScheme={getOfferingColor(offering.color)}
-                            fontSize="sm"
-                            px={3}
-                            py={1}
-                            borderRadius="full"
-                          >
-                            {offering.badge}
-                          </Badge>
-                          <Badge
-                            colorScheme="purple"
-                            fontSize="xs"
-                            px={2}
-                            py={1}
-                            borderRadius="full"
-                            variant="outline"
-                          >
-                            {offering.urgency}
-                          </Badge>
-                        </HStack>
-                        
-                        <Heading size="lg" color="gray.800">
-                          {offering.title}
-                        </Heading>
-                        
-                        <Text color="gray.600" fontSize="sm" fontWeight="medium">
-                          {offering.socialProof}
-                        </Text>
-                        
-                        <Text color={mutedText} fontSize="sm">
-                          {offering.details}
-                        </Text>
-                      </VStack>
-                    </CardHeader>
-
-                    <CardBody>
-                      <VStack spacing={5} align="stretch">
-                        <Text color="gray.700" lineHeight="tall" fontWeight="medium">
-                          {offering.description}
-                        </Text>
-                        
-                        <Divider borderColor={`${getOfferingColor(offering.color)}.200`} />
-                        
-                        {/* What's included - enhanced presentation */}
-                        <VStack spacing={3} align="start">
-                          <Text fontSize="sm" fontWeight="bold" color="gray.800" textTransform="uppercase" letterSpacing="wide">
-                            ✨ What's Included:
-                          </Text>
-                          <List spacing={3}>
-                            {offering.features.map((feature, idx) => (
-                              <ListItem key={idx} display="flex" alignItems="start">
-                                <ListIcon 
-                                  as={FaCheckCircle} 
-                                  color={`${getOfferingColor(offering.color)}.500`}
-                                  mt={1}
-                                  fontSize="lg"
-                                />
-                                <Text fontSize="sm" color="gray.700" lineHeight="tall">
-                                  {feature}
-                                </Text>
-                              </ListItem>
-                            ))}
-                          </List>
-                        </VStack>
-                        
-                        {/* Conversion benefits */}
-                        <VStack spacing={3} align="start">
-                          <Text fontSize="sm" fontWeight="bold" color={successColor} textTransform="uppercase" letterSpacing="wide">
-                            🎁 Bonus Benefits:
-                          </Text>
-                          <List spacing={2}>
-                            {offering.conversionBenefits.map((benefit, idx) => (
-                              <ListItem key={idx} display="flex" alignItems="start">
-                                <ListIcon 
-                                  as={FaGift} 
-                                  color={successColor}
-                                  mt={1}
-                                />
-                                <Text fontSize="sm" color="gray.600" fontStyle="italic">
-                                  {benefit}
-                                </Text>
-                              </ListItem>
-                            ))}
-                          </List>
-                        </VStack>
-                      </VStack>
-                    </CardBody>
-
-                    <CardFooter 
-                      borderTopWidth={2} 
-                      borderColor={`${getOfferingColor(offering.color)}.200`}
-                      bg={useColorModeValue(`${getOfferingColor(offering.color)}.25`, 'gray.700')}
-                      bgGradient={index === 0 ? `linear(180deg, ${getOfferingColor(offering.color)}.50, white)` : undefined}
-                    >
-                      <VStack spacing={4} w="full">
-                        {/* Pricing with urgency */}
-                        <Flex justify="space-between" align="center" w="full">
-                          <VStack align="start" spacing={1}>
-                            <HStack>
-                              <Text fontSize="3xl" fontWeight="bold" color={priceColor}>
-                                {offering.price}
-                              </Text>
-                              {offering.price !== "Custom Quote" && (
-                                <VStack align="start" spacing={0}>
-                                  <Text fontSize="sm" color={mutedText} textDecoration="line-through">
-                                    ${parseInt(offering.price.replace('$', '')) * 1.5}
-                                  </Text>
-                                  <Text fontSize="xs" color={urgentColor} fontWeight="bold">
-                                    LIMITED TIME
-                                  </Text>
-                                </VStack>
-                              )}
-                            </HStack>
-                            <Text fontSize="xs" color={mutedText}>
-                              {offering.duration} • No hidden fees
-                            </Text>
-                          </VStack>
-                          
-                          {/* Enhanced CTA button */}
-                          <VStack spacing={2}>
-                            <Button
-                              as="a"
-                              href={offering.link || '/contact'}
-                              colorScheme={getOfferingColor(offering.color)}
-                              rightIcon={<FaArrowRight />}
-                              size="md"
-                              fontWeight="bold"
-                              px={6}
-                              py={3}
-                              boxShadow="md"
-                              _hover={{
-                                transform: 'translateY(-2px)',
-                                boxShadow: 'lg'
-                              }}
-                              transition="all 0.3s"
-                            >
-                              {index === 0 ? 'Start Today' : 
-                               index === 1 ? 'Begin Learning' :
-                               index === 2 ? 'Get Certified' : 'Customize Now'}
-                            </Button>
-                            <Text fontSize="xs" color={mutedText} textAlign="center">
-                              💳 Secure Payment • 🔒 Money-Back Guarantee
-                            </Text>
-                          </VStack>
-                        </Flex>
-                        
-                        {/* Progress indicator for popular choice */}
-                        {index === 0 && (
-                          <VStack spacing={2} w="full">
-                            <HStack justify="space-between" w="full">
-                              <Text fontSize="xs" color="gray.600">Enrollment Progress</Text>
-                              <Text fontSize="xs" color={urgentColor} fontWeight="bold">85% Full</Text>
-                            </HStack>
-                            <Progress value={85} colorScheme="red" size="sm" w="full" borderRadius="full" />
-                          </VStack>
-                        )}
-                      </VStack>
-                    </CardFooter>
-                  </Card>
-                </Box>
-                );
-              })}
-            </SimpleGrid>
-          </VStack>
-
-          {/* Enhanced Social Proof & Trust Section */}
-          <VStack spacing={8} mt={16}>
-            {/* Global community stats */}
-            <Box 
-              p={8} 
-              bg={useColorModeValue('blue.50', 'blue.900')}
-              borderRadius="xl"
-              borderWidth={2}
-              borderColor={useColorModeValue('blue.200', 'blue.700')}
-              w="full"
-            >
-              <VStack spacing={6} textAlign="center">
-                <Icon as={FaGlobe} boxSize={12} color="blue.500" />
-                <Heading size="lg" color="gray.800">
-                  Join 1000+ Awakened Souls Worldwide
+              
+              <VStack spacing={6}>
+                <Heading variant="hero" level={1} color="white" maxW="6xl">
+                  Authentic Vedic Programs for International Students
                 </Heading>
                 
-                {/* Stats grid */}
-                <SimpleGrid columns={{ base: 2, md: 4 }} spacing={6} w="full">
-                  {[
-                    { number: "1000+", label: "Active Students", icon: FaUsers },
-                    { number: "25+", label: "Countries", icon: FaGlobe },
-                    { number: "98%", label: "Satisfaction", icon: FaStar },
-                    { number: "24hr", label: "Support", icon: FaClock }
-                  ].map((stat, index) => (
-                    <VStack key={index} spacing={2}>
-                      <Icon as={stat.icon} boxSize={8} color="blue.500" />
-                      <Text fontSize="2xl" fontWeight="bold" color="blue.600">
-                        {stat.number}
-                      </Text>
-                      <Text fontSize="sm" color="gray.600">
-                        {stat.label}
-                      </Text>
-                    </VStack>
-                  ))}
-                </SimpleGrid>
+                <Heading variant="section" level={2} color="whiteAlpha.900" maxW="5xl">
+                  Ancient Wisdom. Modern Science. Global Community.
+                </Heading>
                 
-                <Text color="gray.700" maxW="4xl" fontSize="lg" lineHeight="tall">
-                  🌟 All programs conducted online with live interaction • No Sanskrit background required • 
-                  Expert guidance from authentic lineage • Complete beginner friendly • Global community support
+                <Text variant="lead" color="whiteAlpha.800" maxW="4xl">
+                  Join 1000+ students from 25+ countries learning authentic Vedic wisdom through 
+                  scientifically validated spiritual practices. Dr. Nischaya Nagori bridges 
+                  5000-year-old traditions with quantum consciousness research for global transformation.
                 </Text>
-                
-                {/* Immediate CTA */}
-                <OptimizedCTA 
-                  variant="inline" 
-                  ctaType="primary" 
-                  showSecondary={true}
-                  showUrgency={true}
-                  customMessage="Ready to begin your quantum-spiritual transformation?"
-                />
               </VStack>
-            </Box>
-          </VStack>
 
-          {/* Inspiring Quantum-Spiritual Quote */}
-          <Box mt={16} textAlign="center">
-            <VStack spacing={4}>
-              <Text 
-                fontSize={{ base: 'xl', md: '2xl' }}
-                color="orange.500"
-                fontWeight="bold"
-                mb={2}
-              >
+              {/* Global Statistics */}
+              <HStack spacing={12} justify="center" flexWrap="wrap">
+                <VStack spacing={2}>
+                  <Text fontSize="3xl" fontWeight="bold" color="tertiary.300">1000+</Text>
+                  <Text fontSize="sm" color="whiteAlpha.700">International Students</Text>
+                </VStack>
+                <VStack spacing={2}>
+                  <Text fontSize="3xl" fontWeight="bold" color="secondary.300">25+</Text>
+                  <Text fontSize="sm" color="whiteAlpha.700">Countries Served</Text>
+                </VStack>
+                <VStack spacing={2}>
+                  <Text fontSize="3xl" fontWeight="bold" color="primary.300">500+</Text>
+                  <Text fontSize="sm" color="whiteAlpha.700">Hours of Wisdom</Text>
+                </VStack>
+                <VStack spacing={2}>
+                  <Text fontSize="3xl" fontWeight="bold" color="green.300">95%</Text>
+                  <Text fontSize="sm" color="whiteAlpha.700">Satisfaction Rate</Text>
+                </VStack>
+              </HStack>
+
+              {/* International CTAs */}
+              <HStack spacing={6} flexWrap="wrap" justify="center">
+                <Button variant="premium" size="xl" shimmer icon={FaRocket}>
+                  Explore Global Programs
+                </Button>
+                <Button variant="glass" size="xl" icon={FaGlobe}>
+                  Join International Community
+                </Button>
+              </HStack>
+
+              {/* Trust Indicators */}
+              <HStack spacing={8} justify="center" flexWrap="wrap" pt={4}>
+                <Badge variant="outline" colorScheme="whiteAlpha" size="md">🌍 All Time Zones</Badge>
+                <Badge variant="outline" colorScheme="whiteAlpha" size="md">🕉️ Authentic Lineage</Badge>
+                <Badge variant="outline" colorScheme="whiteAlpha" size="md">🔬 Scientific Validation</Badge>
+                <Badge variant="outline" colorScheme="whiteAlpha" size="md">💯 Beginner Friendly</Badge>
+              </HStack>
+            </VStack>
+          </Animation>
+        </Container>
+      </Section>
+
+      {/* 🌟 GLOBAL PROGRAMS SECTION - INTERNATIONAL SHOWCASE */}
+      <Section variant="feature" background="pattern" padding="xl">
+        <Container size="lg">
+          <VStack spacing={16}>
+            <Animation variant="slideUp">
+              <VStack spacing={6} textAlign="center">
+                <Badge variant="gradient" colorScheme="primary" size="xl" icon={<FaUniversity />}>
+                  🎓 INTERNATIONAL SPIRITUAL EDUCATION PROGRAMS
+                </Badge>
+                <Heading variant="section" level={2}>
+                  Choose Your Global Transformation Path
+                </Heading>
+                <Text variant="lead" maxW="4xl">
+                  Four scientifically designed programs serving international students with authentic 
+                  Vedic wisdom. Each path is crafted for global accessibility while maintaining 
+                  traditional spiritual authenticity from India's eternal Vishwaguru lineage.
+                </Text>
+              </VStack>
+            </Animation>
+
+            <Stagger staggerDelay={0.2}>
+              <Grid columns={{ base: 1, lg: 2 }} spacing={10} equalHeight>
+                {globalPrograms.map((program, index) => (
+                  <Hover key={program.title} variant="lift" intensity="normal">
+                    <Card variant="elevated" premium h="full" position="relative">
+                      {/* Most Popular Badge */}
+                      {index === 0 && (
+                        <Box
+                          position="absolute"
+                          top={-3}
+                          right={6}
+                          bg="red.500"
+                          color="white"
+                          px={4}
+                          py={2}
+                          borderRadius="full"
+                          fontSize="xs"
+                          fontWeight="bold"
+                          zIndex={2}
+                          boxShadow="lg"
+                        >
+                          🔥 MOST POPULAR WORLDWIDE
+                        </Box>
+                      )}
+
+                      <VStack spacing={8} p={8} align="start" h="full">
+                        {/* Program Header */}
+                        <VStack spacing={4} align="start" w="full">
+                          <HStack justify="space-between" w="full">
+                            <Badge 
+                              variant="gradient" 
+                              colorScheme={index === 0 ? 'orange' : index === 1 ? 'blue' : index === 2 ? 'purple' : 'green'} 
+                              size="lg"
+                              icon={index === 0 ? <FaFire /> : index === 1 ? <FaOm /> : index === 2 ? <FaCertificate /> : <FaHeart />}
+                            >
+                              {program.badge}
+                            </Badge>
+                            <Badge variant="outline" colorScheme="gray" size="sm">
+                              {program.globalAppeal}
+                            </Badge>
+                          </HStack>
+                          
+                          <Heading variant="card" level={3}>
+                            {program.title}
+                          </Heading>
+                          
+                          <Text variant="body" color="gray.600" fontWeight="medium">
+                            {program.globalStats}
+                          </Text>
+                          
+                          <Text variant="body" color="gray.700" lineHeight="tall">
+                            {program.description}
+                          </Text>
+                        </VStack>
+
+                        <Divider borderColor="gray.200" />
+
+                        {/* Core Features */}
+                        <VStack spacing={4} align="start" w="full">
+                          <Text fontSize="sm" fontWeight="bold" color="gray.800" textTransform="uppercase" letterSpacing="wide">
+                            ✨ Core Program Features:
+                          </Text>
+                          <List spacing={3} w="full">
+                            {program.features.map((feature, idx) => (
+                              <ListItem key={idx}>
+                                <HStack spacing={3} align="start">
+                                  <Icon 
+                                    as={FaCheckCircle} 
+                                    color={index === 0 ? 'orange.500' : index === 1 ? 'blue.500' : index === 2 ? 'purple.500' : 'green.500'}
+                                    mt={1}
+                                    boxSize={4}
+                                  />
+                                  <Text fontSize="sm" color="gray.700" lineHeight="tall">
+                                    {feature}
+                                  </Text>
+                                </HStack>
+                              </ListItem>
+                            ))}
+                          </List>
+                        </VStack>
+
+                        {/* International Benefits */}
+                        <VStack spacing={4} align="start" w="full">
+                          <Text fontSize="sm" fontWeight="bold" color="green.600" textTransform="uppercase" letterSpacing="wide">
+                            🌍 International Benefits:
+                          </Text>
+                          <List spacing={3} w="full">
+                            {program.internationalBenefits.map((benefit, idx) => (
+                              <ListItem key={idx}>
+                                <HStack spacing={3} align="start">
+                                  <Icon as={FaGlobe} color="green.500" mt={1} boxSize={4} />
+                                  <Text fontSize="sm" color="gray.600" fontStyle="italic">
+                                    {benefit}
+                                  </Text>
+                                </HStack>
+                              </ListItem>
+                            ))}
+                          </List>
+                        </VStack>
+
+                        {/* Program Pricing & CTA */}
+                        <VStack spacing={4} w="full" pt={4} borderTop="2px solid" borderColor="gray.100">
+                          <HStack justify="space-between" w="full" align="center">
+                            <VStack align="start" spacing={1}>
+                              <HStack>
+                                <Text fontSize="3xl" fontWeight="bold" color="green.600">
+                                  {program.price}
+                                </Text>
+                                {program.price !== "Custom Quote" && (
+                                  <VStack align="start" spacing={0}>
+                                    <Text fontSize="sm" color="gray.500" textDecoration="line-through">
+                                      ${Math.round(parseInt(program.price.replace('$', '')) * 1.4)}
+                                    </Text>
+                                    <Text fontSize="xs" color="red.500" fontWeight="bold">
+                                      EARLY BIRD
+                                    </Text>
+                                  </VStack>
+                                )}
+                              </HStack>
+                              <Text fontSize="xs" color="gray.500">
+                                {program.duration} • International Access
+                              </Text>
+                            </VStack>
+                            
+                            <Button
+                              variant="premium"
+                              size="lg"
+                              icon={FaRocket}
+                              shimmer={index === 0}
+                            >
+                              {index === 0 ? 'Join Now' : 
+                               index === 1 ? 'Start Learning' :
+                               index === 2 ? 'Get Certified' : 'Customize'}
+                            </Button>
+                          </HStack>
+                          
+                          <Text fontSize="xs" color="gray.500" textAlign="center" w="full">
+                            🔒 Secure International Payment • 💯 30-Day Guarantee • 🌍 All Time Zones
+                          </Text>
+
+                          {/* Enrollment Status for Popular Program */}
+                          {index === 0 && (
+                            <VStack spacing={2} w="full">
+                              <HStack justify="space-between" w="full">
+                                <Text fontSize="xs" color="gray.600">Global Enrollment</Text>
+                                <Text fontSize="xs" color="red.500" fontWeight="bold">87% Full</Text>
+                              </HStack>
+                              <Progress value={87} colorScheme="red" size="sm" w="full" borderRadius="full" />
+                            </VStack>
+                          )}
+                        </VStack>
+                      </VStack>
+                    </Card>
+                  </Hover>
+                ))}
+              </Grid>
+            </Stagger>
+          </VStack>
+        </Container>
+      </Section>
+
+      {/* 🌍 GLOBAL COMMUNITY STATISTICS - VISHWAGURU AUTHORITY */}
+      <Section variant="testimonial" background="glass" padding="xl">
+        <Container size="lg">
+          <VStack spacing={12}>
+            <Animation variant="slideUp">
+              <VStack spacing={6} textAlign="center">
+                <Badge variant="solid" colorScheme="secondary" size="xl" icon={<FaGlobe />}>
+                  🌍 GLOBAL SPIRITUAL COMMUNITY
+                </Badge>
+                <Heading variant="section" level={2}>
+                  International Students Worldwide
+                </Heading>
+                <Text variant="lead" maxW="4xl">
+                  Join a thriving global community of seekers learning authentic Vedic wisdom from 
+                  India's spiritual authority. Our international programs serve students across 
+                  continents with culturally adapted yet traditional spiritual education.
+                </Text>
+              </VStack>
+            </Animation>
+
+            <Stagger staggerDelay={0.1}>
+              <SimpleGrid columns={{ base: 2, md: 4 }} spacing={8} w="full">
+                {[
+                  {
+                    number: "1000+",
+                    label: "International Students",
+                    sublabel: "Active Global Learners",
+                    color: "primary",
+                    icon: FaUsers
+                  },
+                  {
+                    number: "25+",
+                    label: "Countries Served", 
+                    sublabel: "Worldwide Reach",
+                    color: "secondary",
+                    icon: FaGlobe
+                  },
+                  {
+                    number: "500+",
+                    label: "Teaching Hours",
+                    sublabel: "Authentic Content",
+                    color: "tertiary",
+                    icon: FaClock
+                  },
+                  {
+                    number: "95%",
+                    label: "Satisfaction Rate",
+                    sublabel: "Global Testimonials",
+                    color: "green",
+                    icon: FaStar
+                  }
+                ].map((stat, index) => (
+                  <Hover key={index} variant="lift" intensity="subtle">
+                    <Card variant="glass" textAlign="center">
+                      <VStack spacing={4} p={6}>
+                        <Icon as={stat.icon} boxSize={10} color={`${stat.color}.500`} />
+                        <Text fontSize="4xl" fontWeight="bold" color={`${stat.color}.500`}>
+                          {stat.number}
+                        </Text>
+                        <VStack spacing={1}>
+                          <Text fontWeight="600" color="gray.800" fontSize="sm">
+                            {stat.label}
+                          </Text>
+                          <Text fontSize="xs" color="gray.600">
+                            {stat.sublabel}
+                          </Text>
+                        </VStack>
+                      </VStack>
+                    </Card>
+                  </Hover>
+                ))}
+              </SimpleGrid>
+            </Stagger>
+
+            {/* Global Benefits */}
+            <Animation variant="slideUp" delay={0.4}>
+              <Card variant="elevated" premium p={8} textAlign="center">
+                <VStack spacing={6}>
+                  <Heading variant="card" level={3}>
+                    Why Students Choose Our International Programs
+                  </Heading>
+                  <HStack spacing={8} justify="center" flexWrap="wrap">
+                    <Badge variant="outline" colorScheme="primary" size="lg">🌍 All Time Zones Supported</Badge>
+                    <Badge variant="outline" colorScheme="secondary" size="lg">🕉️ Authentic Vedic Lineage</Badge>
+                    <Badge variant="outline" colorScheme="tertiary" size="lg">🔬 Scientific Integration</Badge>
+                    <Badge variant="outline" colorScheme="green" size="lg">💯 Beginner Friendly</Badge>
+                  </HStack>
+                </VStack>
+              </Card>
+            </Animation>
+          </VStack>
+        </Container>
+      </Section>
+
+      {/* 🎯 QUANTUM-VEDIC WISDOM QUOTE SECTION */}
+      <Section variant="content" padding="xl">
+        <Container size="lg">
+          <Animation variant="scaleIn">
+            <VStack spacing={8} textAlign="center">
+              <Badge variant="gradient" colorScheme="primary" size="lg" icon={<FaOm />}>
+                🕉️ ANCIENT WISDOM FOR MODERN MINDS
+              </Badge>
+              
+              <Quote variant="hero" size="xl" author="Bhagavad Gita 7.7" emphasis="divine">
                 {vedicWisdomSeries.quotes[0].sanskrit}
-              </Text>
-              <Text 
-                fontSize={{ base: 'lg', md: 'xl' }}
-                color="gray.700"
-                fontStyle="italic"
-                maxW="4xl"
-                lineHeight="tall"
-              >
+              </Quote>
+              
+              <Text variant="lead" maxW="4xl" color="gray.700" fontStyle="italic">
                 "{vedicWisdomSeries.quotes[0].translation}"
               </Text>
+              
               <Text fontSize="md" color="gray.600" fontWeight="medium">
                 — {vedicWisdomSeries.quotes[0].source}
               </Text>
-              
-              {/* Final conversion opportunity */}
-              <Box mt={8}>
-                <Text fontSize="lg" color="gray.800" fontWeight="bold" mb={4}>
-                  Ready to experience this ancient wisdom yourself?
-                </Text>
-                <OptimizedCTA 
-                  variant="inline" 
-                  ctaType="emergency" 
-                  showSecondary={false}
-                  showUrgency={true}
-                  customMessage="Start your transformation journey today"
-                />
-              </Box>
             </VStack>
-          </Box>
+          </Animation>
         </Container>
-      </Box>
+      </Section>
+
+      {/* 🚀 FINAL INTERNATIONAL CTA SECTION */}
+      <Section variant="cta" background="gradient" padding="xl">
+        <Container size="lg">
+          <Animation variant="bounceIn">
+            <VStack spacing={8} textAlign="center">
+              <Badge variant="solid" colorScheme="tertiary" size="xl" icon={<FaRocket />}>
+                🚀 BEGIN YOUR GLOBAL TRANSFORMATION
+              </Badge>
+              
+              <Heading variant="section" level={2} color="white">
+                Ready to Join the International Spiritual Community?
+              </Heading>
+              
+              <Text variant="lead" maxW="4xl" color="whiteAlpha.900">
+                Experience authentic Vedic wisdom through scientifically validated programs designed 
+                for international students. Join 1000+ global seekers in their transformation journey 
+                guided by India's spiritual authority, Dr. Nischaya Nagori.
+              </Text>
+              
+              <HStack spacing={6} flexWrap="wrap" justify="center">
+                <Button variant="premium" size="xl" shimmer icon={FaGraduationCap}>
+                  Explore All Programs
+                </Button>
+                <Button variant="glass" size="xl" icon={FaGlobe}>
+                  Join Global Community
+                </Button>
+              </HStack>
+              
+              {/* Final Trust Indicators */}
+              <HStack spacing={8} justify="center" flexWrap="wrap" pt={6}>
+                <Badge variant="outline" colorScheme="whiteAlpha" size="md">🔒 Secure International Payment</Badge>
+                <Badge variant="outline" colorScheme="whiteAlpha" size="md">💯 30-Day Money-Back Guarantee</Badge>
+                <Badge variant="outline" colorScheme="whiteAlpha" size="md">🌍 Lifetime Global Access</Badge>
+                <Badge variant="outline" colorScheme="whiteAlpha" size="md">🎓 Internationally Recognized</Badge>
+              </HStack>
+            </VStack>
+          </Animation>
+        </Container>
+      </Section>
     </>
   )
 }
+
+export default TeachingsPage
