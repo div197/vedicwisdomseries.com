@@ -25,7 +25,8 @@ import SEOHead from '../components/SEOHead'
 import UniversalCTA from '../components/UniversalCTA'
 import { siteConfig } from '../siteConfig'
 import { SimpleLayout, HeroSection, ContentSection } from '../components/layout/SimpleLayout'
-import { vedicWisdomSeries, getVedicIcon } from '../data/vedicWisdomSeries'
+import { contentMaster, getCTAData, getPageContent, getContentIcon } from '../data/contentMaster'
+import { vedicWisdomSeries } from '../data/vedicWisdomSeries'
 import { useSlideAnimation, slideAnimationConfigs } from '../hooks/useSlideAnimations'
 
 export default function HomePage() {
@@ -42,7 +43,9 @@ export default function HomePage() {
   const primaryColor = 'primary.500'                                // Deep Saffron for primary
   const tertiaryColor = 'tertiary.500'                              // Sacred Gold for highlights
 
-  // Configuration-driven content from vedicWisdomSeries data
+  // Optimized content from contentMaster for conversion
+  const pageContent = getPageContent('homepage')
+  // Vedic wisdom data for content and structure
   const homeConfig = vedicWisdomSeries
 
   // DIVINE SLIDE ANIMATIONS - Modern entrance effects with improved timing
@@ -103,9 +106,9 @@ export default function HomePage() {
   return (
     <>
       <SEOHead
-        title={`${siteConfig.siteName} - ${homeConfig.hero.subtitle}`}
-        description={homeConfig.hero.description}
-        keywords={['Vedic Wisdom Series', 'Dr. Nischaya Nagori', 'Weekend Discourses', 'Chanting Classes', 'Teacher Training', 'Spiritual Education', 'Ancient Wisdom', 'Quantum Spirituality']}
+        title={`${pageContent.headline} - ${siteConfig.siteName}`}
+        description={pageContent.description}
+        keywords={['MIT Discovery', 'Soul Science', 'Quantum Spirituality', 'Dr. Nischaya Nagori', 'Vedic Physics', 'Ancient Wisdom Proof', 'Spiritual Transformation', 'Scientific Mysticism']}
         image={`${siteConfig.siteUrl}/assets/images/vedic-wisdom-og.svg`}
         structuredData={structuredData}
       />
@@ -130,57 +133,107 @@ export default function HomePage() {
             />
             <Container maxW="7xl" py={{ base: 12, md: 20 }}>
               <VStack spacing={8} textAlign="center" pt={{ base: 2, md: 4 }}>
-                {/* Spiritual Symbol - Animated from top */}
+                {/* Attention-grabbing Icon */}
                 <Box ref={heroIconAnimation.ref} style={heroIconAnimation.style}>
-                  <Icon as={FaOm} boxSize={16} color="kd.tertiary" mb={4} filter="drop-shadow(0 0 20px rgba(242, 219, 73, 0.5))" />
-                  <Text fontSize={{ base: "md", md: "lg" }} color={textColor} fontWeight="medium">
-                    🕉️ ANCIENT SOUND, MODERN AWAKENING 🕉️
-                  </Text>
+                  <Icon as={FaLightbulb} boxSize={20} color="kd.tertiary" mb={4} filter="drop-shadow(0 0 25px rgba(242, 219, 73, 0.7))" />
+                  <Badge colorScheme="orange" fontSize="sm" px={4} py={2} borderRadius="full" mb={2}>
+                    🔬 SCIENTIFIC BREAKTHROUGH
+                  </Badge>
                 </Box>
 
-                {/* Main Heading - Staggered animation from bottom */}
-                <VStack spacing={4}>
+                {/* Conversion-Optimized Headline */}
+                <VStack spacing={6}>
                   <Heading 
                     as="h1" 
-                    size={{ base: "xl", md: "2xl", lg: "3xl" }} 
+                    size={{ base: "2xl", md: "3xl", lg: "4xl" }} 
                     color={headingColor}
                     textAlign="center"
                     lineHeight="shorter"
                     fontWeight="bold"
                     ref={heroTitleAnimation.ref}
                     style={heroTitleAnimation.style}
+                    maxW="5xl"
                   >
-                    Welcome to{' '}
-                    <Text as="span" color={accentColor}>{homeConfig.hero.title}</Text>
+                    {pageContent.headline}
                   </Heading>
                   
                   <Text 
-                    fontSize={{ base: "lg", md: "xl" }} 
+                    fontSize={{ base: "xl", md: "2xl" }} 
                     color={textColor}
                     maxW="4xl"
                     lineHeight="tall"
+                    fontWeight="medium"
                     ref={heroSubtitleAnimation.ref}
                     style={heroSubtitleAnimation.style}
                   >
-                    {homeConfig.hero.subtitle}
+                    {pageContent.subheading}
                   </Text>
                       
                   <Text 
-                    fontSize={{ base: "md", md: "lg" }} 
+                    fontSize={{ base: "lg", md: "xl" }} 
                     color={textColor}
                     maxW="3xl"
-                    fontStyle="italic"
+                    lineHeight="tall"
                     ref={heroDescAnimation.ref}
                     style={heroDescAnimation.style}
                   >
-                    {homeConfig.hero.description}
+                    {pageContent.description}
                   </Text>
+                  
+                  {/* Social Proof */}
+                  <Badge colorScheme="blue" fontSize="md" px={6} py={2} borderRadius="full">
+                    ⭐ {pageContent.socialProof}
+                  </Badge>
                 </VStack>
 
-                {/* Universal CTA - 0th Law of Thermodynamics */}
-                <Box ref={heroCTAAnimation.ref} style={heroCTAAnimation.style}>
-                  <UniversalCTA variant="hero" size="lg" />
-                </Box>
+                {/* Conversion-Optimized CTAs */}
+                <VStack spacing={4} ref={heroCTAAnimation.ref} style={heroCTAAnimation.style}>
+                  <HStack spacing={4} flexWrap="wrap" justify="center">
+                    <Button
+                      as="a"
+                      href={pageContent.primaryCtaData.href}
+                      size="lg"
+                      colorScheme={pageContent.primaryCtaData.colorScheme}
+                      variant={pageContent.primaryCtaData.variant}
+                      leftIcon={<Icon as={pageContent.primaryCtaData.icon} />}
+                      px={8}
+                      py={6}
+                      fontSize="lg"
+                      fontWeight="bold"
+                      _hover={{
+                        transform: 'translateY(-3px)',
+                        boxShadow: 'xl'
+                      }}
+                      transition="all 0.3s"
+                    >
+                      {pageContent.primaryCtaData.text}
+                    </Button>
+                    <Button
+                      as="a"
+                      href={pageContent.secondaryCtaData.href}
+                      size="lg"
+                      colorScheme={pageContent.secondaryCtaData.colorScheme}
+                      variant={pageContent.secondaryCtaData.variant}
+                      leftIcon={<Icon as={pageContent.secondaryCtaData.icon} />}
+                      px={8}
+                      py={6}
+                      fontSize="lg"
+                      fontWeight="medium"
+                      _hover={{
+                        transform: 'translateY(-3px)',
+                        boxShadow: 'lg'
+                      }}
+                      transition="all 0.3s"
+                    >
+                      {pageContent.secondaryCtaData.text}
+                    </Button>
+                  </HStack>
+                  
+                  {/* Urgency Trigger */}
+                  <Text fontSize="sm" color="red.500" fontWeight="medium" textAlign="center">
+                    ⏰ {pageContent.urgency}
+                  </Text>
+                </VStack>
 
                 {/* Trust Indicators - Animated stats */}
                 <HStack spacing={8} flexWrap="wrap" justify="center" pt={4} ref={heroStatsAnimation.ref} style={heroStatsAnimation.style}>
@@ -204,14 +257,14 @@ export default function HomePage() {
         <ContentSection>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={principlesSectionAnimation.ref} style={principlesSectionAnimation.style}>
-              <Badge bg="transparent" borderColor="kd.secondary" color="kd.secondary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-                The Quantum Revolution Begins
+              <Badge bg="transparent" borderColor="kd.primary" color="kd.primary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
+                🔬 The Science is In
               </Badge>
-              <Heading size="xl" color={headingColor}>
-                Your Scientific Proof of the Divine Awaits
+              <Heading size={{ base: "lg", md: "xl" }} color={headingColor}>
+                3 Pillars of Quantum-Spiritual Truth
               </Heading>
               <Text color={textColor} maxW="3xl" fontSize={{ base: "md", md: "lg" }} lineHeight="tall">
-                Finally understand why Einstein would have been a devoted student of the Vedas. Join 1000+ seekers discovering the quantum code hidden in ancient texts.
+                Experience the revolutionary integration that's transforming how thousands understand reality itself.
               </Text>
             </VStack>
 
@@ -235,7 +288,7 @@ export default function HomePage() {
                   >
                     <CardBody p={8}>
                       <VStack spacing={6} align="start">
-                        <Icon as={getVedicIcon(principle.icon)} boxSize={12} color="kd.tertiary" />
+                        <Icon as={getContentIcon(principle.icon)} boxSize={12} color="kd.tertiary" />
                         <VStack align="start" spacing={3}>
                           <Heading size="md" color={headingColor}>
                             {principle.title}
@@ -261,13 +314,13 @@ export default function HomePage() {
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={productsSectionAnimation.ref} style={productsSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.tertiary" color="kd.tertiary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-                Limited Seats Available
+                ⚡ Choose Your Transformation
               </Badge>
-              <Heading size="xl" color={headingColor}>
-                Choose Your Sacred Journey to Spiritual Mastery
+              <Heading size={{ base: "lg", md: "xl" }} color={headingColor}>
+                4 Paths to Quantum Awakening
               </Heading>
               <Text color={textColor} maxW="3xl" fontSize={{ base: "md", md: "lg" }} lineHeight="tall">
-                Four transformative paths await. Each one scientifically designed to activate your dormant spiritual DNA. Which calls to your soul?
+                From weekend wisdom to teacher mastery - find your perfect path to scientific spiritual awakening.
               </Text>
             </VStack>
 
@@ -331,10 +384,10 @@ export default function HomePage() {
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={statsSectionAnimation.ref} style={statsSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.primary" color="kd.primary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
-                Join The Movement
+                📊 Proven Results
               </Badge>
-              <Heading size="xl" color={headingColor}>
-                The Numbers Speak: Consciousness Is Rising
+              <Heading size={{ base: "lg", md: "xl" }} color={headingColor}>
+                Real Transformations, Measurable Impact
               </Heading>
             </VStack>
 

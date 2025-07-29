@@ -14,8 +14,12 @@ import { PageWrapper, HeroSectionWrapper, SectionWrapper } from '../components/l
 import UniversalCTA from '../components/UniversalCTA';
 import { useSlideAnimation, slideAnimationConfigs } from '../hooks/useSlideAnimations';
 import { vedicWisdomSeries } from '../data/vedicWisdomSeries';
+import { contentMaster, getPageContent } from '../data/contentMaster';
 
 const AboutPage: React.FC = () => {
+  // Optimized content from contentMaster
+  const pageContent = getPageContent('about');
+  
   // DIVINE SLIDE ANIMATIONS
   const heroIconAnimation = useSlideAnimation(slideAnimationConfigs.heroIcon);
   const heroTitleAnimation = useSlideAnimation(slideAnimationConfigs.heroTitle);
@@ -42,9 +46,9 @@ const AboutPage: React.FC = () => {
   return (
     <PageWrapper hasHero={true}>
       <SEOHead
-        title="About Dr. Nischaya Nagori - Vedic Scholar & Spiritual Guide"
-        description="Meet Dr. Nischaya Nagori, revolutionary Vedic teacher bridging quantum physics with ancient wisdom. Authentic lineage holder offering Weekend Discourses, Chanting Classes, and Teacher Training."
-        keywords={['Dr. Nischaya Nagori', 'Vedic Scholar', 'Spiritual Teacher', 'Quantum Physics Spirituality', 'Sanskrit Expert', 'Vedic Education']}
+        title={`${pageContent.headline} - About Dr. Nischaya Nagori`}
+        description={pageContent.description}
+        keywords={['Dr. Nischaya Nagori', 'Quantum Vedic Teacher', 'MIT Scientist', 'Ancient Wisdom Guide', 'Scientific Spirituality', 'Authentic Lineage']}
       />
 
       {/* 🕉️ HERO SECTION - Dr. Nischaya's Introduction */}
@@ -87,10 +91,7 @@ const AboutPage: React.FC = () => {
                       ref={heroTitleAnimation.ref}
                       style={heroTitleAnimation.style}
                     >
-                      Meet{' '}
-                      <Text as="span" color="orange.500">
-                        Dr. Nischaya Nagori
-                      </Text>
+                      {pageContent.headline}
                     </Heading>
                     
                     <Text 
@@ -100,7 +101,7 @@ const AboutPage: React.FC = () => {
                       ref={heroSubtitleAnimation.ref}
                       style={heroSubtitleAnimation.style}
                     >
-                      Vedic Scholar, Spiritual Guide & Bridge Between Worlds
+                      {pageContent.subheading}
                     </Text>
                     
                     <Text 
@@ -111,9 +112,7 @@ const AboutPage: React.FC = () => {
                       ref={heroDescAnimation.ref}
                       style={heroDescAnimation.style}
                     >
-                      Revolutionary teacher connecting quantum physics with ancient Vedic wisdom. 
-                      Authentic lineage holder making profound spiritual knowledge accessible to 
-                      modern seekers worldwide through transformative online programs.
+                      {pageContent.description}
                     </Text>
                   </VStack>
 
@@ -123,30 +122,41 @@ const AboutPage: React.FC = () => {
                       <HStack spacing={4} flexWrap="wrap" justify={{ base: "center", lg: "start" }}>
                         <Button
                           as="a"
-                          href="/teachings"
+                          href={pageContent.primaryCtaData.href}
                           size={{ base: "md", md: "lg" }}
-                          colorScheme="orange"
-                          leftIcon={<Icon as={FaBook} />}
+                          colorScheme={pageContent.primaryCtaData.colorScheme}
+                          variant={pageContent.primaryCtaData.variant}
+                          leftIcon={<Icon as={pageContent.primaryCtaData.icon} />}
+                          px={8}
+                          py={6}
+                          fontSize="lg"
+                          fontWeight="bold"
                           _hover={{ 
-                            transform: "translateY(-2px)",
+                            transform: "translateY(-3px)",
                             boxShadow: "xl"
                           }}
+                          transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                         >
-                          Explore Teachings
+                          {pageContent.primaryCtaData.text}
                         </Button>
                         <Button
                           as="a"
-                          href="/contact"
+                          href={pageContent.secondaryCtaData.href}
                           size={{ base: "md", md: "lg" }}
-                          variant="outline"
-                          colorScheme="blue"
-                          leftIcon={<Icon as={FaHandsHelping} />}
+                          colorScheme={pageContent.secondaryCtaData.colorScheme}
+                          variant={pageContent.secondaryCtaData.variant}
+                          leftIcon={<Icon as={pageContent.secondaryCtaData.icon} />}
+                          px={8}
+                          py={6}
+                          fontSize="lg"
+                          fontWeight="medium"
                           _hover={{ 
-                            transform: "translateY(-2px)",
-                            boxShadow: "md"
+                            transform: "translateY(-3px)",
+                            boxShadow: "lg"
                           }}
+                          transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                         >
-                          Connect with Dr. Nischaya
+                          {pageContent.secondaryCtaData.text}
                         </Button>
                       </HStack>
                       
@@ -226,11 +236,10 @@ const AboutPage: React.FC = () => {
                 The Journey
               </Badge>
               <Heading size={{ base: "lg", md: "xl" }} color="gray.800">
-                From Ancient Wisdom to Modern Understanding
+                {pageContent.journeyTitle}
               </Heading>
               <Text fontSize={{ base: "md", md: "lg" }} color={mutedText} maxW="800px" lineHeight="tall">
-                Dr. Nischaya Nagori's unique journey bridges millennia-old Vedic knowledge with 
-                cutting-edge scientific understanding, creating a revolutionary approach to spiritual education.
+                {pageContent.journeyDescription}
               </Text>
             </VStack>
 
@@ -312,10 +321,10 @@ const AboutPage: React.FC = () => {
           <VStack spacing={16}>
             <VStack spacing={6} textAlign="center" ref={credentialsRef.ref} style={credentialsRef.style}>
               <Badge colorScheme="blue" fontSize="md" px={4} py={2} borderRadius="full">
-                Credentials & Expertise
+                {pageContent.credentialsTitle}
               </Badge>
               <Heading size={{ base: "lg", md: "xl" }} color="gray.800">
-                A Bridge Between Ancient & Modern
+                {pageContent.credentialsHeadline}
               </Heading>
             </VStack>
 
@@ -400,14 +409,13 @@ const AboutPage: React.FC = () => {
           <VStack spacing={16}>
             <VStack spacing={6} textAlign="center" ref={approachRef.ref} style={approachRef.style}>
               <Badge colorScheme="green" fontSize="md" px={4} py={2} borderRadius="full">
-                Teaching Philosophy
+                {pageContent.philosophyBadge}
               </Badge>
               <Heading size={{ base: "lg", md: "xl" }} color="gray.800">
-                Making Ancient Wisdom Accessible
+                {pageContent.philosophyTitle}
               </Heading>
               <Text fontSize={{ base: "md", md: "lg" }} color={mutedText} maxW="800px" lineHeight="tall">
-                Dr. Nischaya's teaching approach combines traditional authenticity with modern accessibility, 
-                ensuring profound spiritual knowledge reaches seekers at all levels.
+                {pageContent.philosophyDescription}
               </Text>
             </VStack>
 
@@ -506,7 +514,7 @@ const AboutPage: React.FC = () => {
             
             <SimpleGrid columns={{ base: 2, md: 4 }} spacing={8} w="full">
               {[
-                { number: "10,000+", label: "Students Globally" },
+                { number: "1000+", label: "Students Globally" },
                 { number: "25+", label: "Countries Reached" },
                 { number: "500+", label: "Hours of Teachings" },
                 { number: "50+", label: "Certified Teachers" }

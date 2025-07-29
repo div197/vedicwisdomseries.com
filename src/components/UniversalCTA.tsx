@@ -8,7 +8,7 @@ import {
   Box,
   Flex
 } from '@chakra-ui/react';
-import { FaBook, FaOm, FaHeart } from 'react-icons/fa';
+import { FaBook, FaOm, FaHeart, FaCalendarCheck } from 'react-icons/fa';
 import { siteConfig } from '../siteConfig';
 
 interface UniversalCTAProps {
@@ -59,6 +59,7 @@ export const UniversalCTA: React.FC<UniversalCTAProps> = ({
       case 'FaBook': return FaBook;
       case 'FaOm': return FaOm;
       case 'FaHeart': return FaHeart;
+      case 'FaCalendarCheck': return FaCalendarCheck;
       default: return FaBook;
     }
   };
@@ -123,7 +124,7 @@ export const UniversalCTA: React.FC<UniversalCTAProps> = ({
         href={universalCTA.primary.href}
         size={buttonSize}
         colorScheme={universalCTA.primary.colorScheme}
-        variant={universalCTA.primary.variant}
+        variant={universalCTA.primary.variant || "solid"}
         leftIcon={<Icon as={getIcon(universalCTA.primary.icon)} />}
         _hover={{
           transform: 'translateY(-2px)',

@@ -60,6 +60,32 @@ interface SiteConfig {
     name: string;
     title: string;
   };
+  
+  // UNIVERSAL CTA SYSTEM (for compatibility)
+  content: {
+    universalCTA: {
+      global: {
+        enabled: boolean;
+      };
+      primary: {
+        text: string;
+        href: string;
+        colorScheme: string;
+        size: string;
+        icon: string;
+        variant?: string;
+        description?: string;
+      };
+      secondary: {
+        text: string;
+        href: string;
+        colorScheme: string;
+        variant: string;
+        icon: string;
+        description?: string;
+      };
+    };
+  };
 }
 
 // THE ENTIRE CONFIGURATION
@@ -79,8 +105,8 @@ export const siteConfig: SiteConfig = {
       { label: 'Home', href: '/', hasHero: true },
       { label: 'About', href: '/about', hasHero: true },
       { label: 'Teachings', href: '/teachings', hasHero: true },
-      { label: 'Schedule', href: '/schedule', hasHero: false },
-      { label: 'Testimonials', href: '/testimonials', hasHero: false },
+      { label: 'Schedule', href: '/schedule', hasHero: true },
+      { label: 'Testimonials', href: '/testimonials', hasHero: true },
       { label: 'Contact', href: '/contact', hasHero: true }
     ],
     footer: {
@@ -112,5 +138,30 @@ export const siteConfig: SiteConfig = {
   author: {
     name: "Dr. Nischaya Nagori",
     title: "Vedic Scholar & Spiritual Guide"
+  },
+  
+  content: {
+    universalCTA: {
+      global: {
+        enabled: true
+      },
+      primary: {
+        text: "Claim Your Free Discovery Call",
+        href: "/contact",
+        colorScheme: "orange",
+        size: "lg",
+        icon: "FaCalendarCheck",
+        variant: "solid",
+        description: "Transform your life with personalized Vedic guidance"
+      },
+      secondary: {
+        text: "Download Free Guide",
+        href: "/contact",
+        colorScheme: "blue",
+        variant: "outline",
+        icon: "FaBook",
+        description: "Start your journey with our Vedic wisdom starter guide"
+      }
+    }
   }
 };
