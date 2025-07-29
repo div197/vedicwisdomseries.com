@@ -120,14 +120,6 @@ export const usePerformance = (config: Partial<PerformanceConfig> = {}) => {
     };
   }, [metrics]);
 
-  // Log performance metrics
-  const logMetrics = useCallback((metricName: string, value: number) => {
-    if (finalConfig.enableConsoleLogging) {
-      const grade = gradeMetric(value, PERFORMANCE_THRESHOLDS[metricName as keyof typeof PERFORMANCE_THRESHOLDS]);
-      const emoji = grade === 'good' ? '🟢' : grade === 'needs-improvement' ? '🟡' : '🔴';
-      console.log(`${emoji} ${metricName.toUpperCase()}: ${value.toFixed(2)}ms (${grade})`);
-    }
-  }, [finalConfig.enableConsoleLogging]);
 
   useEffect(() => {
     if (typeof window === 'undefined' || !('PerformanceObserver' in window)) {
@@ -146,7 +138,11 @@ export const usePerformance = (config: Partial<PerformanceConfig> = {}) => {
           const lastEntry = entries[entries.length - 1];
           const lcpValue = lastEntry.startTime;
           setMetrics(prev => ({ ...prev, lcp: lcpValue }));
-          logMetrics('lcp', lcpValue);
+          if (finalConfig.enableConsoleLogging) {
+            const grade = gradeMetric(lcpValue, PERFORMANCE_THRESHOLDS.lcp);
+            const emoji = grade === 'good' ? '🟢' : grade === 'needs-improvement' ? '🟡' : '🔴';
+            console.log(`${emoji} LCP: ${lcpValue.toFixed(2)}ms (${grade})`);
+          }
         });
         lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
         observers.push(lcpObserver);
@@ -160,7 +156,11 @@ export const usePerformance = (config: Partial<PerformanceConfig> = {}) => {
             const performanceEntry = entry as PerformanceEntryWithProcessing;
             const fid = (performanceEntry.processingStart || 0) - entry.startTime;
             setMetrics(prev => ({ ...prev, fid }));
-            logMetrics('fid', fid);
+            if (finalConfig.enableConsoleLogging) {
+              const grade = gradeMetric(fid, PERFORMANCE_THRESHOLDS.fid);
+              const emoji = grade === 'good' ? '🟢' : grade === 'needs-improvement' ? '🟡' : '🔴';
+              console.log(`${emoji} FID: ${fid.toFixed(2)}ms (${grade})`);
+            }
           });
         });
         fidObserver.observe({ entryTypes: ['first-input'] });
@@ -176,7 +176,11 @@ export const usePerformance = (config: Partial<PerformanceConfig> = {}) => {
             if (!entry.hadRecentInput) {
               clsValue += entry.value;
               setMetrics(prev => ({ ...prev, cls: clsValue }));
-              logMetrics('cls', clsValue);
+              if (finalConfig.enableConsoleLogging) {
+                const grade = gradeMetric(clsValue, PERFORMANCE_THRESHOLDS.cls);
+                const emoji = grade === 'good' ? '🟢' : grade === 'needs-improvement' ? '🟡' : '🔴';
+                console.log(`${emoji} CLS: ${clsValue.toFixed(3)} (${grade})`);
+              }
             }
           });
         });
@@ -191,7 +195,11 @@ export const usePerformance = (config: Partial<PerformanceConfig> = {}) => {
           const navigationEntry = navigationEntries[0] as PerformanceNavigationTiming;
           const ttfb = navigationEntry.responseStart - navigationEntry.requestStart;
           setMetrics(prev => ({ ...prev, ttfb }));
-          logMetrics('ttfb', ttfb);
+          if (finalConfig.enableConsoleLogging) {
+            const grade = gradeMetric(ttfb, PERFORMANCE_THRESHOLDS.ttfb);
+            const emoji = grade === 'good' ? '🟢' : grade === 'needs-improvement' ? '🟡' : '🔴';
+            console.log(`${emoji} TTFB: ${ttfb.toFixed(2)}ms (${grade})`);
+          }
         }
       }
 
@@ -203,7 +211,11 @@ export const usePerformance = (config: Partial<PerformanceConfig> = {}) => {
           if (fcpEntry) {
             const fcpValue = fcpEntry.startTime;
             setMetrics(prev => ({ ...prev, fcp: fcpValue }));
-            logMetrics('fcp', fcpValue);
+            if (finalConfig.enableConsoleLogging) {
+              const grade = gradeMetric(fcpValue, PERFORMANCE_THRESHOLDS.fcp);
+              const emoji = grade === 'good' ? '🟢' : grade === 'needs-improvement' ? '🟡' : '🔴';
+              console.log(`${emoji} FCP: ${fcpValue.toFixed(2)}ms (${grade})`);
+            }
           }
         });
         fcpObserver.observe({ entryTypes: ['paint'] });
@@ -218,7 +230,11 @@ export const usePerformance = (config: Partial<PerformanceConfig> = {}) => {
             const navigationEntry = navigationEntries[0] as PerformanceNavigationTiming;
             const tti = navigationEntry.domInteractive;
             setMetrics(prev => ({ ...prev, tti }));
-            logMetrics('tti', tti);
+            if (finalConfig.enableConsoleLogging) {
+              const grade = gradeMetric(tti, PERFORMANCE_THRESHOLDS.tti);
+              const emoji = grade === 'good' ? '🟢' : grade === 'needs-improvement' ? '🟡' : '🔴';
+              console.log(`${emoji} TTI: ${tti.toFixed(2)}ms (${grade})`);
+            }
           }
         }, 1000);
       }
@@ -237,11 +253,13 @@ export const usePerformance = (config: Partial<PerformanceConfig> = {}) => {
         console.warn('Performance monitoring not supported:', error);
       }
     }
-  }, [finalConfig, logMetrics]);
+  }, [finalConfig]);
+
+  const grades = React.useMemo(() => getPerformanceGrade(), [getPerformanceGrade]);
 
   return {
     metrics,
-    grades: getPerformanceGrade(),
+    grades,
     isLoading,
     error,
     isSupported: typeof window !== 'undefined' && 'PerformanceObserver' in window,

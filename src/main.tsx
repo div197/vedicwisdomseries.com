@@ -5,8 +5,8 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { HelmetProvider } from 'react-helmet-async'
 import theme from './theme'
 import App from './App'
-// SOTA Error Boundary System
-import { ErrorBoundarySota } from './components/providers/ErrorBoundary-sota'
+// Simple Error Boundary System
+import { SimpleErrorBoundary } from './components/providers/SimpleErrorBoundary'
 
 // Import global CSS reset
 // import './index.css' // Already imported above
@@ -21,17 +21,7 @@ import '@fontsource/geist-sans/400.css'; // Regular
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ErrorBoundarySota 
-      maxRetries={3}
-      isolateErrors={true}
-      onError={(error, errorInfo) => {
-        // Production error logging would go here
-        console.group('🚨 Karpatri Dham Application Error')
-        console.error('Error:', error)
-        console.log('Error Info:', errorInfo)
-        console.groupEnd()
-      }}
-    >
+    <SimpleErrorBoundary>
       <HelmetProvider>
         <ChakraProvider theme={theme}>
             <BrowserRouter>
@@ -39,6 +29,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             </BrowserRouter>
         </ChakraProvider>
       </HelmetProvider>
-    </ErrorBoundarySota>
+    </SimpleErrorBoundary>
   </React.StrictMode>
 )

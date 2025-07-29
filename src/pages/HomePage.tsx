@@ -24,7 +24,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import SEOHead from '../components/SEOHead'
 import UniversalCTA from '../components/UniversalCTA'
 import { siteConfig } from '../siteConfig'
-import { PageWrapper, HeroSectionWrapper, SectionWrapper, ContentContainer } from '../components/layout/PageWrapper'
+import { SimpleLayout, HeroSection, ContentSection } from '../components/layout/SimpleLayout'
 import { vedicWisdomSeries, getVedicIcon } from '../data/vedicWisdomSeries'
 import { useSlideAnimation, slideAnimationConfigs } from '../hooks/useSlideAnimations'
 
@@ -35,12 +35,12 @@ export default function HomePage() {
   )
   
   const cardBg = useColorModeValue('white', 'gray.800')
-  // DIVINE COLOR SYSTEM - Following KD Framework Semantic Tokens Only
-  const textColor = 'kd.text'                    // Clear readable text
-  const headingColor = 'kd.heading'              // Strong headings
-  const accentColor = 'kd.secondary'             // Serene Blue accents
-  const primaryColor = 'kd.primary'              // Deep Saffron for primary
-  const tertiaryColor = 'kd.tertiary'            // Sacred Gold for highlights
+  // SOPHISTICATED DIRECT COLORS - Using Chakra UI's excellent semantic system
+  const textColor = useColorModeValue('gray.800', 'white')           // Clear readable text
+  const headingColor = useColorModeValue('gray.900', 'white')        // Strong headings  
+  const accentColor = 'secondary.500'                               // Serene Blue accents
+  const primaryColor = 'primary.500'                                // Deep Saffron for primary
+  const tertiaryColor = 'tertiary.500'                              // Sacred Gold for highlights
 
   // Configuration-driven content from vedicWisdomSeries data
   const homeConfig = vedicWisdomSeries
@@ -110,9 +110,9 @@ export default function HomePage() {
         structuredData={structuredData}
       />
 
-      <PageWrapper hasHero={true}>
-        {/* 🕉️ DIVINE HERO SECTION - Automatic spacing below transparent header */}
-        <HeroSectionWrapper>
+      <SimpleLayout hasHero={true}>
+        {/* 🕉️ DIVINE HERO SECTION - CSS Grid handles spacing automatically */}
+        <HeroSection>
           <Box 
             minH="100vh" 
             bgGradient={heroGradient}
@@ -198,10 +198,10 @@ export default function HomePage() {
               </VStack>
             </Container>
           </Box>
-        </HeroSectionWrapper>
+        </HeroSection>
 
-        {/* 🕉️ SPIRITUAL WISDOM PRINCIPLES SECTION - Automatic spacing after hero */}
-        <SectionWrapper>
+        {/* 🕉️ SPIRITUAL WISDOM PRINCIPLES SECTION - Simple content section */}
+        <ContentSection>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={principlesSectionAnimation.ref} style={principlesSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.secondary" color="kd.secondary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
@@ -254,10 +254,10 @@ export default function HomePage() {
               })}
             </SimpleGrid>
           </VStack>
-        </SectionWrapper>
+        </ContentSection>
 
-        {/* 🕉️ DIVINE OFFERINGS SECTION - Automatic spacing */}
-        <SectionWrapper>
+        {/* 🕉️ DIVINE OFFERINGS SECTION - Simple content section */}
+        <ContentSection>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={productsSectionAnimation.ref} style={productsSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.tertiary" color="kd.tertiary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
@@ -272,9 +272,9 @@ export default function HomePage() {
             </VStack>
 
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full">
-              {homeConfig.productCategories.map((category: any, index: number) => {
+              {homeConfig.offerings.map((offering: any, index: number) => {
                 // Alternating left/right slide animations with staggered delays
-                const categoryAnimation = useSlideAnimation({
+                const offeringAnimation = useSlideAnimation({
                   direction: index % 2 === 0 ? 'from-left' : 'from-right',
                   duration: 800,
                   delay: index * 150,
@@ -286,32 +286,32 @@ export default function HomePage() {
                     bg={cardBg} 
                     shadow="md" 
                     _hover={{ transform: 'translateY(-4px)', shadow: 'lg' }}
-                    ref={categoryAnimation.ref}
-                    style={categoryAnimation.style}
+                    ref={offeringAnimation.ref}
+                    style={offeringAnimation.style}
                   >
                     <CardBody p={8}>
                       <VStack spacing={6} align="start">
                         <HStack justify="space-between" w="full">
                           <Badge bg="kd.secondary" color="kd.secondaryContrast" variant="solid" fontSize="sm">
-                            {category.badge}
+                            {offering.badge}
                           </Badge>
                           <Text fontSize="sm" color={textColor} fontWeight="medium">
-                            {category.count}
+                            {offering.price}
                           </Text>
                         </HStack>
                         <VStack align="start" spacing={3}>
                           <Heading size="md" color={headingColor}>
-                            {category.title}
+                            {offering.title}
                           </Heading>
                           <Text color={textColor} lineHeight="tall">
-                            {category.description}
+                            {offering.description}
                           </Text>
                         </VStack>
                         <Button 
                           as={RouterLink} 
-                          to={category.link || '/teachings'} 
+                          to={offering.link || '/teachings'} 
                           variant="solid" 
-                          colorScheme={category.color} 
+                          colorScheme={offering.color} 
                           size="sm" 
                           w="full"
                         >
@@ -324,10 +324,10 @@ export default function HomePage() {
               })}
             </SimpleGrid>
           </VStack>
-        </SectionWrapper>
+        </ContentSection>
 
-        {/* 🕉️ SPIRITUAL IMPACT STATS SECTION - Automatic spacing */}
-        <SectionWrapper>
+        {/* 🕉️ SPIRITUAL IMPACT STATS SECTION - Simple content section */}
+        <ContentSection>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={statsSectionAnimation.ref} style={statsSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.primary" color="kd.primary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
@@ -375,8 +375,8 @@ export default function HomePage() {
               })}
             </SimpleGrid>
           </VStack>
-        </SectionWrapper>
-      </PageWrapper>
+        </ContentSection>
+      </SimpleLayout>
     </>
   )
 } 

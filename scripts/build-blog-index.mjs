@@ -96,12 +96,13 @@ function getSiteConfigValues() {
     // Extract default author from config
     const authorMatch = configContent.match(/name:\s*"(.*?)"/);
     const defaultAuthor = authorMatch ? authorMatch[1] : 'Content Team';
-    // Updated to match current siteConfig structure
+    // FIXED: Corrected siteConfig parsing for proper sitemap generation
     const navLinksMatch = configContent.match(/navigation:\s*{[\s\S]*?main:\s*(\[[\s\S]*?])/);
     let staticPages = [];
     if (navLinksMatch && navLinksMatch[1]) {
       try {
-        const linkRegex = /{\s*label:\s*.*?,\s*href:\s*'([^']+)'}/g;
+        // CORRECTED REGEX: Use single quotes to match actual siteConfig format
+        const linkRegex = /{\s*label:\s*[^,]+,\s*href:\s*'([^']+)'(?:,\s*hasHero:\s*(?:true|false))?[^}]*}/g;
         let match;
         while ((match = linkRegex.exec(navLinksMatch[1])) !== null) {
             // Exclude the news/blog link itself from static pages in sitemap
@@ -109,9 +110,33 @@ function getSiteConfigValues() {
             staticPages.push(match[1]);
             }
         }
+        
+        // ENHANCED: Also extract teaching categories from footer
+        const footerMatch = configContent.match(/footer:\s*{[\s\S]*?categories:\s*(\[[\s\S]*?])/);
+        if (footerMatch && footerMatch[1]) {
+          const categoryRegex = /href:\s*'([^']+)'/g;
+          let categoryMatch;
+          while ((categoryMatch = categoryRegex.exec(footerMatch[1])) !== null) {
+            staticPages.push(categoryMatch[1]);
+          }
+        }
+        
+        // FALLBACK: Ensure critical pages are always included
+        const criticalPages = ['/', '/about', '/teachings', '/contact', '/schedule', '/testimonials'];
+        criticalPages.forEach(page => {
+          if (!staticPages.includes(page)) {
+            staticPages.push(page);
+          }
+        });
+        
       } catch (parseError) {
         console.warn(`WARN: Could not parse navLinks from siteConfig.ts for sitemap.`, parseError);
+        // ENHANCED FALLBACK: Use all known pages if parsing fails
+        staticPages = ['/', '/about', '/teachings', '/contact', '/schedule', '/testimonials', '/news', '/gallery', '/privacy-policy', '/terms-of-service'];
       }
+    } else {
+      // COMPLETE FALLBACK: If no navigation found, use comprehensive page list
+      staticPages = ['/', '/about', '/teachings', '/contact', '/schedule', '/testimonials', '/news', '/gallery', '/privacy-policy', '/terms-of-service'];
     }
     if (!siteUrl) {
       console.warn("WARN: Could not extract siteUrl from siteConfig.ts for sitemap generation.");

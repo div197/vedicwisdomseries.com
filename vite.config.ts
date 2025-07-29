@@ -187,12 +187,53 @@ export default defineConfig(({ mode }) => {
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-            vendor: ['react', 'react-dom'],
-            ui: ['@chakra-ui/react', '@emotion/react'],
-            router: ['react-router-dom'],
-            markdown: ['react-markdown', 'remark-gfm']
+        manualChunks: (id) => {
+          // Core dependencies
+          if (id.includes('react') && !id.includes('react-router') && !id.includes('react-markdown')) {
+            return 'react-core';
           }
+          
+          // Chakra UI - split into smaller chunks
+          if (id.includes('@chakra-ui')) {
+            if (id.includes('@chakra-ui/icons')) return 'chakra-icons';
+            return 'chakra-ui';
+          }
+          
+          // Emotion (CSS-in-JS)
+          if (id.includes('@emotion')) {
+            return 'emotion';
+          }
+          
+          // Router
+          if (id.includes('react-router')) {
+            return 'router';
+          }
+          
+          // Markdown processing
+          if (id.includes('react-markdown') || id.includes('remark') || id.includes('rehype')) {
+            return 'markdown';
+          }
+          
+          // Animation library
+          if (id.includes('framer-motion')) {
+            return 'animations';
+          }
+          
+          // Icons
+          if (id.includes('react-icons')) {
+            return 'icons';
+          }
+          
+          // Fonts
+          if (id.includes('@fontsource')) {
+            return 'fonts';
+          }
+          
+          // Other vendor dependencies
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        }
         }
         },
       // Optimize chunk size
