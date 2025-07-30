@@ -47,7 +47,7 @@ import {
   FaCheckCircle,
   FaOm,
   FaLightbulb,
-  FaRocket,
+  FaAtom,
   FaUsers
 } from 'react-icons/fa';
 import { PageWrapper, HeroSectionWrapper, SectionWrapper } from '../components/layout/PageWrapper';
@@ -523,7 +523,7 @@ export default function TestimonialsPage() {
               <Button
                 size="lg"
                 colorScheme="orange"
-                rightIcon={<Icon as={FaRocket} />}
+                rightIcon={<Icon as={FaAtom} />}
                 as="a"
                 href="/contact"
               >
