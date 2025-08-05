@@ -23,11 +23,9 @@
     "universal-knowledge"
   ],
   "scripts": {
-    "build:blog": "node scripts/build-blog-index.mjs",
     "build:sitemap": "node scripts/build-sitemap-fixed.mjs",
-    "build:seo": "npm run build:blog && npm run build:sitemap",
-    "dev": "npm run build:seo && vite",
-    "build": "npm run build:seo && tsc && vite build",
+    "dev": "npm run build:sitemap && vite",
+    "build": "npm run build:sitemap && tsc && vite build",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "type-check": "tsc --noEmit",

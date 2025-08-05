@@ -1,0 +1,46 @@
+/*
+  # 🕉️ VEDIC WISDOM SERIES - ENTERPRISE SECURITY HEADERS
+  
+  # Content Security Policy - Maximum Protection
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://api.vedicwisdomseries.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  
+  # Security Headers
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  
+  # HSTS - Enforce HTTPS
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Additional Security
+  X-DNS-Prefetch-Control: on
+  X-Permitted-Cross-Domain-Policies: none
+  
+  # Cache Control for Static Assets
+  Cache-Control: public, max-age=31536000, immutable
+  
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+  
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+  
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+  
+/*.json
+  Cache-Control: no-cache, no-store, must-revalidate
+  
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  
+/robots.txt
+  Cache-Control: public, max-age=86400

@@ -13,12 +13,7 @@ import PerformanceMonitor from './components/PerformanceMonitor'
 const HomePage = React.lazy(() => import('./pages/HomePage'))
 const AboutPage = React.lazy(() => import('./pages/AboutPage'))
 const TeachingsPage = React.lazy(() => import('./pages/TeachingsPage'))
-const ProductsPage = React.lazy(() => import('./pages/ProductsPage'))
-const QualityPage = React.lazy(() => import('./pages/QualityPage'))
-const KnowledgeCenterPage = React.lazy(() => import('./pages/KnowledgeCenterPage'))
 const ContactPage = React.lazy(() => import('./pages/ContactPage'))
-const CategoriesPage = React.lazy(() => import('./pages/CategoriesPage'))
-const GalleryPage = React.lazy(() => import('./pages/GalleryPage'))
 const PrivacyPolicyPage = React.lazy(() => import('./pages/PrivacyPolicyPage'))
 const TermsOfServicePage = React.lazy(() => import('./pages/TermsOfServicePage'))
 const TestimonialsPage = React.lazy(() => import('./pages/TestimonialsPage'))
@@ -40,8 +35,6 @@ function App() {
               <Route path="/schedule" element={<SchedulePage />} />
               <Route path="/testimonials" element={<TestimonialsPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/categories" element={<CategoriesPage />} />
-              <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="/terms-of-service" element={<TermsOfServicePage />} />
               

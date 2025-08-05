@@ -3,6 +3,53 @@
  * Implements advanced Progressive Web App features for spiritual content
  */
 
+// Export PWA configuration for Vite
+export const pwaConfiguration = {
+  registerType: 'autoUpdate',
+  includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'robots.txt', 'sitemap.xml'],
+  manifest: {
+    name: 'Vedic Wisdom Series',
+    short_name: 'VWS',
+    description: 'Where Quantum Science Meets Ancient Wisdom',
+    theme_color: '#FF9933',
+    background_color: '#FFF8E1',
+    display: 'standalone',
+    scope: '/',
+    start_url: '/',
+    icons: [
+      {
+        src: '/assets/logos/android-chrome-192x192.png',
+        sizes: '192x192',
+        type: 'image/png'
+      },
+      {
+        src: '/assets/logos/android-chrome-512x512.png',
+        sizes: '512x512',
+        type: 'image/png'
+      }
+    ]
+  },
+  workbox: {
+    globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2}'],
+    runtimeCaching: [
+      {
+        urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'google-fonts-cache',
+          expiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+          },
+          cacheableResponse: {
+            statuses: [0, 200]
+          }
+        }
+      }
+    ]
+  }
+}
+
 export interface PWAConfig {
   name: string;
   shortName: string;
