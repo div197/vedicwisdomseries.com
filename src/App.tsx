@@ -1,24 +1,22 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { AccessibilityProvider, SkipLinks } from './components/providers/AccessibilityProvider'
 import { SimpleErrorBoundary } from './components/providers/SimpleErrorBoundary'
-import { PageLoadingSpinner } from './components/LoadingSpinner'
 
-// Layout Components (Critical - keep synchronous)
+// Layout Components
 import Header from './components/Header'
 import Footer from './components/Footer'
 import PageWrapper from './components/layout/PageWrapper'
-import PerformanceMonitor from './components/PerformanceMonitor'
 
-// Lazy-loaded Pages for optimal code splitting
-const HomePage = React.lazy(() => import('./pages/HomePage'))
-const AboutPage = React.lazy(() => import('./pages/AboutPage'))
-const TeachingsPage = React.lazy(() => import('./pages/TeachingsPage'))
-const ContactPage = React.lazy(() => import('./pages/ContactPage'))
-const PrivacyPolicyPage = React.lazy(() => import('./pages/PrivacyPolicyPage'))
-const TermsOfServicePage = React.lazy(() => import('./pages/TermsOfServicePage'))
-const TestimonialsPage = React.lazy(() => import('./pages/TestimonialsPage'))
-const SchedulePage = React.lazy(() => import('./pages/SchedulePage'))
+// Direct page imports (no lazy loading for production stability)
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import TeachingsPage from './pages/TeachingsPage'
+import ContactPage from './pages/ContactPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
+import TermsOfServicePage from './pages/TermsOfServicePage'
+import TestimonialsPage from './pages/TestimonialsPage'
+import SchedulePage from './pages/SchedulePage'
 
 function App() {
   return (
@@ -31,7 +29,6 @@ function App() {
           </SimpleErrorBoundary>
           <PageWrapper id="main-content">
             <SimpleErrorBoundary>
-              <Suspense fallback={<PageLoadingSpinner />}>
                 <Routes>
                   {/* Public Routes - Each wrapped in error boundary */}
                   <Route path="/" element={
@@ -126,13 +123,11 @@ function App() {
                     </SimpleErrorBoundary>
                   } />
                 </Routes>
-              </Suspense>
             </SimpleErrorBoundary>
           </PageWrapper>
           <SimpleErrorBoundary>
             <Footer />
           </SimpleErrorBoundary>
-          {/* <PerformanceMonitor /> */}
         </div>
       </AccessibilityProvider>
     </SimpleErrorBoundary>

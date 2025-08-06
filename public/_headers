@@ -2,8 +2,8 @@
   # 🕉️ VEDIC WISDOM SERIES - MAXIMUM SECURITY FORTRESS
   # CANCER AGENT ENHANCED SECURITY HEADERS - ENTERPRISE GRADE
   
-  # Content Security Policy - Fort Knox Level Protection
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'nonce-{{NONCE}}' https://www.googletagmanager.com https://www.google-analytics.com https://js.stripe.com https://checkout.stripe.com; style-src 'self' 'unsafe-inline' 'nonce-{{NONCE}}' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: *.vaidikwisdomseries.com; connect-src 'self' https://www.google-analytics.com https://api.vaidikwisdomseries.com https://api.stripe.com wss://api.vaidikwisdomseries.com; frame-src 'self' https://js.stripe.com https://checkout.stripe.com https://www.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.vaidikwisdomseries.com; upgrade-insecure-requests; block-all-mixed-content; require-trusted-types-for 'script'
+  # Content Security Policy - Production Stable
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self'; frame-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
   
   # Advanced Security Headers
   X-Frame-Options: DENY
@@ -20,10 +20,10 @@
   # HSTS - Maximum Security Transport
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   
-  # Security Features
-  Cross-Origin-Embedder-Policy: require-corp
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Resource-Policy: same-origin
+  # Security Features (Relaxed for stability)
+  # Cross-Origin-Embedder-Policy: require-corp
+  # Cross-Origin-Opener-Policy: same-origin
+  # Cross-Origin-Resource-Policy: same-origin
   
   # Rate Limiting Headers
   X-RateLimit-Limit: 1000
