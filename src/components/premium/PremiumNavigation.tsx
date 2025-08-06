@@ -10,9 +10,7 @@ import {
   Text,
   Badge,
   useColorModeValue,
-  useDisclosure,
-  Collapse,
-  Divider
+  Collapse
 } from '@chakra-ui/react'
 import { Link as RouterLink, useLocation } from 'react-router-dom'
 import { IconType } from 'react-icons'
@@ -74,11 +72,18 @@ interface PremiumSidebarProps {
   position?: 'left' | 'right'
 }
 
-// Advanced Link Styling
-const getLinkStyles = (variant: string, size: string, isActive: boolean) => {
+// Advanced Link Styling - Hook-safe version
+const getLinkStyles = (variant: string, size: string, isActive: boolean, colorModeValues: {
+  defaultColor: string;
+  buttonColor: string;
+  tabColor: string;
+  breadcrumbColor: string;
+  sidebarColor: string;
+  sidebarHoverBg: string;
+}) => {
   const baseStyles = {
     default: {
-      color: isActive ? 'primary.500' : useColorModeValue('gray.700', 'gray.300'),
+      color: isActive ? 'primary.500' : colorModeValues.defaultColor,
       fontWeight: isActive ? '600' : '500',
       _hover: {
         color: 'primary.500',
@@ -87,7 +92,7 @@ const getLinkStyles = (variant: string, size: string, isActive: boolean) => {
     },
     button: {
       bg: isActive ? 'primary.500' : 'transparent',
-      color: isActive ? 'white' : useColorModeValue('gray.700', 'gray.300'),
+      color: isActive ? 'white' : colorModeValues.buttonColor,
       px: 4,
       py: 2,
       borderRadius: 'md',
@@ -101,7 +106,7 @@ const getLinkStyles = (variant: string, size: string, isActive: boolean) => {
     },
     tab: {
       position: 'relative' as const,
-      color: isActive ? 'primary.500' : useColorModeValue('gray.600', 'gray.400'),
+      color: isActive ? 'primary.500' : colorModeValues.tabColor,
       fontWeight: isActive ? '600' : '500',
       pb: 2,
       _after: isActive ? {
@@ -119,7 +124,7 @@ const getLinkStyles = (variant: string, size: string, isActive: boolean) => {
       }
     },
     breadcrumb: {
-      color: useColorModeValue('gray.600', 'gray.400'),
+      color: colorModeValues.breadcrumbColor,
       fontSize: 'sm',
       _hover: {
         color: 'primary.500',
@@ -129,14 +134,14 @@ const getLinkStyles = (variant: string, size: string, isActive: boolean) => {
     sidebar: {
       w: 'full',
       justifyContent: 'flex-start',
-      color: isActive ? 'primary.500' : useColorModeValue('gray.700', 'gray.300'),
+      color: isActive ? 'primary.500' : colorModeValues.sidebarColor,
       bg: isActive ? 'primary.50' : 'transparent',
       fontWeight: isActive ? '600' : '500',
       px: 3,
       py: 2.5,
       borderRadius: 'lg',
       _hover: {
-        bg: isActive ? 'primary.100' : useColorModeValue('gray.100', 'gray.700'),
+        bg: isActive ? 'primary.100' : colorModeValues.sidebarHoverBg,
         color: 'primary.500',
         textDecoration: 'none'
       }
@@ -169,7 +174,18 @@ export const PremiumNavLink: React.FC<PremiumNavLinkProps> = ({
 }) => {
   const location = useLocation()
   const isActive = location.pathname === to
-  const linkStyles = getLinkStyles(variant, size, isActive)
+  
+  // Get color mode values
+  const colorModeValues = {
+    defaultColor: useColorModeValue('gray.700', 'gray.300'),
+    buttonColor: useColorModeValue('gray.700', 'gray.300'),
+    tabColor: useColorModeValue('gray.600', 'gray.400'),
+    breadcrumbColor: useColorModeValue('gray.600', 'gray.400'),
+    sidebarColor: useColorModeValue('gray.700', 'gray.300'),
+    sidebarHoverBg: useColorModeValue('gray.100', 'gray.700')
+  }
+  
+  const linkStyles = getLinkStyles(variant, size, isActive, colorModeValues)
 
   const LinkComponent = external ? Link : RouterLink
   const linkProps = external ? { href: to, isExternal: true } : { to }
@@ -310,7 +326,8 @@ export const PremiumBreadcrumb: React.FC<PremiumBreadcrumbProps> = ({
     arrow: <FaChevronRight size={12} />,
     slash: <Text color="gray.400">/</Text>
   }
-
+  
+  const textColor = useColorModeValue('gray.800', 'gray.200')
   const currentSeparator = separatorStyles[variant]
 
   return (
@@ -327,7 +344,7 @@ export const PremiumBreadcrumb: React.FC<PremiumBreadcrumbProps> = ({
           ) : (
             <Text
               fontSize="sm"
-              color={useColorModeValue('gray.800', 'gray.200')}
+              color={textColor}
               fontWeight="500"
             >
               {item.label}

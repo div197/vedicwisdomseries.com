@@ -12,6 +12,21 @@ interface SyncEvent<T = any> {
   version: number;
 }
 
+// Event callback type definitions
+interface EventCallbacks {
+  initialized: (data: { state: SyncState }) => void;
+  error: (data: { error: Event; timestamp: number }) => void;
+  maxReconnectAttemptsReached: (data: { attempts: number }) => void;
+  online: (data: { timestamp: number }) => void;
+  offline: (data: { timestamp: number }) => void;
+  connectionStatusChanged: (data: { status: ConnectionStatus; isConnected: boolean; timestamp: number }) => void;
+  syncCompleted: (data: { lastSync: number; serverData: any }) => void;
+  conflictResolved: (data: { localEvent: SyncEvent; serverEvent: SyncEvent; resolvedEvent: SyncEvent }) => void;
+  dataChanged: (data: { type: string; entity: string; data: any; timestamp: number }) => void;
+}
+
+type SyncEventCallback<K extends keyof EventCallbacks = keyof EventCallbacks> = EventCallbacks[K];
+
 interface SyncState {
   isOnline: boolean;
   isConnected: boolean;
@@ -38,7 +53,7 @@ export class VedicDataSync {
   private state: SyncState;
   private reconnectAttempts: number = 0;
   private syncTimer: number | null = null;
-  private eventListeners: Map<string, Set<Function>> = new Map();
+  private eventListeners: Map<string, Set<SyncEventCallback>> = new Map();
   private messageQueue: SyncEvent[] = [];
   private isInitialized: boolean = false;
 
@@ -375,14 +390,18 @@ export class VedicDataSync {
   }
 
   // Event system
-  public on(event: string, callback: Function): void {
+  public on<K extends keyof EventCallbacks>(event: K, callback: EventCallbacks[K]): void;
+  public on(event: string, callback: SyncEventCallback): void;
+  public on(event: string, callback: SyncEventCallback): void {
     if (!this.eventListeners.has(event)) {
       this.eventListeners.set(event, new Set());
     }
     this.eventListeners.get(event)!.add(callback);
   }
 
-  public off(event: string, callback: Function): void {
+  public off<K extends keyof EventCallbacks>(event: K, callback: EventCallbacks[K]): void;
+  public off(event: string, callback: SyncEventCallback): void;
+  public off(event: string, callback: SyncEventCallback): void {
     const listeners = this.eventListeners.get(event);
     if (listeners) {
       listeners.delete(callback);

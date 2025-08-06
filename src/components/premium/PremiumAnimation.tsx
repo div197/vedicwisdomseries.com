@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, BoxProps } from '@chakra-ui/react'
-import { motion, MotionProps, Variants } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { useInView } from 'framer-motion'
 
 // Premium Animation System - Centralized Motion Architecture

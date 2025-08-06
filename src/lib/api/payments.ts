@@ -292,7 +292,7 @@ class PaymentService {
   }
 
   // PayPal payment processing
-  private async processPayPalPayment(paymentIntentId: string, paymentMethodData?: any): Promise<PaymentResult> {
+  private async processPayPalPayment(paymentIntentId: string, _paymentMethodData?: any): Promise<PaymentResult> {
     // Implementation would depend on PayPal SDK integration
     return {
       success: false,
@@ -305,7 +305,7 @@ class PaymentService {
   }
 
   // Square payment processing
-  private async processSquarePayment(paymentIntentId: string, paymentMethodData?: any): Promise<PaymentResult> {
+  private async processSquarePayment(paymentIntentId: string, _paymentMethodData?: any): Promise<PaymentResult> {
     // Implementation would depend on Square SDK integration
     return {
       success: false,

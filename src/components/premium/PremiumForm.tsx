@@ -6,13 +6,8 @@ import {
   Input,
   Textarea,
   Select,
-  Checkbox,
-  Radio,
-  RadioGroup,
-  CheckboxGroup,
   Button,
   VStack,
-  HStack,
   Text,
   Icon,
   useColorModeValue,
@@ -23,7 +18,7 @@ import {
   FormHelperText
 } from '@chakra-ui/react'
 import { IconType } from 'react-icons'
-import { FaEye, FaEyeSlash, FaCheck, FaExclamationTriangle } from 'react-icons/fa'
+import { FaEye, FaEyeSlash, FaExclamationTriangle } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
 // Premium Form System - Centralized Chakra UI Form Architecture
@@ -74,29 +69,36 @@ interface PremiumSelectProps {
   onChange?: (value: string) => void
 }
 
+interface FormData {
+  [key: string]: string | number | boolean | undefined;
+}
+
 interface PremiumFormProps {
   variant?: 'default' | 'card' | 'modal' | 'inline'
   spacing?: number
-  onSubmit?: (data: Record<string, any>) => void
+  onSubmit?: (data: FormData) => void
   children: React.ReactNode
   title?: string
   subtitle?: string
   loading?: boolean
 }
 
-// Advanced Input Variants
-const getInputStyles = (variant: string, size: string, hasError: boolean) => {
+// Advanced Input Variants - Custom Hook
+const useInputStyles = (variant: string, size: string, hasError: boolean) => {
+  // Call all hooks unconditionally at the top level
+  const bgColor = useColorModeValue('white', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
+  const hoverBorderColor = useColorModeValue('gray.300', 'gray.500');
+  const floatingBorderColor = useColorModeValue('gray.300', 'gray.600');
+  const floatingHoverBorderColor = useColorModeValue('gray.400', 'gray.500');
+
   const baseStyles = {
     default: {
-      bg: useColorModeValue('white', 'gray.800'),
+      bg: bgColor,
       border: '2px solid',
-      borderColor: hasError 
-        ? 'red.300' 
-        : useColorModeValue('gray.200', 'gray.600'),
+      borderColor: hasError ? 'red.300' : borderColor,
       _hover: {
-        borderColor: hasError 
-          ? 'red.400' 
-          : useColorModeValue('gray.300', 'gray.500')
+        borderColor: hasError ? 'red.400' : hoverBorderColor
       },
       _focus: {
         borderColor: hasError ? 'red.500' : 'primary.500',
@@ -125,15 +127,11 @@ const getInputStyles = (variant: string, size: string, hasError: boolean) => {
       bg: 'transparent',
       border: 'none',
       borderBottom: '2px solid',
-      borderColor: hasError 
-        ? 'red.300' 
-        : useColorModeValue('gray.300', 'gray.600'),
+      borderColor: hasError ? 'red.300' : floatingBorderColor,
       borderRadius: 0,
       px: 0,
       _hover: {
-        borderColor: hasError 
-          ? 'red.400' 
-          : useColorModeValue('gray.400', 'gray.500')
+        borderColor: hasError ? 'red.400' : floatingHoverBorderColor
       },
       _focus: {
         borderColor: hasError ? 'red.500' : 'primary.500',
@@ -190,6 +188,7 @@ export const PremiumInput: React.FC<PremiumInputProps> = ({
   const isPassword = type === 'password'
   const inputType = isPassword && showPassword ? 'text' : type
   const hasError = !!(error || localError)
+  const labelColor = useColorModeValue('gray.700', 'gray.300')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
@@ -209,7 +208,7 @@ export const PremiumInput: React.FC<PremiumInputProps> = ({
     }
   }
 
-  const inputStyles = getInputStyles(variant, size, hasError)
+  const inputStyles = useInputStyles(variant, size, hasError)
 
   return (
     <FormControl isInvalid={hasError} isRequired={required}>
@@ -217,7 +216,7 @@ export const PremiumInput: React.FC<PremiumInputProps> = ({
         <FormLabel 
           fontSize={size === 'lg' ? 'md' : 'sm'}
           fontWeight="600"
-          color={useColorModeValue('gray.700', 'gray.300')}
+          color={labelColor}
           mb={2}
         >
           {label}
@@ -293,7 +292,8 @@ export const PremiumTextarea: React.FC<PremiumTextareaProps> = ({
   onChange
 }) => {
   const hasError = !!error
-  const inputStyles = getInputStyles(variant, size, hasError)
+  const inputStyles = useInputStyles(variant, size, hasError)
+  const labelColor = useColorModeValue('gray.700', 'gray.300')
 
   return (
     <FormControl isInvalid={hasError} isRequired={required}>
@@ -301,7 +301,7 @@ export const PremiumTextarea: React.FC<PremiumTextareaProps> = ({
         <FormLabel 
           fontSize={size === 'lg' ? 'md' : 'sm'}
           fontWeight="600"
-          color={useColorModeValue('gray.700', 'gray.300')}
+          color={labelColor}
           mb={2}
         >
           {label}
@@ -350,7 +350,8 @@ export const PremiumSelect: React.FC<PremiumSelectProps> = ({
   onChange
 }) => {
   const hasError = !!error
-  const inputStyles = getInputStyles(variant, size, hasError)
+  const inputStyles = useInputStyles(variant, size, hasError)
+  const labelColor = useColorModeValue('gray.700', 'gray.300')
 
   return (
     <FormControl isInvalid={hasError} isRequired={required}>
@@ -358,7 +359,7 @@ export const PremiumSelect: React.FC<PremiumSelectProps> = ({
         <FormLabel 
           fontSize={size === 'lg' ? 'md' : 'sm'}
           fontWeight="600"
-          color={useColorModeValue('gray.700', 'gray.300')}
+          color={labelColor}
           mb={2}
         >
           {label}
@@ -403,9 +404,16 @@ export const PremiumForm: React.FC<PremiumFormProps> = ({
   children,
   title,
   subtitle,
-  loading = false
+  loading: _loading = false
 }) => {
   const MotionBox = motion(Box)
+  
+  // Call hooks unconditionally at the top level
+  const cardBg = useColorModeValue('white', 'gray.800')
+  const cardBorder = useColorModeValue('gray.200', 'gray.700')
+  const modalBg = useColorModeValue('white', 'gray.800')
+  const titleColor = useColorModeValue('gray.800', 'white')
+  const subtitleColor = useColorModeValue('gray.600', 'gray.400')
 
   const variantStyles = {
     default: {
@@ -413,16 +421,16 @@ export const PremiumForm: React.FC<PremiumFormProps> = ({
     },
     card: {
       as: 'form' as const,
-      bg: useColorModeValue('white', 'gray.800'),
+      bg: cardBg,
       p: 8,
       borderRadius: 'xl',
       boxShadow: 'xl',
       border: '1px solid',
-      borderColor: useColorModeValue('gray.200', 'gray.700')
+      borderColor: cardBorder
     },
     modal: {
       as: 'form' as const,
-      bg: useColorModeValue('white', 'gray.800'),
+      bg: modalBg,
       p: 6,
       borderRadius: 'lg'
     },
@@ -455,12 +463,12 @@ export const PremiumForm: React.FC<PremiumFormProps> = ({
       {(title || subtitle) && (
         <VStack spacing={2} mb={spacing} textAlign="center">
           {title && (
-            <Text fontSize="2xl" fontWeight="700" color={useColorModeValue('gray.800', 'white')}>
+            <Text fontSize="2xl" fontWeight="700" color={titleColor}>
               {title}
             </Text>
           )}
           {subtitle && (
-            <Text color={useColorModeValue('gray.600', 'gray.400')}>
+            <Text color={subtitleColor}>
               {subtitle}
             </Text>
           )}

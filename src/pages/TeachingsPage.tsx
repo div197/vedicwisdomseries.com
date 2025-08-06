@@ -1,8 +1,8 @@
 import React from 'react'
-import { FaOm, FaGraduationCap, FaGlobe, FaUsers, FaStar, FaClock, FaCheckCircle, FaArrowRight, FaRocket, FaInfinity, FaAtom, FaLightbulb, FaCertificate, FaFire, FaGift, FaHeart, FaUniversity, FaBookOpen, FaDollarSign, FaCalendarAlt } from 'react-icons/fa'
+import { FaOm, FaGraduationCap, FaGlobe, FaUsers, FaStar, FaClock, FaCheckCircle, FaRocket, FaCertificate, FaFire, FaHeart, FaUniversity } from 'react-icons/fa'
 import SEOHead from '../components/SEOHead'
 import { vedicWisdomSeries } from '../data/vedicWisdomSeries'
-import { contentMaster, getPageContent } from '../data/contentMaster'
+import { getPageContent } from '../data/contentMaster'
 import {
   // Premium Layout System
   Section,

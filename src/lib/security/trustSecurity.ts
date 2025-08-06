@@ -4,8 +4,6 @@
  * Venus Day: Abundance flows in trusted environments
  */
 
-import { nishkaamConfig } from '@/config/nishkaamConfig';
-
 // Security Configuration
 export const SECURITY_CONFIG = {
   // Trust Indicators

@@ -2,7 +2,6 @@ import React from 'react'
 import {
   Box,
   Flex,
-  Image,
   Link as ChakraLink,
   HStack,
   VStack,
@@ -12,18 +11,16 @@ import {
   Drawer,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
   DrawerHeader,
   DrawerBody,
   useBreakpointValue,
   Text,
   Icon,
   Divider,
-  Button,
   Badge,
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   FaHome,
   FaBookOpen,
@@ -44,7 +41,6 @@ import { PremiumButton, PremiumCard } from './premium'
 // Premium glassmorphism design with mobile-first approach
 
 const MotionBox = motion(Box)
-const MotionFlex = motion(Flex)
 
 // Custom hook for advanced scroll detection with performance optimization
 const useScrollDetection = () => {
@@ -75,7 +71,7 @@ const useScrollDetection = () => {
 
 // Navigation icon mapping for premium visual hierarchy
 const getNavIcon = (href: string) => {
-  const iconMap: { [key: string]: any } = {
+  const iconMap: { [key: string]: React.ComponentType } = {
     '/': FaHome,
     '/teachings': FaBookOpen,
     '/about': FaUser,
@@ -386,7 +382,7 @@ const MobileMenu = ({
 const Header: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { navigateWithScroll } = useNavigationWithScroll()
-  const { isScrolled, scrollY } = useScrollDetection()
+  const { isScrolled } = useScrollDetection()
   const hasHero = useHeroPageDetection()
   
   const containerMaxW = useBreakpointValue({ 

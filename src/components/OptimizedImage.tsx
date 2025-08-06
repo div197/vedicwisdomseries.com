@@ -37,11 +37,10 @@ const supportsAVIF = (): boolean => {
 };
 
 // Generate responsive image sources
-const generateSources = (src: string, width?: number | string): string[] => {
+const generateSources = (src: string, _width?: number | string): string[] => {
   if (!src || typeof src !== 'string') return [src];
   
   const baseUrl = src.replace(/\.(jpg|jpeg|png|webp|avif)$/i, '');
-  const extension = src.match(/\.(jpg|jpeg|png|webp|avif)$/i)?.[1] || 'jpg';
   
   const sources: string[] = [];
   
@@ -68,7 +67,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   height,
   objectFit = 'cover',
   borderRadius,
-  placeholder,
+  placeholder: _placeholder,
   lazy = true,
   fallback = '/assets/placeholder-image.svg'
 }) => {

@@ -4,7 +4,6 @@
  * Nishkaam Karma: APIs that serve without expectation
  */
 
-import { nishkaamConfig } from '@/config/nishkaamConfig';
 import { vedicAbundanceData } from '@/data/abundanceData';
 
 // API Configuration
@@ -129,7 +128,7 @@ export class SpiritualAPIClient {
 
   // Consultation Booking
   async requestConsultation(
-    request: ConsultationRequest
+    _request: ConsultationRequest
   ): Promise<SpiritualResponse<{consultationId: string; availableSlots: string[]}>> {
     // Simulate consultation booking
     const availableSlots = [
@@ -151,7 +150,7 @@ export class SpiritualAPIClient {
 
   // Newsletter Subscription
   async subscribeToWisdom(
-    subscription: NewsletterSubscription
+    _subscription: NewsletterSubscription
   ): Promise<SpiritualResponse<{subscriptionId: string; welcomeGift: string}>> {
     return {
       success: true,
@@ -199,9 +198,9 @@ export class SpiritualAPIClient {
 
   // Payment Integration (Stripe/Razorpay)
   async createPaymentIntent(
-    amount: number,
-    currency: string,
-    offeringId: string
+    _amount: number,
+    _currency: string,
+    _offeringId: string
   ): Promise<SpiritualResponse<{clientSecret: string; paymentId: string}>> {
     // In production, this would create a Stripe/Razorpay payment intent
     return {
@@ -217,9 +216,9 @@ export class SpiritualAPIClient {
 
   // WhatsApp Integration
   async sendWhatsAppNotification(
-    phone: string,
-    message: string,
-    templateId?: string
+    _phone: string,
+    _message: string,
+    _templateId?: string
   ): Promise<SpiritualResponse<{messageId: string; status: string}>> {
     // WhatsApp Business API integration
     return {

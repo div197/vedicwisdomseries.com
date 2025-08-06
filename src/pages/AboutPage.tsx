@@ -1,8 +1,8 @@
 import React from 'react'
-import { FaOm, FaGraduationCap, FaUsers, FaAward, FaGlobe, FaLightbulb, FaCheckCircle, FaStar, FaInfinity, FaUniversity, FaCertificate, FaHandsHelping, FaHeart, FaQuoteLeft, FaBrain, FaAtom, FaEye, FaRocket } from 'react-icons/fa'
+import { FaOm, FaGlobe, FaLightbulb, FaCheckCircle, FaStar, FaInfinity, FaUniversity, FaCertificate, FaBrain, FaAtom, FaEye, FaRocket } from 'react-icons/fa'
 import SEOHead from '../components/SEOHead'
 import { vedicWisdomSeries } from '../data/vedicWisdomSeries'
-import { contentMaster, getPageContent } from '../data/contentMaster'
+import { getPageContent } from '../data/contentMaster'
 import {
   // Premium Layout System
   Section,
@@ -26,7 +26,7 @@ import {
   PremiumCard as Card,
   PremiumButton as Button
 } from '../components/premium'
-import { Box, Image, AspectRatio, Icon, List, ListItem, Divider, SimpleGrid, Stat, StatNumber, StatLabel, StatHelpText, useColorModeValue } from '@chakra-ui/react'
+import { Box, Image, AspectRatio, Icon, List, ListItem, Divider, SimpleGrid } from '@chakra-ui/react'
 
 // 🌍 INTERNATIONAL VISHWAGURU ABOUT PAGE - ULTRA-AGENTIC TRANSFORMATION
 // Establishing India as Global Spiritual Authority for International Audience

@@ -5,20 +5,15 @@ import {
   FaCalendarCheck,
   FaQuestionCircle,
   FaCheckCircle,
-  FaArrowRight,
-  FaQuoteLeft,
-  FaStar,
   FaShieldAlt,
   FaUserTie,
   FaGraduationCap,
   FaUniversity,
-  FaCertificate,
   FaAtom,
   FaInfinity
 } from 'react-icons/fa'
 import SEOHead from '../components/SEOHead'
-import { vedicWisdomSeries } from '../data/vedicWisdomSeries'
-import { contentMaster, getPageContent } from '../data/contentMaster'
+import { getPageContent } from '../data/contentMaster'
 import {
   // Premium Layout System
   Section,
@@ -31,7 +26,6 @@ import {
   Heading,
   Text,
   Badge,
-  Quote,
   
   // Premium Form System
   Form,
@@ -51,30 +45,8 @@ import {
 } from '../components/premium'
 import { 
   Box, 
-  Icon, 
-  SimpleGrid, 
-  useBreakpointValue,
-  FormControl,
-  FormLabel,
-  Checkbox,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  useToast,
-  Step,
-  StepDescription,
-  StepIcon,
-  StepIndicator,
-  StepNumber,
-  StepSeparator,
-  StepStatus,
-  StepTitle,
-  Stepper,
-  useSteps,
-  Progress,
-  useColorModeValue
+  Icon,
+  useToast
 } from '@chakra-ui/react'
 
 // 🌍 INTERNATIONAL CONTACT PAGE - SOPHISTICATED SPIRITUAL AUTHORITY
@@ -168,7 +140,7 @@ const ContactPage: React.FC = () => {
   ]
 
   // Sophisticated form submission with international handling
-  const handleConsultationSubmit = async (data: Record<string, any>) => {
+  const handleConsultationSubmit = async (_data: Record<string, any>) => {
     setIsSubmitting(true)
     
     // Simulate sophisticated form processing
@@ -317,7 +289,7 @@ const ContactPage: React.FC = () => {
 
             <Stagger staggerDelay={0.2}>
               <Grid columns={{ base: 1, md: 2, lg: 3 }} spacing={{ base: 6, md: 8 }} equalHeight>
-                {authorityChannels.map((channel, index) => (
+                {authorityChannels.map((channel, _index) => (
                   <Hover key={channel.title} variant="lift" intensity="normal">
                     <Card variant="elevated" premium h="full" position="relative">
                       {/* Exclusive Badge */}

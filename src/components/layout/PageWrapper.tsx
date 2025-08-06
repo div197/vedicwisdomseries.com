@@ -162,7 +162,7 @@ export const SectionWrapper: React.FC<BoxProps & {
   noPadding?: boolean;
 }> = ({ 
   children, 
-  containerMaxW = '7xl',
+  containerMaxW: _containerMaxW = '7xl',
   noPadding = false,
   ...boxProps 
 }) => {

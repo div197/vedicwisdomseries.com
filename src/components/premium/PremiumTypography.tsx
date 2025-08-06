@@ -90,7 +90,7 @@ const getHeadingStyles = (variant: string, gradient: boolean, glow: boolean) => 
   return styles
 }
 
-const getTextStyles = (variant: string, emphasis: string) => {
+const useTextStyles = (variant: string, emphasis: string) => {
   const variants = {
     body: {
       fontSize: { base: 'md', md: 'lg' },
@@ -163,7 +163,7 @@ export const PremiumHeading: React.FC<PremiumHeadingProps> = ({
 
   return (
     <MotionHeading
-      as={`h${level}` as any}
+      as={`h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'}
       className={`premium-heading premium-heading--${variant}`}
       {...styles}
       {...animationProps}
@@ -182,7 +182,7 @@ export const PremiumText: React.FC<PremiumTextProps> = ({
   children,
   ...props
 }) => {
-  const styles = getTextStyles(variant, emphasis)
+  const styles = useTextStyles(variant, emphasis)
   const MotionText = motion(Text)
 
   const animationProps = animate ? {

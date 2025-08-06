@@ -11,16 +11,14 @@ import {
   StatHelpText,
   StatArrow
 } from '@chakra-ui/react'
-import { FaBook, FaPlay, FaHeart, FaLightbulb, FaOm, FaLeaf } from 'react-icons/fa'
+import { FaLightbulb } from 'react-icons/fa'
 import { Link as RouterLink } from 'react-router-dom'
 import SEOHead from '../components/SEOHead'
-import UniversalCTA from '../components/UniversalCTA'
 import { siteConfig } from '../siteConfig'
 import {
   // Premium Layout System
   Section,
   Container,
-  Grid,
   VStack,
   HStack,
   
@@ -32,7 +30,7 @@ import {
   PremiumCard as Card,
   PremiumButton as Button
 } from '../components/premium'
-import { contentMaster, getCTAData, getPageContent, getContentIcon } from '../data/contentMaster'
+import { getPageContent, getContentIcon } from '../data/contentMaster'
 import { vedicWisdomSeries } from '../data/vedicWisdomSeries'
 import { useSlideAnimation, slideAnimationConfigs } from '../hooks/useSlideAnimations'
 

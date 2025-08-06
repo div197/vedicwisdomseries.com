@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Button, Text, VStack, HStack, Icon, Badge, useColorModeValue } from '@chakra-ui/react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaArrowRight, FaPhone, FaWhatsapp, FaCalendarCheck, FaOm } from 'react-icons/fa'
-import { PremiumButton } from './PremiumButton'
+import { FaArrowRight, FaWhatsapp, FaCalendarCheck } from 'react-icons/fa'
 
 /**
  * 🕉️ PREMIUM CTA SYSTEM
@@ -95,7 +94,7 @@ export const PremiumCTA: React.FC<PremiumCTAProps> = ({
   abTestId = 'control'
 }) => {
   const [selectedVariant, setSelectedVariant] = useState<CTAVariant | null>(null)
-  const [pulseAnimation, setPulseAnimation] = useState(true)
+  const [pulseAnimation] = useState(true)
   
   const bgGradient = useColorModeValue(
     'linear(to-r, kd.primary.400, kd.tertiary.400)',

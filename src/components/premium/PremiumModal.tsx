@@ -9,13 +9,9 @@ import {
   ModalCloseButton,
   Button,
   useDisclosure,
-  Box,
   Text,
-  VStack,
-  HStack,
-  Icon
+  HStack
 } from '@chakra-ui/react'
-import { FaTimes } from 'react-icons/fa'
 import { PremiumButton } from './PremiumButton'
 
 /**
@@ -189,6 +185,7 @@ export const PremiumModal: React.FC<PremiumModalProps> = ({
 }
 
 // Hook for easy modal management
+// eslint-disable-next-line react-refresh/only-export-components
 export const usePremiumModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   

@@ -1,12 +1,12 @@
 // 🕉️ Integration Testing Suite - Vedic Wisdom Series
 // Comprehensive testing with spiritual consciousness
 
-import { describe, test, expect, beforeAll, afterAll, beforeEach, afterEach, vi } from 'vitest';
-import { apiClient, UniversalApiClient } from '../client';
+import { describe, test, expect, beforeAll, beforeEach, vi } from 'vitest';
+import { UniversalApiClient } from '../client';
 import { paymentService, PaymentService } from '../payments';
-import { emailService, EmailService } from '../email';
-import { analyticsService, AnalyticsService } from '../analytics';
-import { wsManager, SpiritualWebSocketClient } from '../websocket';
+import { emailService } from '../email';
+import { analyticsService } from '../analytics';
+import { wsManager } from '../websocket';
 
 // Mock global fetch for testing
 global.fetch = vi.fn();

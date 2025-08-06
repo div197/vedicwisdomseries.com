@@ -5,7 +5,7 @@
  */
 
 import { IconType } from 'react-icons';
-import { FaOm, FaBook, FaGraduationCap, FaHeart, FaGlobe, FaHandsHelping, FaLightbulb, FaUsers, FaStar, FaAtom, FaInfinity, FaSeedling } from 'react-icons/fa';
+import { FaOm, FaGraduationCap, FaGlobe, FaAtom, FaInfinity, FaSeedling } from 'react-icons/fa';
 
 export interface AbundanceOffering {
   id: string;

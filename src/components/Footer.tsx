@@ -11,7 +11,6 @@ import {
   Flex,
   Icon,
   useBreakpointValue,
-  Divider,
   Badge,
 } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
@@ -45,7 +44,7 @@ const MotionFlex = motion(Flex)
 
 // Navigation icon mapping for premium visual hierarchy
 const getNavIcon = (href: string) => {
-  const iconMap: { [key: string]: any } = {
+  const iconMap: { [key: string]: React.ComponentType } = {
     '/': FaHome,
     '/teachings': FaBookOpen,
     '/about': FaUser,
@@ -63,7 +62,7 @@ const SocialMediaIcon = ({
 }: { 
   platform: string
   href: string
-  icon: React.ComponentType<any>
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }) => {
   // Authentic brand colors for major platforms
   const getBrandColors = (platformName: string) => {
@@ -142,7 +141,7 @@ const FooterNavLink = ({
 }: { 
   to: string
   children: React.ReactNode
-  icon?: React.ComponentType<any>
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }) => {
   const IconComponent = icon || getNavIcon(to)
   
@@ -206,7 +205,7 @@ const ContactItem = ({
   href, 
   type = 'text' 
 }: { 
-  icon: React.ComponentType<any>
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
   children: React.ReactNode
   href?: string
   type?: 'text' | 'link'

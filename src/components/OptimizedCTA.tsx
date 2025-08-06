@@ -9,7 +9,15 @@ import {
   Box,
   Badge
 } from '@chakra-ui/react';
-import { contentMaster, getCTAData } from '../data/contentMaster';
+import { getCTAData } from '../data/contentMaster';
+
+interface CTAData {
+  text: string;
+  href: string;
+  colorScheme: string;
+  variant?: string;
+  icon?: React.ComponentType;
+}
 
 interface OptimizedCTAProps {
   variant?: 'hero' | 'inline' | 'sidebar' | 'footer';
@@ -96,7 +104,7 @@ export const OptimizedCTA: React.FC<OptimizedCTAProps> = ({
   const variantStyles = getVariantStyles();
   
   // Enhanced button styling for conversion optimization
-  const getButtonProps = (cta: any, isPrimary: boolean = false) => ({
+  const getButtonProps = (cta: CTAData, isPrimary: boolean = false) => ({
     as: 'a' as const,
     href: cta.href,
     size: responsiveButtonSize,
