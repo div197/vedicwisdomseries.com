@@ -282,6 +282,7 @@ export const contentMaster = {
 // ICON MAPPING FUNCTION
 export const getContentIcon = (iconName: string) => {
   const iconMap = {
+    // Standard capitalized names
     'FaOm': FaOm,
     'FaBook': FaBook,
     'FaGraduationCap': FaGraduationCap,
@@ -293,7 +294,20 @@ export const getContentIcon = (iconName: string) => {
     'FaStar': FaStar,
     'FaPhone': FaPhone,
     'FaEnvelope': FaEnvelope,
-    'FaCalendarCheck': FaCalendarCheck
+    'FaCalendarCheck': FaCalendarCheck,
+    // Lowercase aliases for vedicWisdomSeries compatibility
+    'om': FaOm,
+    'book': FaBook,
+    'graduation': FaGraduationCap,
+    'heart': FaHeart,
+    'globe': FaGlobe,
+    'handsHelping': FaHandsHelping,
+    'lightbulb': FaLightbulb,
+    'users': FaUsers,
+    'star': FaStar,
+    'phone': FaPhone,
+    'envelope': FaEnvelope,
+    'calendar': FaCalendarCheck
   }
   return iconMap[iconName as keyof typeof iconMap] || FaOm
 }

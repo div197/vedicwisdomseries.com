@@ -1,24 +1,20 @@
 /*
-  # 🕉️ VEDIC WISDOM SERIES - MAXIMUM SECURITY FORTRESS
-  # CANCER AGENT ENHANCED SECURITY HEADERS - ENTERPRISE GRADE
+  # 🕉️ VEDIC WISDOM SERIES - PRODUCTION SECURITY
+  # Balanced security for React compatibility
   
-  # Content Security Policy - Production Stable
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self'; frame-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+  # Simplified CSP for React/Vite compatibility
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
   
-  # Advanced Security Headers
+  # Core Security Headers
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
-  X-Permitted-Cross-Domain-Policies: none
-  X-Download-Options: noopen
-  X-DNS-Prefetch-Control: off
   
-  # Enhanced Permissions Policy - Zero Trust
-  Permissions-Policy: accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(self "https://api.stripe.com"), picture-in-picture=(), publickey-credentials-get=(self), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(self), xr-spatial-tracking=()
+  # Simplified Permissions Policy (only recognized features)
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(self)
   
-  # HSTS - Maximum Security Transport
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  # HSTS
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   
   # Security Features (Relaxed for stability)
   # Cross-Origin-Embedder-Policy: require-corp

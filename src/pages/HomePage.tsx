@@ -8,8 +8,6 @@ import {
   VStack, 
   HStack, 
   SimpleGrid, 
-  Card,
-  CardBody, 
   Icon, 
   Badge,
   useColorModeValue,
@@ -75,7 +73,7 @@ export default function HomePage() {
     "@type": "EducationalOrganization",
     "name": "Vedic Wisdom Series",
     "url": siteConfig.siteUrl,
-    "logo": `${siteConfig.siteUrl}/logo.png`,
+    "logo": `${siteConfig.siteUrl}/assets/logos/karpatri-dham-logo.svg`,
     "description": homeConfig.hero.description,
     "founder": {
       "@type": "Person",
@@ -156,7 +154,7 @@ export default function HomePage() {
               position="absolute"
               inset={0}
               opacity={0.03}
-              bgImage="url('/assets/images/vedic-pattern.svg')"
+              bgImage="none"
               bgRepeat="repeat"
               bgSize="150px"
             />
@@ -351,7 +349,7 @@ export default function HomePage() {
                     ref={cardAnimation.ref}
                     style={cardAnimation.style}
                   >
-                    <CardBody p={8}>
+                    <Box p={8}>
                       <VStack spacing={6} align="start">
                         <Box
                           p={4}
@@ -389,7 +387,7 @@ export default function HomePage() {
                           Learn More
                         </PremiumButton>
                       </VStack>
-                    </CardBody>
+                    </Box>
                   </PremiumCard>
                 );
               })}
@@ -429,7 +427,7 @@ export default function HomePage() {
                     ref={offeringAnimation.ref}
                     style={offeringAnimation.style}
                   >
-                    <CardBody p={8}>
+                    <Box p={8}>
                       <VStack spacing={6} align="start">
                         <HStack justify="space-between" w="full">
                           <Badge 
@@ -476,7 +474,7 @@ export default function HomePage() {
                           Learn More →
                         </PremiumButton>
                       </VStack>
-                    </CardBody>
+                    </Box>
                   </PremiumCard>
                 );
               })}
@@ -513,7 +511,7 @@ export default function HomePage() {
                     ref={statAnimation.ref}
                     style={statAnimation.style}
                   >
-                    <CardBody p={6}>
+                    <Box p={6}>
                       <Stat>
                         <StatNumber 
                           fontSize="3xl" 
@@ -531,7 +529,7 @@ export default function HomePage() {
                           {stat.trend}
                         </StatHelpText>
                       </Stat>
-                    </CardBody>
+                    </Box>
                   </PremiumCard>
                 );
               })}

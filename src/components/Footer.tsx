@@ -27,10 +27,9 @@ import {
   FaPhone,
   FaInfoCircle,
   FaChevronRight,
-  FaIndustry,
   FaCertificate,
-  FaCog,
-  FaTools,
+  FaBook,
+  FaOm,
 } from 'react-icons/fa';
 import { siteConfig } from '../siteConfig';
 import { PremiumCard } from './premium/PremiumCard';
@@ -39,18 +38,17 @@ import { PremiumCard } from './premium/PremiumCard';
 const getNavIcon = (href: string) => {
   if (href === '/') return FaHome;
   if (href === '/about') return FaInfoCircle;
-  if (href === '/products' || href.startsWith('/products/abrasives')) return FaIndustry;
-  if (href === '/quality' || href.startsWith('/products/minerals')) return FaCertificate;
-  if (href === '/knowledge-center' || href.startsWith('/products/machinery')) return FaGraduationCap;
-  if (href === '/contact' || href.startsWith('/products/hardware')) return FaPhone;
+  if (href === '/teachings' || href === '/products') return FaGraduationCap;
+  if (href === '/testimonials' || href === '/quality') return FaCertificate;
+  if (href === '/contact') return FaPhone;
   if (href === '/categories') return FaUserGraduate;
   if (href === '/gallery') return FaImages;
-  // Specific product category icons
-  if (href.includes('abrasives')) return FaIndustry;
-  if (href.includes('minerals')) return FaBuilding;
-  if (href.includes('machinery')) return FaCog;
-  if (href.includes('hardware')) return FaTools;
-  return FaGraduationCap; // Default for knowledge center items
+  // Spiritual teaching category icons
+  if (href.includes('teachings')) return FaGraduationCap;
+  if (href.includes('discourses')) return FaBook;
+  if (href.includes('chanting')) return FaOm;
+  if (href.includes('teacher-training')) return FaUserGraduate;
+  return FaGraduationCap; // Default for spiritual teachings
 };
 
 // Enhanced Social Media Icon Component with Official Brand Colors

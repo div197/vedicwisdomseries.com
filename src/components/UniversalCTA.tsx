@@ -208,7 +208,7 @@ export const UniversalCTA: React.FC<UniversalCTAProps> = ({
         
         <CTAContent />
         
-        {/* Industrial Excellence Message */}
+        {/* Spiritual Excellence Message */}
         {variant === 'hero' && (
           <Text
             fontSize="sm"
@@ -216,7 +216,7 @@ export const UniversalCTA: React.FC<UniversalCTAProps> = ({
             fontStyle="italic"
             textAlign="center"
           >
-            The Foundation of Your Finish - Industrial Excellence Since 1990
+            Where Ancient Wisdom Meets Quantum Science - Transforming Lives Since 2020
           </Text>
         )}
       </VStack>
