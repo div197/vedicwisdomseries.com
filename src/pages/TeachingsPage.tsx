@@ -127,37 +127,37 @@ const TeachingsPage: React.FC = () => {
               </VStack>
 
               {/* Global Statistics */}
-              <HStack spacing={12} justify="center" flexWrap="wrap">
+              <HStack spacing={{ base: 6, sm: 8, md: 12 }} justify="center" flexWrap="wrap">
                 <VStack spacing={2}>
-                  <Text fontSize="3xl" fontWeight="bold" color="tertiary.300">1000+</Text>
-                  <Text fontSize="sm" color="whiteAlpha.700">International Students</Text>
+                  <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" color="tertiary.300">1000+</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.700">International Students</Text>
                 </VStack>
                 <VStack spacing={2}>
-                  <Text fontSize="3xl" fontWeight="bold" color="secondary.300">25+</Text>
-                  <Text fontSize="sm" color="whiteAlpha.700">Countries Served</Text>
+                  <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" color="secondary.300">25+</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.700">Countries Served</Text>
                 </VStack>
                 <VStack spacing={2}>
-                  <Text fontSize="3xl" fontWeight="bold" color="primary.300">500+</Text>
-                  <Text fontSize="sm" color="whiteAlpha.700">Hours of Wisdom</Text>
+                  <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" color="primary.300">500+</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.700">Hours of Wisdom</Text>
                 </VStack>
                 <VStack spacing={2}>
-                  <Text fontSize="3xl" fontWeight="bold" color="green.300">95%</Text>
-                  <Text fontSize="sm" color="whiteAlpha.700">Satisfaction Rate</Text>
+                  <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" color="green.300">95%</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.700">Satisfaction Rate</Text>
                 </VStack>
               </HStack>
 
               {/* International CTAs */}
-              <HStack spacing={6} flexWrap="wrap" justify="center">
-                <Button variant="premium" size="xl" shimmer icon={FaRocket}>
+              <HStack spacing={{ base: 4, md: 6 }} flexWrap="wrap" justify="center">
+                <Button variant="premium" size={{ base: "lg", md: "xl" }} shimmer icon={FaRocket}>
                   Explore Global Programs
                 </Button>
-                <Button variant="glass" size="xl" icon={FaGlobe}>
+                <Button variant="glass" size={{ base: "lg", md: "xl" }} icon={FaGlobe}>
                   Join International Community
                 </Button>
               </HStack>
 
               {/* Trust Indicators */}
-              <HStack spacing={8} justify="center" flexWrap="wrap" pt={4}>
+              <HStack spacing={{ base: 4, md: 8 }} justify="center" flexWrap="wrap" pt={4}>
                 <Badge variant="outline" colorScheme="whiteAlpha" size="md">🌍 All Time Zones</Badge>
                 <Badge variant="outline" colorScheme="whiteAlpha" size="md">🕉️ Authentic Lineage</Badge>
                 <Badge variant="outline" colorScheme="whiteAlpha" size="md">🔬 Scientific Validation</Badge>
@@ -189,7 +189,7 @@ const TeachingsPage: React.FC = () => {
             </Animation>
 
             <Stagger staggerDelay={0.2}>
-              <Grid columns={{ base: 1, lg: 2 }} spacing={10} equalHeight>
+              <Grid columns={{ base: 1, lg: 2 }} spacing={{ base: 6, md: 8, lg: 10 }} equalHeight>
                 {globalPrograms.map((program, index) => (
                   <Hover key={program.title} variant="lift" intensity="normal">
                     <Card variant="elevated" premium h="full" position="relative">
@@ -213,7 +213,7 @@ const TeachingsPage: React.FC = () => {
                         </Box>
                       )}
 
-                      <VStack spacing={8} p={8} align="start" h="full">
+                      <VStack spacing={{ base: 6, md: 8 }} p={{ base: 6, md: 8 }} align="start" h="full">
                         {/* Program Header */}
                         <VStack spacing={4} align="start" w="full">
                           <HStack justify="space-between" w="full">
@@ -370,7 +370,7 @@ const TeachingsPage: React.FC = () => {
             </Animation>
 
             <Stagger staggerDelay={0.1}>
-              <SimpleGrid columns={{ base: 2, md: 4 }} spacing={8} w="full">
+              <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={{ base: 4, md: 8 }} w="full">
                 {[
                   {
                     number: "1000+",
@@ -403,9 +403,9 @@ const TeachingsPage: React.FC = () => {
                 ].map((stat, index) => (
                   <Hover key={index} variant="lift" intensity="subtle">
                     <Card variant="glass" textAlign="center">
-                      <VStack spacing={4} p={6}>
-                        <Icon as={stat.icon} boxSize={10} color={`${stat.color}.500`} />
-                        <Text fontSize="4xl" fontWeight="bold" color={`${stat.color}.500`}>
+                      <VStack spacing={{ base: 3, md: 4 }} p={{ base: 4, md: 6 }}>
+                        <Icon as={stat.icon} boxSize={{ base: 8, md: 10 }} color={`${stat.color}.500`} />
+                        <Text fontSize={{ base: "3xl", md: "4xl" }} fontWeight="bold" color={`${stat.color}.500`}>
                           {stat.number}
                         </Text>
                         <VStack spacing={1}>
@@ -487,11 +487,11 @@ const TeachingsPage: React.FC = () => {
                 guided by India's spiritual authority, Dr. Nischaya Nagori.
               </Text>
               
-              <HStack spacing={6} flexWrap="wrap" justify="center">
-                <Button variant="premium" size="xl" shimmer icon={FaGraduationCap}>
+              <HStack spacing={{ base: 4, md: 6 }} flexWrap="wrap" justify="center">
+                <Button variant="premium" size={{ base: "lg", md: "xl" }} shimmer icon={FaGraduationCap}>
                   Explore All Programs
                 </Button>
-                <Button variant="glass" size="xl" icon={FaGlobe}>
+                <Button variant="glass" size={{ base: "lg", md: "xl" }} icon={FaGlobe}>
                   Join Global Community
                 </Button>
               </HStack>

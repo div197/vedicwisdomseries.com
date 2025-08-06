@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
+import {
+  // Premium Layout System
+  Section,
+  Container,
+  Grid,
+  VStack,
+  HStack,
+  
+  // Premium Typography
+  Heading,
+  Text,
+  Badge,
+  Quote,
+  
+  // Premium Animation System
+  Animation,
+  Stagger,
+  Hover,
+  
+  // Premium Core Components
+  PremiumCard as Card,
+  PremiumButton as Button
+} from '../components/premium';
 import { 
   Box, 
-  Container, 
-  Heading, 
-  Text, 
-  VStack, 
-  HStack, 
   SimpleGrid,
   Icon, 
   Image,
-  Badge,
-  Card,
-  CardBody,
-  Button,
   Flex,
   useColorModeValue,
   Avatar,
@@ -50,11 +64,10 @@ import {
   FaAtom,
   FaUsers
 } from 'react-icons/fa';
-import { PageWrapper, HeroSectionWrapper, SectionWrapper } from '../components/layout/PageWrapper';
+// Removed old layout system - now using Premium Layout System
 import SEOHead from '../components/SEOHead';
-import UniversalCTA from '../components/UniversalCTA';
 import { siteConfig } from '../siteConfig';
-import { useSlideAnimation, slideAnimationConfigs } from '../hooks/useSlideAnimations';
+// Removed old animation hooks - now using Premium Animation System
 
 export default function TestimonialsPage() {
   const [selectedCategory, setSelectedCategory] = useState(0);
@@ -72,9 +85,7 @@ export default function TestimonialsPage() {
   const mutedText = useColorModeValue('gray.600', 'gray.400');
   const headingColor = useColorModeValue('gray.800', 'white');
 
-  // ANIMATIONS
-  const heroAnimation = useSlideAnimation(slideAnimationConfigs.heroTitle);
-  const statsAnimation = useSlideAnimation({ ...slideAnimationConfigs.fromBottom, delay: 200 });
+  // Premium animations are now handled by the Animation components automatically
 
   // TESTIMONIAL CATEGORIES
   const categories = [
@@ -278,91 +289,129 @@ export default function TestimonialsPage() {
   return (
     <>
       <SEOHead
-        title="Student Testimonials & Success Stories - Vedic Wisdom Series"
-        description="Real transformation stories from students worldwide. Discover how Dr. Nischaya Nagori's Vedic teachings have changed lives through quantum spirituality and ancient wisdom."
-        keywords={['Vedic Wisdom testimonials', 'spiritual transformation stories', 'student success stories', 'Dr. Nischaya reviews', 'quantum spirituality results']}
-        image={`${siteConfig.siteUrl}/assets/images/testimonials-hero.jpg`}
+        title="International Student Testimonials & Success Stories - Global Vedic Authority"
+        description="Real transformation stories from 1000+ international students. Discover how Dr. Nischaya Nagori's quantum-Vedic teachings have changed lives across 25+ countries worldwide."
+        keywords={[
+          'Vedic Wisdom testimonials', 'international student success', 'spiritual transformation stories', 
+          'Dr. Nischaya reviews', 'quantum spirituality results', 'global Vedic authority', 
+          'international spiritual education', 'Vishwaguru testimonials', 'consciousness research results'
+        ]}
+        image={`${siteConfig.siteUrl}/assets/images/testimonials-international-authority.jpg`}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ReviewPage",
+          "name": "International Student Testimonials - Dr. Nischaya Nagori",
+          "description": "Real transformation stories from international students learning authentic Vedic wisdom.",
+          "mainEntity": {
+            "@type": "EducationalOrganization",
+            "name": "Vedic Wisdom Series",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "bestRating": "5",
+              "worstRating": "1",
+              "ratingCount": "500"
+            }
+          }
+        }}
       />
 
-      <PageWrapper hasHero={true}>
-        {/* 🕉️ HERO SECTION */}
-        <HeroSectionWrapper>
-          <Box
-            minH="70vh"
-            bgGradient={bgGradient}
-            position="relative"
-            display="flex"
-            alignItems="center"
-            overflow="hidden"
-          >
-            {/* Sacred geometry pattern */}
-            <Box
-              position="absolute"
-              inset={0}
-              opacity={0.03}
-              bgImage="url('/assets/images/sacred-geometry.svg')"
-              bgRepeat="repeat"
-              bgSize="200px"
-            />
-
-            <Container maxW="7xl" position="relative" zIndex={2}>
-              <VStack spacing={8} textAlign="center" ref={heroAnimation.ref} style={heroAnimation.style}>
-                <Icon as={FaQuoteLeft} boxSize={12} color="purple.500" />
+      {/* 🕉️ HERO SECTION - PREMIUM LAYOUT */}
+      <Section variant="hero" background="gradient" animate>
+        <Container size="xl">
+          <Animation variant="fadeIn" duration={1.2}>
+            <VStack spacing={10} textAlign="center">
+              <Icon as={FaQuoteLeft} boxSize={12} color="purple.500" />
+              
+              <VStack spacing={6}>
+                <Heading variant="hero" level={1} color="white">
+                  Real People. Real Transformations.
+                </Heading>
                 
-                <VStack spacing={4}>
-                  <Heading as="h1" size={{ base: "xl", md: "2xl", lg: "3xl" }} color={headingColor}>
-                    Real People. Real Transformations.
-                  </Heading>
-                  <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" color={textColor} lineHeight="tall">
-                    From skeptics to spiritual teachers, from burned-out executives to conscious leaders - 
-                    discover how thousands have transformed their lives through Dr. Nischaya's revolutionary teachings.
-                  </Text>
-                  <Text fontSize={{ base: "md", md: "lg" }} fontStyle="italic" color="purple.600">
-                    "Every testimonial is a universe transformed, every story a soul awakened"
-                  </Text>
-                </VStack>
-
-                <Button
-                  size={{ base: "md", md: "lg" }}
-                  colorScheme="purple"
-                  onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
-                  rightIcon={<Icon as={FaHeart} />}
-                >
-                  Read Their Stories
-                </Button>
+                <Heading variant="section" level={2} color="whiteAlpha.900" maxW="5xl">
+                  From Skeptics to Spiritual Teachers
+                </Heading>
+                
+                <Text variant="lead" color="whiteAlpha.800" maxW="4xl">
+                  From burned-out executives to conscious leaders - discover how thousands have 
+                  transformed their lives through Dr. Nischaya's revolutionary quantum-Vedic teachings.
+                </Text>
+                
+                <Text variant="lead" color="tertiary.300" fontStyle="italic">
+                  "Every testimonial is a universe transformed, every story a soul awakened"
+                </Text>
               </VStack>
-            </Container>
-          </Box>
-        </HeroSectionWrapper>
 
-        {/* 🕉️ IMPACT STATISTICS */}
-        <SectionWrapper>
-          <Container maxW="6xl">
-            <SimpleGrid columns={{ base: 2, md: 4 }} spacing={6} ref={statsAnimation.ref} style={statsAnimation.style}>
-              {impactStats.map((stat, index) => (
-                <Card key={index} bg={cardBg} shadow="md" textAlign="center">
-                  <CardBody p={6}>
-                    <VStack spacing={3}>
-                      <Icon as={stat.icon} boxSize={8} color={`${stat.color}.500`} />
-                      <Text fontSize="3xl" fontWeight="bold" color={`${stat.color}.600`}>
-                        {stat.value}
-                      </Text>
-                      <Text fontSize="sm" color={mutedText}>
-                        {stat.label}
-                      </Text>
-                    </VStack>
-                  </CardBody>
-                </Card>
-              ))}
-            </SimpleGrid>
-          </Container>
-        </SectionWrapper>
+              <Button
+                variant="premium"
+                size="xl"
+                shimmer
+                icon={FaHeart}
+                onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Read Their Stories
+              </Button>
+            </VStack>
+          </Animation>
+        </Container>
+      </Section>
 
-        {/* 🕉️ TESTIMONIALS SECTION */}
-        <SectionWrapper id="testimonials">
-          <VStack spacing={12}>
+      {/* 🕉️ IMPACT STATISTICS - PREMIUM LAYOUT */}
+      <Section variant="feature" background="pattern" padding="xl">
+        <Container size="lg">
+          <Animation variant="slideUp">
+            <VStack spacing={8}>
+              <Badge variant="gradient" colorScheme="secondary" size="xl" icon={<FaUsers />}>
+                📊 GLOBAL TRANSFORMATION IMPACT
+              </Badge>
+              
+              <Stagger staggerDelay={0.1}>
+                <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={{ base: 4, md: 6 }}>
+                  {impactStats.map((stat, index) => (
+                    <Hover key={index} variant="lift" intensity="subtle">
+                      <Card variant="glass" textAlign="center">
+                        <Box p={6}>
+                          <VStack spacing={4}>
+                            <Icon as={stat.icon} boxSize={10} color={`${stat.color}.500`} />
+                            <Text fontSize={{ base: "3xl", md: "4xl" }} fontWeight="bold" color={`${stat.color}.500`}>
+                              {stat.value}
+                            </Text>
+                            <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600" color="gray.700">
+                              {stat.label}
+                            </Text>
+                          </VStack>
+                        </Box>
+                      </Card>
+                    </Hover>
+                  ))}
+                </SimpleGrid>
+              </Stagger>
+            </VStack>
+          </Animation>
+        </Container>
+      </Section>
+
+      {/* 🕉️ TESTIMONIALS SECTION - PREMIUM LAYOUT */}
+      <Section variant="content" padding="xl" id="testimonials">
+        <Container size="lg">
+          <VStack spacing={16}>
+            <Animation variant="slideUp">
+              <VStack spacing={6} textAlign="center">
+                <Badge variant="gradient" colorScheme="primary" size="xl" icon={<FaOm />}>
+                  🌟 TRANSFORMATION STORIES
+                </Badge>
+                <Heading variant="section" level={2}>
+                  Real People, Real Transformations
+                </Heading>
+                <Text variant="lead" maxW="4xl">
+                  Discover how thousands of students have transformed their lives through 
+                  authentic Vedic wisdom and quantum consciousness integration.
+                </Text>
+              </VStack>
+            </Animation>
+
             {/* Category Tabs */}
-            <Container maxW="6xl">
+            <Box maxW="6xl" w="full" mx="auto">
               <Tabs index={selectedCategory} onChange={setSelectedCategory} variant="soft-rounded" colorScheme="purple">
                 <TabList justifyContent="center" flexWrap="wrap">
                   {categories.map((category, index) => (
@@ -375,63 +424,50 @@ export default function TestimonialsPage() {
                   ))}
                 </TabList>
               </Tabs>
-            </Container>
+            </Box>
 
             {/* Testimonial Cards */}
-            <Container maxW="7xl">
-              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
-                {filteredTestimonials.map((testimonial, index) => {
-                  const cardAnimation = useSlideAnimation({
-                    direction: 'from-bottom',
-                    duration: 800,
-                    delay: index * 100,
-                    distance: 50
-                  });
-
-                  return (
+            <Stagger staggerDelay={0.1}>
+              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={{ base: 6, md: 8 }} w="full">
+                {filteredTestimonials.map((testimonial, index) => (
+                  <Hover key={testimonial.id} variant="lift" intensity="normal">
                     <Card
-                      key={testimonial.id}
-                      bg={cardBg}
-                      shadow="xl"
-                      borderRadius="xl"
-                      _hover={{ transform: 'translateY(-8px)', shadow: '2xl' }}
-                      transition="all 0.3s"
-                      ref={cardAnimation.ref}
-                      style={cardAnimation.style}
+                      variant="elevated"
+                      premium
+                      h="full"
                       position="relative"
-                      overflow="hidden"
                     >
                       {testimonial.featured && (
                         <Badge
                           position="absolute"
                           top={4}
                           right={4}
-                          colorScheme="purple"
                           variant="solid"
+                          colorScheme="purple"
                           zIndex={1}
                         >
                           FEATURED
                         </Badge>
                       )}
 
-                      <CardBody p={6}>
-                        <VStack spacing={4} align="stretch">
+                      <Box p={6}>
+                        <VStack spacing={6} align="start" h="full">
                           {/* Header */}
-                          <HStack spacing={4}>
+                          <HStack spacing={{ base: 3, md: 4 }}>
                             <Avatar
                               size="lg"
                               name={testimonial.name}
                               src={testimonial.avatar}
                               bg="purple.500"
                             />
-                            <VStack align="start" spacing={1} flex={1}>
-                              <Heading size="sm" color={headingColor}>
+                            <VStack align="start" spacing={{ base: 0, md: 1 }} flex={1}>
+                              <Heading variant="card" level={4}>
                                 {testimonial.name}
                               </Heading>
-                              <Text fontSize="xs" color={mutedText}>
+                              <Text variant="caption" color="gray.600">
                                 {testimonial.role}
                               </Text>
-                              <Text fontSize="xs" color={mutedText}>
+                              <Text variant="caption" color="gray.500">
                                 {testimonial.location}
                               </Text>
                             </VStack>
@@ -441,21 +477,21 @@ export default function TestimonialsPage() {
                           <HStack>{renderStars(testimonial.rating)}</HStack>
 
                           {/* Transformation */}
-                          <Box bg={accentBg} p={3} borderRadius="md">
-                            <VStack align="start" spacing={2}>
-                              <HStack>
-                                <Text fontSize="xs" fontWeight="bold" color="purple.600">
+                          <Box bg="purple.50" p={{ base: 3, md: 4 }} borderRadius="lg" w="full">
+                            <VStack align="start" spacing={{ base: 2, md: 3 }}>
+                              <HStack w="full">
+                                <Text fontSize="sm" fontWeight="bold" color="purple.600">
                                   Before:
                                 </Text>
-                                <Text fontSize="xs" color={mutedText}>
+                                <Text fontSize="sm" color="gray.600" flex={1}>
                                   {testimonial.transformation.before}
                                 </Text>
                               </HStack>
-                              <HStack>
-                                <Text fontSize="xs" fontWeight="bold" color="green.600">
+                              <HStack w="full">
+                                <Text fontSize="sm" fontWeight="bold" color="green.600">
                                   After:
                                 </Text>
-                                <Text fontSize="xs" color={textColor}>
+                                <Text fontSize="sm" color="gray.700" flex={1}>
                                   {testimonial.transformation.after}
                                 </Text>
                               </HStack>
@@ -463,35 +499,34 @@ export default function TestimonialsPage() {
                           </Box>
 
                           {/* Story */}
-                          <Text fontSize="sm" color={textColor} lineHeight="tall" noOfLines={6}>
-                            "{testimonial.story}"
-                          </Text>
+                          <Quote variant="testimonial" size="sm">
+                            {testimonial.story}
+                          </Quote>
 
                           {/* Highlights */}
                           <Wrap>
                             {testimonial.highlights.map((highlight, idx) => (
                               <WrapItem key={idx}>
-                                <Tag size="sm" colorScheme="purple" variant="subtle">
+                                <Badge variant="outline" colorScheme="purple" size="sm">
                                   {highlight}
-                                </Tag>
+                                </Badge>
                               </WrapItem>
                             ))}
                           </Wrap>
 
                           {/* Program & Date */}
                           <Divider />
-                          <HStack justify="space-between" fontSize="xs" color={mutedText}>
-                            <Text>{testimonial.program}</Text>
+                          <HStack justify="space-between" fontSize="xs" color="gray.500" w="full">
+                            <Text fontWeight="medium">{testimonial.program}</Text>
                             <Text>{testimonial.date}</Text>
                           </HStack>
 
                           {/* Video Button */}
                           {testimonial.hasVideo && (
                             <Button
-                              size="sm"
-                              colorScheme="purple"
                               variant="outline"
-                              leftIcon={<Icon as={FaPlay} />}
+                              size="sm"
+                              icon={FaPlay}
                               onClick={() => handleVideoClick(testimonial)}
                               w="full"
                             >
@@ -499,58 +534,113 @@ export default function TestimonialsPage() {
                             </Button>
                           )}
                         </VStack>
-                      </CardBody>
+                      </Box>
                     </Card>
-                  );
-                })}
+                  </Hover>
+                ))}
               </SimpleGrid>
-            </Container>
+            </Stagger>
           </VStack>
-        </SectionWrapper>
+        </Container>
+      </Section>
 
-        {/* 🕉️ TRANSFORMATION QUOTE */}
-        <SectionWrapper bg={accentBg}>
-          <Container maxW="4xl" textAlign="center">
-            <VStack spacing={8}>
-              <Icon as={FaLightbulb} boxSize={10} color="yellow.500" />
-              <Heading size="lg" color={headingColor}>
-                "When One Soul Awakens, The Universe Celebrates"
-              </Heading>
-              <Text fontSize="lg" color={textColor} lineHeight="tall">
+      {/* 🕉️ TRANSFORMATION QUOTE - PREMIUM LAYOUT */}
+      <Section variant="testimonial" background="glass" padding="xl">
+        <Container size="md">
+          <Animation variant="scaleIn">
+            <VStack spacing={8} textAlign="center">
+              <Icon as={FaLightbulb} boxSize={{ base: 10, md: 12 }} color="yellow.500" />
+              
+              <Quote variant="hero" size="xl" emphasis="divine">
+                When One Soul Awakens, The Universe Celebrates
+              </Quote>
+              
+              <Text variant="lead" color="gray.700" lineHeight="tall">
                 Every transformation story you've read represents a soul remembering its true nature. 
                 Your story of awakening is waiting to be written. Will you answer the call?
               </Text>
+              
               <Button
-                size="lg"
-                colorScheme="orange"
-                rightIcon={<Icon as={FaAtom} />}
+                variant="premium"
+                size="xl"
+                shimmer
+                icon={FaAtom}
                 as="a"
                 href="/contact"
               >
                 Start Your Transformation Journey
               </Button>
             </VStack>
-          </Container>
-        </SectionWrapper>
+          </Animation>
+        </Container>
+      </Section>
 
-        {/* Universal CTA */}
-        <Box py={8}>
-          <UniversalCTA variant="hero" />
-        </Box>
-      </PageWrapper>
+      {/* 🚀 FINAL CTA SECTION - PREMIUM LAYOUT */}
+      <Section variant="cta" background="gradient" padding="xl">
+        <Container size="lg">
+          <Animation variant="bounceIn">
+            <VStack spacing={8} textAlign="center">
+              <Badge variant="solid" colorScheme="tertiary" size="xl" icon={<FaUsers />}>
+                🚀 JOIN THE TRANSFORMATION MOVEMENT
+              </Badge>
+              
+              <Heading variant="section" level={2} color="white">
+                Ready to Write Your Success Story?
+              </Heading>
+              
+              <Text variant="lead" maxW="4xl" color="whiteAlpha.900">
+                Join 1000+ international students who have transformed their lives through 
+                authentic Vedic wisdom and quantum consciousness teachings from Dr. Nischaya Nagori.
+              </Text>
+              
+              <HStack spacing={{ base: 4, md: 6 }} flexWrap="wrap" justify="center">
+                <Button variant="premium" size={{ base: "lg", md: "xl" }} shimmer icon={FaGraduationCap}>
+                  Explore Programs
+                </Button>
+                <Button variant="glass" size={{ base: "lg", md: "xl" }} icon={FaUsers}>
+                  Join Community
+                </Button>
+              </HStack>
+            </VStack>
+          </Animation>
+        </Container>
+      </Section>
 
-      {/* Video Modal */}
+      {/* Video Modal - Premium Integration */}
       <Modal isOpen={isOpen} onClose={onClose} size="xl">
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{selectedVideo?.name}'s Video Testimonial</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-            <AspectRatio ratio={16 / 9}>
-              <Box bg="gray.200" display="flex" alignItems="center" justifyContent="center">
-                <Text>Video Player Placeholder</Text>
-              </Box>
-            </AspectRatio>
+        <ModalOverlay bg="blackAlpha.600" backdropFilter="blur(10px)" />
+        <ModalContent bg="white" borderRadius="xl" overflow="hidden">
+          <ModalHeader bg="purple.50" color="purple.700" fontWeight="bold">
+            {selectedVideo?.name}'s International Testimonial
+          </ModalHeader>
+          <ModalCloseButton color="purple.500" />
+          <ModalBody p={8}>
+            <VStack spacing={6}>
+              <AspectRatio ratio={16 / 9} w="full">
+                <Box 
+                  bg="gradient-to-br from-purple-100 to-blue-100" 
+                  display="flex" 
+                  alignItems="center" 
+                  justifyContent="center"
+                  borderRadius="lg"
+                  border="2px solid"
+                  borderColor="purple.200"
+                >
+                  <VStack spacing={4}>
+                    <Icon as={FaPlay} boxSize={12} color="purple.500" />
+                    <Text color="purple.600" fontWeight="medium">Video Testimonial Coming Soon</Text>
+                    <Text fontSize="sm" color="gray.600">Premium video integration in development</Text>
+                  </VStack>
+                </Box>
+              </AspectRatio>
+              {selectedVideo && (
+                <VStack spacing={2} textAlign="center">
+                  <Text fontWeight="bold" color="gray.800">{selectedVideo.name}</Text>
+                  <Text fontSize="sm" color="gray.600">{selectedVideo.role}</Text>
+                  <Text fontSize="sm" color="gray.500">{selectedVideo.location}</Text>
+                </VStack>
+              )}
+            </VStack>
           </ModalBody>
         </ModalContent>
       </Modal>

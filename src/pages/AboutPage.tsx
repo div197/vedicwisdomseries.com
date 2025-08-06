@@ -53,7 +53,7 @@ const AboutPage: React.FC = () => {
       <Section variant="hero" background="gradient" animate>
         <Container size="xl">
           <Animation variant="fadeIn" duration={1.2}>
-            <Grid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
+            <Grid columns={{ base: 1, lg: 2 }} spacing={{ base: 8, md: 12 }} alignItems="center">
               {/* Hero Content */}
               <VStack spacing={8} align={{ base: "center", lg: "start" }} textAlign={{ base: "center", lg: "left" }}>
                 <Badge variant="gradient" size="lg" icon={<FaOm />}>
@@ -76,28 +76,28 @@ const AboutPage: React.FC = () => {
                   </Text>
                 </VStack>
 
-                <HStack spacing={6} flexWrap="wrap" justify={{ base: "center", lg: "start" }}>
-                  <Button variant="premium" size="lg" shimmer icon={FaRocket}>
+                <HStack spacing={{ base: 4, md: 6 }} flexWrap="wrap" justify={{ base: "center", lg: "start" }}>
+                  <Button variant="premium" size={{ base: "md", md: "lg" }} shimmer icon={FaRocket}>
                     Join Global Community
                   </Button>
-                  <Button variant="glass" size="lg" icon={FaEye}>
+                  <Button variant="glass" size={{ base: "md", md: "lg" }} icon={FaEye}>
                     Watch Introduction
                   </Button>
                 </HStack>
 
                 {/* Global Authority Indicators */}
-                <HStack spacing={8} justify={{ base: "center", lg: "start" }} flexWrap="wrap">
+                <HStack spacing={{ base: 4, sm: 6, md: 8 }} justify={{ base: "center", lg: "start" }} flexWrap="wrap">
                   <VStack spacing={1}>
-                    <Text fontSize="2xl" fontWeight="bold" color="primary.500">1000+</Text>
-                    <Text fontSize="sm" color="gray.600">Global Students</Text>
+                    <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold" color="primary.500">1000+</Text>
+                    <Text fontSize={{ base: "xs", md: "sm" }} color="gray.600">Global Students</Text>
                   </VStack>
                   <VStack spacing={1}>
-                    <Text fontSize="2xl" fontWeight="bold" color="secondary.500">25+</Text>
-                    <Text fontSize="sm" color="gray.600">Countries</Text>
+                    <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold" color="secondary.500">25+</Text>
+                    <Text fontSize={{ base: "xs", md: "sm" }} color="gray.600">Countries</Text>
                   </VStack>
                   <VStack spacing={1}>
-                    <Text fontSize="2xl" fontWeight="bold" color="tertiary.500">500+</Text>
-                    <Text fontSize="sm" color="gray.600">Teaching Hours</Text>
+                    <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold" color="tertiary.500">500+</Text>
+                    <Text fontSize={{ base: "xs", md: "sm" }} color="gray.600">Teaching Hours</Text>
                   </VStack>
                 </HStack>
               </VStack>
@@ -178,7 +178,7 @@ const AboutPage: React.FC = () => {
             </Animation>
 
             <Stagger staggerDelay={0.15}>
-              <Grid columns={{ base: 1, md: 2, lg: 4 }} spacing={8} equalHeight>
+              <Grid columns={{ base: 1, sm: 2, lg: 4 }} spacing={{ base: 6, md: 8 }} equalHeight>
                 {[
                   {
                     icon: FaUniversity,
@@ -211,23 +211,23 @@ const AboutPage: React.FC = () => {
                 ].map((credential, index) => (
                   <Hover key={index} variant="lift" intensity="normal">
                     <Card variant="glass" premium h="full">
-                      <VStack spacing={6} p={8} align="start" h="full">
+                      <VStack spacing={{ base: 4, md: 6 }} p={{ base: 6, md: 8 }} align="start" h="full">
                         <HStack justify="space-between" w="full">
                           <Box
                             bg={`${credential.color}.100`}
-                            p={4}
+                            p={{ base: 3, md: 4 }}
                             borderRadius="full"
                             border="2px solid"
                             borderColor={`${credential.color}.200`}
                           >
-                            <Icon as={credential.icon} boxSize={8} color={`${credential.color}.500`} />
+                            <Icon as={credential.icon} boxSize={{ base: 6, md: 8 }} color={`${credential.color}.500`} />
                           </Box>
                           <Badge variant="outline" colorScheme={credential.color} size="sm">
                             {credential.badge}
                           </Badge>
                         </HStack>
                         
-                        <VStack align="start" spacing={3} flex={1}>
+                        <VStack align="start" spacing={{ base: 2, md: 3 }} flex={1}>
                           <Heading variant="card" level={3}>
                             {credential.title}
                           </Heading>
@@ -250,7 +250,7 @@ const AboutPage: React.FC = () => {
         <Container size="lg">
           <Grid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
             <Animation variant="slideLeft">
-              <VStack spacing={8} align="start">
+              <VStack spacing={{ base: 6, md: 8 }} align="start">
                 <Badge variant="gradient" colorScheme="secondary" size="lg" icon={<FaBrain />}>
                   🔬 BREAKTHROUGH DISCOVERY
                 </Badge>
@@ -266,7 +266,7 @@ const AboutPage: React.FC = () => {
                   validation for spiritual experiences and makes ancient wisdom accessible to modern minds.
                 </Text>
 
-                <VStack spacing={4} align="start" w="full">
+                <VStack spacing={{ base: 3, md: 4 }} align="start" w="full">
                   {[
                     {
                       vedic: "Quantum Entanglement",
@@ -284,9 +284,9 @@ const AboutPage: React.FC = () => {
                       icon: FaEye
                     }
                   ].map((parallel, index) => (
-                    <HStack key={index} spacing={4} p={4} bg="gray.50" borderRadius="lg" w="full">
-                      <Icon as={parallel.icon} color="primary.500" boxSize={5} />
-                      <VStack align="start" spacing={1} flex={1}>
+                    <HStack key={index} spacing={{ base: 3, md: 4 }} p={{ base: 3, md: 4 }} bg="gray.50" borderRadius="lg" w="full">
+                      <Icon as={parallel.icon} color="primary.500" boxSize={{ base: 4, md: 5 }} />
+                      <VStack align="start" spacing={{ base: 0, md: 1 }} flex={1}>
                         <Text fontWeight="600" fontSize="sm" color="gray.800">
                           {parallel.vedic}
                         </Text>
@@ -298,7 +298,7 @@ const AboutPage: React.FC = () => {
                   ))}
                 </VStack>
 
-                <Button variant="outline" size="md" icon={FaLightbulb}>
+                <Button variant="outline" size={{ base: "sm", md: "md" }} icon={FaLightbulb}>
                   Explore The Integration
                 </Button>
               </VStack>
@@ -347,7 +347,7 @@ const AboutPage: React.FC = () => {
             </Animation>
 
             <Stagger staggerDelay={0.1}>
-              <SimpleGrid columns={{ base: 2, md: 4 }} spacing={8} w="full">
+              <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={{ base: 4, md: 8 }} w="full">
                 {[
                   {
                     number: "1000+",
@@ -376,8 +376,8 @@ const AboutPage: React.FC = () => {
                 ].map((stat, index) => (
                   <Hover key={index} variant="lift" intensity="subtle">
                     <Card variant="glass" textAlign="center">
-                      <VStack spacing={3} p={6}>
-                        <Text fontSize="3xl" fontWeight="bold" color={`${stat.color}.500`}>
+                      <VStack spacing={{ base: 2, md: 3 }} p={{ base: 4, md: 6 }}>
+                        <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" color={`${stat.color}.500`}>
                           {stat.number}
                         </Text>
                         <Text fontWeight="600" color="gray.800">
@@ -415,7 +415,7 @@ const AboutPage: React.FC = () => {
               </VStack>
             </Animation>
 
-            <Grid columns={{ base: 1, lg: 3 }} spacing={8}>
+            <Grid columns={{ base: 1, md: 2, lg: 3 }} spacing={{ base: 6, md: 8 }}>
               {[
                 {
                   title: "Authentic Transmission",
@@ -456,20 +456,20 @@ const AboutPage: React.FC = () => {
               ].map((method, index) => (
                 <Animation key={index} variant="slideUp" delay={index * 0.2}>
                   <Card variant="elevated" premium h="full">
-                    <VStack spacing={6} p={8} align="start" h="full">
+                    <VStack spacing={{ base: 4, md: 6 }} p={{ base: 6, md: 8 }} align="start" h="full">
                       <HStack>
                         <Box
                           bg={`${method.color}.100`}
-                          p={3}
+                          p={{ base: 2, md: 3 }}
                           borderRadius="lg"
                           border="2px solid"
                           borderColor={`${method.color}.200`}
                         >
-                          <Icon as={method.icon} boxSize={6} color={`${method.color}.500`} />
+                          <Icon as={method.icon} boxSize={{ base: 5, md: 6 }} color={`${method.color}.500`} />
                         </Box>
                       </HStack>
                       
-                      <VStack align="start" spacing={4} flex={1}>
+                      <VStack align="start" spacing={{ base: 3, md: 4 }} flex={1}>
                         <Heading variant="card" level={3}>
                           {method.title}
                         </Heading>
@@ -477,10 +477,10 @@ const AboutPage: React.FC = () => {
                           {method.description}
                         </Text>
                         
-                        <List spacing={2} w="full">
+                        <List spacing={{ base: 1, md: 2 }} w="full">
                           {method.features.map((feature, idx) => (
                             <ListItem key={idx}>
-                              <HStack spacing={2} align="start">
+                              <HStack spacing={{ base: 1, md: 2 }} align="start">
                                 <Icon as={FaCheckCircle} color={`${method.color}.500`} mt={0.5} boxSize={3} />
                                 <Text fontSize="xs" color="gray.700">{feature}</Text>
                               </HStack>
@@ -516,16 +516,16 @@ const AboutPage: React.FC = () => {
                 serving international seekers and establishing timeless wisdom for modern transformation.
               </Text>
               
-              <HStack spacing={6} flexWrap="wrap" justify="center">
-                <Button variant="premium" size="lg" shimmer icon={FaGlobe}>
+              <HStack spacing={{ base: 4, md: 6 }} flexWrap="wrap" justify="center">
+                <Button variant="premium" size={{ base: "md", md: "lg" }} shimmer icon={FaGlobe}>
                   Join Global Community
                 </Button>
-                <Button variant="glass" size="lg" icon={FaStar}>
+                <Button variant="glass" size={{ base: "md", md: "lg" }} icon={FaStar}>
                   Explore Programs
                 </Button>
               </HStack>
               
-              <HStack spacing={8} justify="center" flexWrap="wrap" pt={4}>
+              <HStack spacing={{ base: 4, md: 8 }} justify="center" flexWrap="wrap" pt={4}>
                 <Badge variant="outline" colorScheme="whiteAlpha" size="md">International Authority</Badge>
                 <Badge variant="outline" colorScheme="whiteAlpha" size="md">Authentic Lineage</Badge>
                 <Badge variant="outline" colorScheme="whiteAlpha" size="md">Scientific Integration</Badge>

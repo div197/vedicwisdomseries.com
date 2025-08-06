@@ -6,7 +6,6 @@ import { SimpleErrorBoundary } from './components/providers/SimpleErrorBoundary'
 // Layout Components
 import Header from './components/Header'
 import Footer from './components/Footer'
-import PageWrapper from './components/layout/PageWrapper'
 
 // Direct page imports (no lazy loading for production stability)
 import HomePage from './pages/HomePage'
@@ -27,7 +26,7 @@ function App() {
           <SimpleErrorBoundary>
             <Header id="main-navigation" />
           </SimpleErrorBoundary>
-          <PageWrapper id="main-content">
+          <main id="main-content" role="main">
             <SimpleErrorBoundary>
                 <Routes>
                   {/* Public Routes - Each wrapped in error boundary */}
@@ -124,7 +123,7 @@ function App() {
                   } />
                 </Routes>
             </SimpleErrorBoundary>
-          </PageWrapper>
+          </main>
           <SimpleErrorBoundary>
             <Footer />
           </SimpleErrorBoundary>

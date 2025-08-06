@@ -1,3 +1,20 @@
+// 🚨 DEPRECATED - Use Premium Layout System instead
+// This file is deprecated. All pages should use the Premium Layout System:
+// import { Section, Container, VStack, HStack } from '../components/premium'
+// 
+// The Premium Layout System handles:
+// - Automatic header spacing through Section variants
+// - Responsive container sizing through Container component
+// - Consistent spacing through padding props
+// - No need for manual header height calculations
+//
+// Migration examples:
+// Old: <PageWrapper><YourContent /></PageWrapper>  
+// New: <Section variant="content"><Container><YourContent /></Container></Section>
+//
+// Old: <PageWrapper hasHero={true}><HeroContent /></PageWrapper>
+// New: <Section variant="hero"><HeroContent /></Section>
+
 import React from 'react';
 import { Box, BoxProps } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';

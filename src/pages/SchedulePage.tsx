@@ -56,12 +56,28 @@ import {
   FaOm,
   FaCalendarCheck
 } from 'react-icons/fa';
-import { PageWrapper, HeroSectionWrapper, SectionWrapper } from '../components/layout/PageWrapper';
+import {
+  // Premium Layout System
+  Section,
+  Container,
+  VStack,
+  HStack,
+  
+  // Premium Typography
+  Heading,
+  Text,
+  Badge,
+  
+  // Premium Animation System
+  Animation,
+  
+  // Premium Core Components
+  PremiumCard as Card,
+  PremiumButton as Button
+} from '../components/premium';
 import SEOHead from '../components/SEOHead';
-import UniversalCTA from '../components/UniversalCTA';
 import { siteConfig } from '../siteConfig';
 import { vedicWisdomSeries } from '../data/vedicWisdomSeries';
-import { useSlideAnimation, slideAnimationConfigs } from '../hooks/useSlideAnimations';
 
 export default function SchedulePage() {
   const [selectedTimezone, setSelectedTimezone] = useState('IST');
@@ -79,9 +95,7 @@ export default function SchedulePage() {
   const mutedText = useColorModeValue('gray.600', 'gray.400');
   const headingColor = useColorModeValue('gray.800', 'white');
 
-  // ANIMATIONS
-  const heroAnimation = useSlideAnimation(slideAnimationConfigs.heroTitle);
-  const scheduleAnimation = useSlideAnimation({ ...slideAnimationConfigs.fromBottom, delay: 200 });
+  // Using Premium Animation System
 
   // TIMEZONE CONVERSIONS
   const timezones = [
@@ -278,7 +292,7 @@ export default function SchedulePage() {
           >
             <Container maxW="7xl" position="relative" zIndex={2}>
               <VStack spacing={8} textAlign="center" ref={heroAnimation.ref} style={heroAnimation.style}>
-                <Icon as={FaCalendarAlt} boxSize={16} color="blue.500" />
+                <Icon as={FaCalendarAlt} boxSize={{ base: 12, md: 16 }} color="blue.500" />
                 
                 <VStack spacing={4}>
                   <Heading as="h1" size={{ base: "xl", md: "2xl", lg: "3xl" }} color={headingColor}>
@@ -294,11 +308,11 @@ export default function SchedulePage() {
                 </VStack>
 
                 {/* Timezone Selector */}
-                <HStack spacing={4} flexWrap="wrap" justify="center">
+                <HStack spacing={{ base: 3, md: 4 }} flexWrap="wrap" justify="center">
                   <Select
                     value={selectedTimezone}
                     onChange={(e) => setSelectedTimezone(e.target.value)}
-                    maxW="250px"
+                    maxW={{ base: "200px", md: "250px" }}
                     bg={cardBg}
                     borderColor="blue.300"
                     _focus={{ borderColor: "blue.500" }}
@@ -309,7 +323,7 @@ export default function SchedulePage() {
                       </option>
                     ))}
                   </Select>
-                  <Badge colorScheme="green" fontSize="md" px={3} py={1}>
+                  <Badge colorScheme="green" fontSize={{ base: "sm", md: "md" }} px={3} py={1}>
                     All Times in {selectedTimezone}
                   </Badge>
                 </HStack>
@@ -370,7 +384,7 @@ export default function SchedulePage() {
                           </Text>
                         </Box>
                       ) : (
-                        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
+                        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 4, md: 6 }}>
                           {sessions.map((session, index) => (
                             <Card
                               key={index}

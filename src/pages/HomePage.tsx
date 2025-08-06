@@ -1,12 +1,6 @@
 import React from 'react'
 import { 
   Box, 
-  Container, 
-  Heading, 
-  Text, 
-  Button, 
-  VStack, 
-  HStack, 
   SimpleGrid, 
   Icon, 
   Badge,
@@ -22,12 +16,25 @@ import { Link as RouterLink } from 'react-router-dom'
 import SEOHead from '../components/SEOHead'
 import UniversalCTA from '../components/UniversalCTA'
 import { siteConfig } from '../siteConfig'
-import { SimpleLayout, HeroSection, ContentSection } from '../components/layout/SimpleLayout'
+import {
+  // Premium Layout System
+  Section,
+  Container,
+  Grid,
+  VStack,
+  HStack,
+  
+  // Premium Typography
+  Heading,
+  Text,
+  
+  // Premium Core Components
+  PremiumCard as Card,
+  PremiumButton as Button
+} from '../components/premium'
 import { contentMaster, getCTAData, getPageContent, getContentIcon } from '../data/contentMaster'
 import { vedicWisdomSeries } from '../data/vedicWisdomSeries'
 import { useSlideAnimation, slideAnimationConfigs } from '../hooks/useSlideAnimations'
-import { PremiumCard } from '../components/premium/PremiumCard'
-import { PremiumButton } from '../components/premium/PremiumButton'
 
 export default function HomePage() {
   // Premium gradients for luxury feel
@@ -117,9 +124,8 @@ export default function HomePage() {
         structuredData={structuredData}
       />
 
-      <SimpleLayout hasHero={true}>
-        {/* 🕉️ DIVINE HERO SECTION - CSS Grid handles spacing automatically */}
-        <HeroSection>
+      {/* 🕉️ DIVINE HERO SECTION - Premium layout with hero variant */}
+      <Section variant="hero" background="gradient" padding="none">
           <Box 
             minH="100vh" 
             bgGradient={heroGradient}
@@ -131,8 +137,8 @@ export default function HomePage() {
               position="absolute"
               top="10%"
               left="10%"
-              w="300px"
-              h="300px"
+              w={{ base: "200px", md: "300px" }}
+              h={{ base: "200px", md: "300px" }}
               bg="radial-gradient(circle, rgba(255,153,51,0.15) 0%, transparent 70%)"
               borderRadius="full"
               filter="blur(80px)"
@@ -142,8 +148,8 @@ export default function HomePage() {
               position="absolute"
               top="60%"
               right="15%"
-              w="200px"
-              h="200px"
+              w={{ base: "150px", md: "200px" }}
+              h={{ base: "150px", md: "200px" }}
               bg="radial-gradient(circle, rgba(30,144,255,0.1) 0%, transparent 70%)"
               borderRadius="full"
               filter="blur(60px)"
@@ -158,20 +164,20 @@ export default function HomePage() {
               bgRepeat="repeat"
               bgSize="150px"
             />
-            <Container maxW="7xl" py={{ base: 12, md: 20 }}>
-              <VStack spacing={8} textAlign="center" pt={{ base: 2, md: 4 }}>
+            <Container maxW={{ base: "100%", sm: "container.sm", md: "container.md", lg: "7xl" }} py={{ base: 8, md: 20 }} px={{ base: 4, sm: 6, md: 8 }}>
+              <VStack spacing={{ base: 6, md: 8 }} textAlign="center" pt={{ base: 2, md: 4 }}>
                 {/* Premium attention-grabbing Icon */}
                 <Box ref={heroIconAnimation.ref} style={heroIconAnimation.style}>
                   <Box 
                     position="relative"
                     display="inline-block"
-                    p={6}
+                    p={{ base: 4, md: 6 }}
                     bg={glassOverlay}
                     backdropFilter="blur(20px)"
                     borderRadius="full"
                     border="1px solid"
                     borderColor="whiteAlpha.200"
-                    mb={6}
+                    mb={{ base: 4, md: 6 }}
                     _before={{
                       content: '""',
                       position: 'absolute',
@@ -183,14 +189,14 @@ export default function HomePage() {
                       maskComposite: 'subtract'
                     }}
                   >
-                    <Icon as={FaLightbulb} boxSize={16} color="kd.tertiary" filter="drop-shadow(0 0 20px rgba(242, 219, 73, 0.6))" />
+                    <Icon as={FaLightbulb} boxSize={{ base: 10, md: 16 }} color="kd.tertiary" filter="drop-shadow(0 0 20px rgba(242, 219, 73, 0.6))" />
                   </Box>
                   <Badge 
                     bg="linear-gradient(45deg, rgba(255,153,51,0.9), rgba(255,179,102,0.9))"
                     color="white"
-                    fontSize="sm" 
-                    px={6} 
-                    py={3} 
+                    fontSize={{ base: "xs", md: "sm" }} 
+                    px={{ base: 4, md: 6 }} 
+                    py={{ base: 2, md: 3 }} 
                     borderRadius="full" 
                     mb={2}
                     backdropFilter="blur(10px)"
@@ -202,7 +208,7 @@ export default function HomePage() {
                 </Box>
 
                 {/* Conversion-Optimized Headline */}
-                <VStack spacing={6}>
+                <VStack spacing={{ base: 4, md: 6 }}>
                   <Heading 
                     as="h1" 
                     size={{ base: "2xl", md: "3xl", lg: "4xl" }} 
@@ -212,7 +218,7 @@ export default function HomePage() {
                     fontWeight="bold"
                     ref={heroTitleAnimation.ref}
                     style={heroTitleAnimation.style}
-                    maxW="5xl"
+                    maxW={{ base: "full", md: "5xl" }}
                   >
                     {pageContent.headline}
                   </Heading>
@@ -220,7 +226,7 @@ export default function HomePage() {
                   <Text 
                     fontSize={{ base: "xl", md: "2xl" }} 
                     color={textColor}
-                    maxW="4xl"
+                    maxW={{ base: "full", md: "4xl" }}
                     lineHeight="tall"
                     fontWeight="medium"
                     ref={heroSubtitleAnimation.ref}
@@ -232,7 +238,7 @@ export default function HomePage() {
                   <Text 
                     fontSize={{ base: "lg", md: "xl" }} 
                     color={textColor}
-                    maxW="3xl"
+                    maxW={{ base: "full", md: "3xl" }}
                     lineHeight="tall"
                     ref={heroDescAnimation.ref}
                     style={heroDescAnimation.style}
@@ -241,42 +247,42 @@ export default function HomePage() {
                   </Text>
                   
                   {/* Social Proof */}
-                  <Badge colorScheme="blue" fontSize="md" px={6} py={2} borderRadius="full">
+                  <Badge colorScheme="blue" fontSize={{ base: "sm", md: "md" }} px={{ base: 4, md: 6 }} py={2} borderRadius="full">
                     ⭐ {pageContent.socialProof}
                   </Badge>
                 </VStack>
 
                 {/* Premium Conversion-Optimized CTAs */}
-                <VStack spacing={6} ref={heroCTAAnimation.ref} style={heroCTAAnimation.style}>
-                  <HStack spacing={6} flexWrap="wrap" justify="center">
-                    <PremiumButton
+                <VStack spacing={{ base: 4, md: 6 }} ref={heroCTAAnimation.ref} style={heroCTAAnimation.style}>
+                  <HStack spacing={{ base: 3, md: 6 }} flexWrap="wrap" justify="center">
+                    <Button
                       as="a"
                       href={pageContent.primaryCtaData.href}
                       size="lg"
                       variant="premium"
                       icon={pageContent.primaryCtaData.icon}
                       shimmer={true}
-                      px={10}
-                      py={7}
-                      fontSize="lg"
+                      px={{ base: 6, md: 10 }}
+                      py={{ base: 4, md: 7 }}
+                      fontSize={{ base: "md", md: "lg" }}
                       fontWeight="bold"
-                      minW="200px"
-                      h="56px"
+                      minW={{ base: "160px", md: "200px" }}
+                      h={{ base: "48px", md: "56px" }}
                     >
                       {pageContent.primaryCtaData.text}
-                    </PremiumButton>
-                    <PremiumButton
+                    </Button>
+                    <Button
                       as="a"
                       href={pageContent.secondaryCtaData.href}
                       size="lg"
                       variant="glass"
                       icon={pageContent.secondaryCtaData.icon}
-                      px={10}
-                      py={7}
-                      fontSize="lg"
+                      px={{ base: 6, md: 10 }}
+                      py={{ base: 4, md: 7 }}
+                      fontSize={{ base: "md", md: "lg" }}
                       fontWeight="medium"
-                      minW="200px"
-                      h="56px"
+                      minW={{ base: "160px", md: "200px" }}
+                      h={{ base: "48px", md: "56px" }}
                       bg={glassOverlay}
                       backdropFilter="blur(20px)"
                       border="1px solid"
@@ -290,7 +296,7 @@ export default function HomePage() {
                       }}
                     >
                       {pageContent.secondaryCtaData.text}
-                    </PremiumButton>
+                    </Button>
                   </HStack>
                   
                   {/* Urgency Trigger */}
@@ -300,13 +306,13 @@ export default function HomePage() {
                 </VStack>
 
                 {/* Trust Indicators - Animated stats */}
-                <HStack spacing={8} flexWrap="wrap" justify="center" pt={4} ref={heroStatsAnimation.ref} style={heroStatsAnimation.style}>
+                <HStack spacing={{ base: 4, md: 8 }} flexWrap="wrap" justify="center" pt={4} ref={heroStatsAnimation.ref} style={heroStatsAnimation.style}>
                   {homeConfig.stats.slice(0, 3).map((stat: any, index: number) => (
                     <VStack key={index} spacing={1}>
-                      <Text fontSize="2xl" fontWeight="bold" color={index === 0 ? accentColor : index === 1 ? accentColor : accentColor}>
+                      <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold" color={index === 0 ? accentColor : index === 1 ? accentColor : accentColor}>
                         {stat.value}
                     </Text>
-                    <Text fontSize="sm" color={textColor}>
+                    <Text fontSize={{ base: "xs", md: "sm" }} color={textColor}>
                         {stat.label}
                     </Text>
                   </VStack>
@@ -315,10 +321,11 @@ export default function HomePage() {
               </VStack>
             </Container>
           </Box>
-        </HeroSection>
+      </Section>
 
-        {/* 🕉️ SPIRITUAL WISDOM PRINCIPLES SECTION - Simple content section */}
-        <ContentSection>
+      {/* 🕉️ SPIRITUAL WISDOM PRINCIPLES SECTION - Premium content section */}
+      <Section variant="content" background="solid" padding="lg">
+        <Container>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={principlesSectionAnimation.ref} style={principlesSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.primary" color="kd.primary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
@@ -332,7 +339,7 @@ export default function HomePage() {
               </Text>
             </VStack>
 
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="full">
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={{ base: 6, md: 8 }} w="full">
               {homeConfig.principles.map((principle, index) => {
                 // Staggered bottom animations with proper delays
                 const cardAnimation = useSlideAnimation({
@@ -342,26 +349,26 @@ export default function HomePage() {
                   distance: 50
                 });
                 return (
-                  <PremiumCard 
+                  <Card 
                     key={index} 
                     variant="glass"
                     premium={true}
                     ref={cardAnimation.ref}
                     style={cardAnimation.style}
                   >
-                    <Box p={8}>
-                      <VStack spacing={6} align="start">
+                    <Box p={{ base: 6, md: 8 }}>
+                      <VStack spacing={{ base: 4, md: 6 }} align="start">
                         <Box
-                          p={4}
+                          p={{ base: 3, md: 4 }}
                           bg="linear-gradient(135deg, rgba(242,219,73,0.1), rgba(242,219,73,0.05))"
                           borderRadius="full"
                           display="inline-flex"
                           alignItems="center"
                           justifyContent="center"
                         >
-                          <Icon as={getContentIcon(principle.icon)} boxSize={8} color="kd.tertiary" />
+                          <Icon as={getContentIcon(principle.icon)} boxSize={{ base: 6, md: 8 }} color="kd.tertiary" />
                         </Box>
-                        <VStack align="start" spacing={3}>
+                        <VStack align="start" spacing={{ base: 2, md: 3 }}>
                           <Heading size="md" color={headingColor} fontWeight="600">
                             {principle.title}
                           </Heading>
@@ -369,7 +376,7 @@ export default function HomePage() {
                             {principle.description}
                           </Text>
                         </VStack>
-                        <PremiumButton 
+                        <Button 
                           as={RouterLink} 
                           to={principle.link} 
                           variant="glass"
@@ -385,18 +392,20 @@ export default function HomePage() {
                           }}
                         >
                           Learn More
-                        </PremiumButton>
+                        </Button>
                       </VStack>
                     </Box>
-                  </PremiumCard>
+                  </Card>
                 );
               })}
             </SimpleGrid>
           </VStack>
-        </ContentSection>
+        </Container>
+      </Section>
 
-        {/* 🕉️ DIVINE OFFERINGS SECTION - Simple content section */}
-        <ContentSection>
+      {/* 🕉️ DIVINE OFFERINGS SECTION - Premium content section */}
+      <Section variant="feature" background="glass" padding="lg">
+        <Container>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={productsSectionAnimation.ref} style={productsSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.tertiary" color="kd.tertiary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
@@ -410,7 +419,7 @@ export default function HomePage() {
               </Text>
             </VStack>
 
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full">
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }} w="full">
               {homeConfig.offerings.map((offering: any, index: number) => {
                 // Alternating left/right slide animations with staggered delays
                 const offeringAnimation = useSlideAnimation({
@@ -420,15 +429,15 @@ export default function HomePage() {
                   distance: 60
                 });
                 return (
-                  <PremiumCard 
+                  <Card 
                     key={index} 
                     variant="elevated"
                     premium={true}
                     ref={offeringAnimation.ref}
                     style={offeringAnimation.style}
                   >
-                    <Box p={8}>
-                      <VStack spacing={6} align="start">
+                    <Box p={{ base: 6, md: 8 }}>
+                      <VStack spacing={{ base: 4, md: 6 }} align="start">
                         <HStack justify="space-between" w="full">
                           <Badge 
                             bg="linear-gradient(45deg, rgba(30,144,255,0.9), rgba(30,144,255,0.7))"
@@ -454,7 +463,7 @@ export default function HomePage() {
                             </Text>
                           </Box>
                         </HStack>
-                        <VStack align="start" spacing={4}>
+                        <VStack align="start" spacing={{ base: 3, md: 4 }}>
                           <Heading size="md" color={headingColor} fontWeight="600">
                             {offering.title}
                           </Heading>
@@ -462,28 +471,30 @@ export default function HomePage() {
                             {offering.description}
                           </Text>
                         </VStack>
-                        <PremiumButton 
+                        <Button 
                           as={RouterLink} 
                           to={offering.link || '/teachings'} 
                           variant="premium"
                           size="md" 
                           w="full"
-                          h="48px"
+                          h={{ base: "44px", md: "48px" }}
                           shimmer={true}
                         >
                           Learn More →
-                        </PremiumButton>
+                        </Button>
                       </VStack>
                     </Box>
-                  </PremiumCard>
+                  </Card>
                 );
               })}
             </SimpleGrid>
           </VStack>
-        </ContentSection>
+        </Container>
+      </Section>
 
-        {/* 🕉️ SPIRITUAL IMPACT STATS SECTION - Simple content section */}
-        <ContentSection>
+      {/* 🕉️ SPIRITUAL IMPACT STATS SECTION - Premium content section */}
+      <Section variant="testimonial" background="pattern" padding="lg">
+        <Container>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center" ref={statsSectionAnimation.ref} style={statsSectionAnimation.style}>
               <Badge bg="transparent" borderColor="kd.primary" color="kd.primary" variant="outline" fontSize="md" px={4} py={2} borderRadius="full">
@@ -494,7 +505,7 @@ export default function HomePage() {
               </Heading>
             </VStack>
 
-            <SimpleGrid columns={{ base: 2, md: 4 }} spacing={8} w="full">
+            <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={{ base: 4, md: 8 }} w="full">
               {homeConfig.stats.map((stat, index) => {
                 // Staggered bottom animations for stats with increasing delays
                 const statAnimation = useSlideAnimation({
@@ -504,39 +515,39 @@ export default function HomePage() {
                   distance: 40
                 });
                 return (
-                  <PremiumCard 
+                  <Card 
                     key={index} 
                     variant="glass"
                     textAlign="center"
                     ref={statAnimation.ref}
                     style={statAnimation.style}
                   >
-                    <Box p={6}>
+                    <Box p={{ base: 4, md: 6 }}>
                       <Stat>
                         <StatNumber 
-                          fontSize="3xl" 
+                          fontSize={{ base: "2xl", md: "3xl" }} 
                           fontWeight="bold" 
                           color={accentColor}
                           textShadow="0 2px 4px rgba(0,0,0,0.1)"
                         >
                           {stat.value}
                         </StatNumber>
-                        <StatLabel fontSize="md" color={headingColor} fontWeight="600" mt={2}>
+                        <StatLabel fontSize={{ base: "sm", md: "md" }} color={headingColor} fontWeight="600" mt={2}>
                           {stat.label}
                         </StatLabel>
-                        <StatHelpText fontSize="sm" color={textColor} mt={1}>
+                        <StatHelpText fontSize={{ base: "xs", md: "sm" }} color={textColor} mt={1}>
                           <StatArrow type="increase" color="green.400" />
                           {stat.trend}
                         </StatHelpText>
                       </Stat>
                     </Box>
-                  </PremiumCard>
+                  </Card>
                 );
               })}
             </SimpleGrid>
           </VStack>
-        </ContentSection>
-      </SimpleLayout>
+        </Container>
+      </Section>
     </>
   )
 } 

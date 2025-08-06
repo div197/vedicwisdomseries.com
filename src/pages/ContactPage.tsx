@@ -249,37 +249,37 @@ const ContactPage: React.FC = () => {
               </VStack>
 
               {/* Authority Credentials */}
-              <HStack spacing={12} justify="center" flexWrap="wrap">
+              <HStack spacing={{ base: 6, sm: 8, md: 12 }} justify="center" flexWrap="wrap">
                 <VStack spacing={2}>
-                  <Text fontSize="3xl" fontWeight="bold" color="tertiary.300">1000+</Text>
-                  <Text fontSize="sm" color="whiteAlpha.700">International Students</Text>
+                  <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" color="tertiary.300">1000+</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.700">International Students</Text>
                 </VStack>
                 <VStack spacing={2}>
-                  <Text fontSize="3xl" fontWeight="bold" color="secondary.300">25+</Text>
-                  <Text fontSize="sm" color="whiteAlpha.700">Countries Served</Text>
+                  <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" color="secondary.300">25+</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.700">Countries Served</Text>
                 </VStack>
                 <VStack spacing={2}>
-                  <Text fontSize="3xl" fontWeight="bold" color="primary.300">24hr</Text>
-                  <Text fontSize="sm" color="whiteAlpha.700">Response Time</Text>
+                  <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" color="primary.300">24hr</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.700">Response Time</Text>
                 </VStack>
                 <VStack spacing={2}>
-                  <Text fontSize="3xl" fontWeight="bold" color="green.300">30min</Text>
-                  <Text fontSize="sm" color="whiteAlpha.700">Private Session</Text>
+                  <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" color="green.300">30min</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.700">Private Session</Text>
                 </VStack>
               </HStack>
 
               {/* Sophisticated CTAs */}
-              <HStack spacing={6} flexWrap="wrap" justify="center">
+              <HStack spacing={{ base: 4, md: 6 }} flexWrap="wrap" justify="center">
                 <Button 
                   variant="premium" 
-                  size="xl" 
+                  size={{ base: "lg", md: "xl" }} 
                   shimmer 
                   icon={FaCalendarCheck}
                   onClick={() => document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Schedule Private Consultation
                 </Button>
-                <Button variant="glass" size="xl" icon={FaEnvelope}>
+                <Button variant="glass" size={{ base: "lg", md: "xl" }} icon={FaEnvelope}>
                   Submit Strategic Inquiry
                 </Button>
               </HStack>
@@ -316,7 +316,7 @@ const ContactPage: React.FC = () => {
             </Animation>
 
             <Stagger staggerDelay={0.2}>
-              <Grid columns={{ base: 1, md: 3 }} spacing={8} equalHeight>
+              <Grid columns={{ base: 1, md: 2, lg: 3 }} spacing={{ base: 6, md: 8 }} equalHeight>
                 {authorityChannels.map((channel, index) => (
                   <Hover key={channel.title} variant="lift" intensity="normal">
                     <Card variant="elevated" premium h="full" position="relative">
@@ -340,19 +340,19 @@ const ContactPage: React.FC = () => {
                         </Box>
                       )}
 
-                      <VStack spacing={8} p={8} align="center" h="full" textAlign="center">
+                      <VStack spacing={{ base: 6, md: 8 }} p={{ base: 6, md: 8 }} align="center" h="full" textAlign="center">
                         {/* Authority Icon */}
                         <Box
                           bg={`${channel.color}.100`}
-                          p={6}
+                          p={{ base: 4, md: 6 }}
                           borderRadius="full"
                           border="3px solid"
                           borderColor={`${channel.color}.200`}
                         >
-                          <Icon as={channel.icon} boxSize={12} color={`${channel.color}.500`} />
+                          <Icon as={channel.icon} boxSize={{ base: 8, md: 12 }} color={`${channel.color}.500`} />
                         </Box>
                         
-                        <VStack spacing={4} align="center">
+                        <VStack spacing={{ base: 3, md: 4 }} align="center">
                           <Heading variant="card" level={3}>
                             {channel.title}
                           </Heading>
@@ -367,11 +367,11 @@ const ContactPage: React.FC = () => {
                         </VStack>
 
                         {/* Credentials */}
-                        <VStack spacing={3} w="full">
+                        <VStack spacing={{ base: 2, md: 3 }} w="full">
                           {channel.credentials.map((credential, idx) => (
-                            <HStack key={idx} spacing={3} w="full" justify="center">
-                              <Icon as={FaCheckCircle} color={`${channel.color}.500`} boxSize={4} />
-                              <Text fontSize="sm" color="gray.700" textAlign="center">
+                            <HStack key={idx} spacing={{ base: 2, md: 3 }} w="full" justify="center">
+                              <Icon as={FaCheckCircle} color={`${channel.color}.500`} boxSize={{ base: 3, md: 4 }} />
+                              <Text fontSize={{ base: "xs", md: "sm" }} color="gray.700" textAlign="center">
                                 {credential}
                               </Text>
                             </HStack>
@@ -381,7 +381,7 @@ const ContactPage: React.FC = () => {
                         {/* Sophisticated CTA */}
                         <Button
                           variant="premium"
-                          size="lg"
+                          size={{ base: "md", md: "lg" }}
                           icon={channel.icon}
                           shimmer={channel.exclusive}
                           onClick={channel.href.startsWith('#') ? 
@@ -408,7 +408,7 @@ const ContactPage: React.FC = () => {
         <Container size="md">
           <Animation variant="scaleIn">
             <VStack spacing={8} textAlign="center">
-              <Badge variant="solid" colorScheme="primary" size="xl" icon={<FaUserTie />}>
+              <Badge variant="solid" colorScheme="primary" size={{ base: "lg", md: "xl" }} icon={<FaUserTie />}>
                 🎓 PRIVATE CONSULTATION REQUEST
               </Badge>
               
@@ -430,9 +430,9 @@ const ContactPage: React.FC = () => {
               subtitle="Strategic guidance from global spiritual authority"
               onSubmit={handleConsultationSubmit}
               spacing={8}
-              p={10}
+              p={{ base: 6, md: 10 }}
             >
-              <Grid columns={{ base: 1, md: 2 }} spacing={6}>
+              <Grid columns={{ base: 1, md: 2 }} spacing={{ base: 4, md: 6 }}>
                 <Input
                   name="name"
                   label="Full Name"
@@ -452,7 +452,7 @@ const ContactPage: React.FC = () => {
                 />
               </Grid>
 
-              <Grid columns={{ base: 1, md: 2 }} spacing={6}>
+              <Grid columns={{ base: 1, md: 2 }} spacing={{ base: 4, md: 6 }}>
                 <Input
                   name="country"
                   label="Country/Region"
@@ -540,23 +540,23 @@ const ContactPage: React.FC = () => {
               {/* Authority Commitment */}
               <Card variant="glass" p={6}>
                 <VStack spacing={4} textAlign="center">
-                  <Icon as={FaShieldAlt} boxSize={10} color="green.500" />
+                  <Icon as={FaShieldAlt} boxSize={{ base: 8, md: 10 }} color="green.500" />
                   <Heading variant="card" level={4} color="green.700">
                     International Authority Commitment
                   </Heading>
                   <VStack spacing={2} fontSize="sm" color="gray.700">
-                    <Text>🎓 30-minute private consultation with Dr. Nischaya Nagori</Text>
-                    <Text>🌍 Personalized guidance for international students</Text>
-                    <Text>🔬 Scientific-spiritual integration approach</Text>
-                    <Text>💯 Strategic program recommendations</Text>
-                    <Text>🕉️ No pressure, authentic spiritual guidance</Text>
+                    <Text fontSize={{ base: "xs", md: "sm" }}>🎓 30-minute private consultation with Dr. Nischaya Nagori</Text>
+                    <Text fontSize={{ base: "xs", md: "sm" }}>🌍 Personalized guidance for international students</Text>
+                    <Text fontSize={{ base: "xs", md: "sm" }}>🔬 Scientific-spiritual integration approach</Text>
+                    <Text fontSize={{ base: "xs", md: "sm" }}>💯 Strategic program recommendations</Text>
+                    <Text fontSize={{ base: "xs", md: "sm" }}>🕉️ No pressure, authentic spiritual guidance</Text>
                   </VStack>
                 </VStack>
               </Card>
 
               <Submit
                 variant="premium"
-                size="xl"
+                size={{ base: "lg", md: "xl" }}
                 fullWidth
                 loading={isSubmitting}
                 icon={FaCalendarCheck}
@@ -642,13 +642,13 @@ const ContactPage: React.FC = () => {
                 >
                   Schedule Private Consultation
                 </Button>
-                <Button variant="glass" size="xl" icon={FaGraduationCap}>
+                <Button variant="glass" size={{ base: "lg", md: "xl" }} icon={FaGraduationCap}>
                   Explore All Programs
                 </Button>
               </HStack>
               
               {/* Final Authority Indicators */}
-              <HStack spacing={8} justify="center" flexWrap="wrap" pt={6}>
+              <HStack spacing={{ base: 4, md: 8 }} justify="center" flexWrap="wrap" pt={6}>
                 <Badge variant="outline" colorScheme="whiteAlpha" size="md">🎓 International Recognition</Badge>
                 <Badge variant="outline" colorScheme="whiteAlpha" size="md">🌍 Global Accessibility</Badge>
                 <Badge variant="outline" colorScheme="whiteAlpha" size="md">🔬 Scientific Validation</Badge>
