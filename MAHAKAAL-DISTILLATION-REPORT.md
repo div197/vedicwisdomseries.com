@@ -158,7 +158,7 @@ const KnowledgeCenterPage = React.lazy(() => import('./pages/KnowledgeCenterPage
 ### **3. Environment Configuration Update**
 **.env.production** still references BOB Institute:
 ```bash
-VITE_SITE_URL=https://bobinstitute.com  # Should be vedicwisdomseries.com
+VITE_SITE_URL=https://vaidikwisdomseries.com  # Updated to correct domain
 VITE_APP_NAME=BOB Institute            # Should be Vedic Wisdom Series
 ```
 **Action:** Update to Vedic Wisdom Series configuration

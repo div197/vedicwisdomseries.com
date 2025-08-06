@@ -117,7 +117,7 @@ const ContactPage: React.FC = () => {
       description: "Comprehensive program information and strategic consultation",
       authority: "Direct communication with teaching authority",
       value: "Submit Inquiry",
-      href: "mailto:info@vedicwisdomseries.com",
+      href: "mailto:info@vaidikwisdomseries.com",
       color: "secondary",
       credentials: ["Detailed program analysis", "International accessibility", "Priority response"]
     },
@@ -213,7 +213,7 @@ const ContactPage: React.FC = () => {
             "description": "Global spiritual teacher serving 1000+ international students across 25+ countries with authentic Vedic wisdom.",
             "contactPoint": {
               "@type": "ContactPoint",
-              "email": "info@vedicwisdomseries.com",
+              "email": "info@vaidikwisdomseries.com",
               "contactType": "Strategic Spiritual Consultation",
               "availableLanguage": "English",
               "serviceArea": "Worldwide"

@@ -18,7 +18,7 @@ function getSiteConfigValues() {
     
     // Extract siteUrl
     const urlMatch = configContent.match(/siteUrl:\s*"([^"]*?)"/);
-    const siteUrl = urlMatch ? urlMatch[1] : "https://vedicwisdomseries.com";
+    const siteUrl = urlMatch ? urlMatch[1] : "https://vaidikwisdomseries.com";
     
     // CORRECTED REGEX - matches actual siteConfig format with double quotes
     const navLinksMatch = configContent.match(/navigation:\s*{[\s\S]*?main:\s*(\[[\s\S]*?])/);
@@ -58,7 +58,7 @@ function getSiteConfigValues() {
   } catch (error) {
     console.warn('WARN: Could not read siteConfig.ts. Using defaults.', error);
     return { 
-      siteUrl: 'https://vedicwisdomseries.com', 
+      siteUrl: 'https://vaidikwisdomseries.com', 
       staticPages: []
     };
   }

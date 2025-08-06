@@ -342,7 +342,7 @@ const sacredSpacing = {
 ### 🤝 **Getting Help**
 - **GitHub Discussions**: Community Q&A and collaboration
 - **Discord**: Real-time development chat
-- **Email**: technical@vedicwisdomseries.com
+- **Email**: technical@vaidikwisdomseries.com
 - **Mentorship**: Experienced contributor guidance
 - **Documentation**: Comprehensive guides in `/docs`
 

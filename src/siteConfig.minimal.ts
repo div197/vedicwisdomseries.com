@@ -64,9 +64,9 @@ interface SiteConfig {
 
 // THE ENTIRE CONFIGURATION
 export const siteConfig: SiteConfig = {
-  siteName: "Vedic Wisdom Series",
+  siteName: import.meta.env.VITE_APP_NAME || "Vedic Wisdom Series",
   siteDescription: "MIT Scientist Discovers Ancient Code That Proves Your Soul's Quantum Nature - Join Dr. Nischaya Nagori's Revolutionary Vedic Education Programs",
-  siteUrl: "https://vedicwisdomseries.com",
+  siteUrl: import.meta.env.VITE_SITE_URL || "https://vaidikwisdomseries.com",
   
   colors: {
     primary: "#FF9933",   // Deep Saffron - Knowledge & Wisdom
@@ -105,8 +105,8 @@ export const siteConfig: SiteConfig = {
   },
   
   contact: {
-    email: "contact@vedicwisdomseries.com",
-    phone: "+1 (555) 123-4567"
+    email: import.meta.env.VITE_CONTACT_EMAIL || "contact@vaidikwisdomseries.com",
+    phone: import.meta.env.VITE_PHONE_NUMBER || "+1 (555) 123-4567"
   },
   
   author: {

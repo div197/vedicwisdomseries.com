@@ -192,10 +192,10 @@ npm run deploy
 ### **Verification Steps:**
 ```bash
 # Check sitemap
-curl https://vedicwisdomseries.com/sitemap.xml
+curl https://vaidikwisdomseries.com/sitemap.xml
 
 # Test robots.txt
-curl https://vedicwisdomseries.com/robots.txt
+curl https://vaidikwisdomseries.com/robots.txt
 
 # Validate structured data
 # Use Google's Rich Results Test

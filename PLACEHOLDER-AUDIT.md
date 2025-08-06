@@ -74,8 +74,8 @@
 ```typescript
 // CURRENT FALLBACKS:
 contact@example.com        // Needs real professional email
-support@vedicwisdomseries.com  // Needs activation
-technical@vedicwisdomseries.com // Needs setup
+support@vaidikwisdomseries.com  // Needs activation
+technical@vaidikwisdomseries.com // Needs setup
 
 // REQUIRED SETUP:
 - Professional Google Workspace or similar

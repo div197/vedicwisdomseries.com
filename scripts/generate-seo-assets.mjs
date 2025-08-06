@@ -67,7 +67,7 @@ function generateOGImage() {
 
 // Generate comprehensive sitemap
 function generateSitemap() {
-  const siteUrl = 'https://vedicwisdomseries.com';
+  const siteUrl = 'https://vaidikwisdomseries.com';
   const pages = [
     { path: '/', priority: '1.0', changefreq: 'daily' },
     { path: '/about', priority: '0.9', changefreq: 'weekly' },
@@ -123,7 +123,7 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://vedicwisdomseries.com/sitemap.xml
+Sitemap: https://vaidikwisdomseries.com/sitemap.xml
 
 # AI Crawlers (optional - uncomment to block)
 # User-agent: GPTBot
@@ -144,8 +144,8 @@ function generateStructuredDataTemplates() {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "Vedic Wisdom Series",
-      "url": "https://vedicwisdomseries.com",
-      "logo": "https://vedicwisdomseries.com/logo.png",
+      "url": "https://vaidikwisdomseries.com",
+      "logo": "https://vaidikwisdomseries.com/logo.png",
       "description": "Revolutionary Vedic education bridging quantum physics with ancient wisdom",
       "founder": {
         "@type": "Person",

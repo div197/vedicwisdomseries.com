@@ -26,7 +26,7 @@
   "security": {
     "blockServiceWorkers": false,
     "allowedOrigins": [
-      "https://vedicwisdomseries.com",
+      "https://vaidikwisdomseries.com",
       "http://localhost:5173",
       "http://localhost:4173"
     ]

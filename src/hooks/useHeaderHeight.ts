@@ -1,6 +1,7 @@
 import { useBreakpointValue } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
 import { useMemo, useEffect, useState } from 'react';
+import { siteConfig } from '../siteConfig';
 
 /**
  * 🕉️ KARPATRI DHAM FRAMEWORK - DIVINE UNIVERSAL LAYOUT SYSTEM
@@ -82,9 +83,6 @@ export const useHeroPageDetection = () => {
   
   return useMemo(() => {
     const currentPath = location.pathname;
-    
-    // Import siteConfig inside useMemo to avoid circular dependency
-    const { siteConfig } = require('../siteConfig');
     
     // Check main navigation routes
     const heroPage = siteConfig.navigation.main.find((item: any) => 

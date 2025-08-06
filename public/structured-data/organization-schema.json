@@ -2,8 +2,8 @@
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   "name": "Vedic Wisdom Series",
-  "url": "https://vedicwisdomseries.com",
-  "logo": "https://vedicwisdomseries.com/logo.png",
+  "url": "https://vaidikwisdomseries.com",
+  "logo": "https://vaidikwisdomseries.com/logo.png",
   "description": "Revolutionary Vedic education bridging quantum physics with ancient wisdom",
   "founder": {
     "@type": "Person",
@@ -11,9 +11,9 @@
     "jobTitle": "Vedic Scholar & Spiritual Guide"
   },
   "sameAs": [
-    "https://youtube.com/@vedicwisdomseries",
-    "https://facebook.com/vedicwisdomseries",
-    "https://instagram.com/vedicwisdomseries"
+    "https://youtube.com/@vaidikwisdomseries",
+    "https://facebook.com/vaidikwisdomseries",
+    "https://instagram.com/vaidikwisdomseries"
   ],
   "offers": [
     {

@@ -153,8 +153,8 @@ export const vedicWisdomSeries = {
     vision: "Bridging ancient Vedic wisdom with modern understanding through authentic transmission and scientific correlation.",
     socialLinks: [
       { platform: "YouTube", url: "https://youtube.com/@drnischayanagori" },
-      { platform: "Facebook", url: "https://facebook.com/vedicwisdomseries" },
-      { platform: "Instagram", url: "https://instagram.com/vedicwisdomseries" }
+      { platform: "Facebook", url: "https://facebook.com/vaidikwisdomseries" },
+      { platform: "Instagram", url: "https://instagram.com/vaidikwisdomseries" }
     ]
   },
 

@@ -255,7 +255,7 @@ export const usePerformance = (config: Partial<PerformanceConfig> = {}) => {
     }
   }, [finalConfig]);
 
-  const grades = React.useMemo(() => getPerformanceGrade(), [getPerformanceGrade]);
+  const grades = React.useMemo(() => getPerformanceGrade(), [metrics]);
 
   return {
     metrics,

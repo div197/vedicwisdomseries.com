@@ -194,7 +194,7 @@ const FooterNavLink = ({ to, children, icon }: {
       )}
       <Text 
         flex={1}
-        fontFamily={siteConfig.theme.typography.fonts.body}
+        fontFamily="body"
         noOfLines={1}
         color="kd.text"
         fontWeight="medium"
@@ -310,7 +310,7 @@ const Footer: React.FC = () => {
                   fontWeight="bold"
                   lineHeight="1.25"
                   letterSpacing="-0.025em"
-                  fontFamily={siteConfig.theme.typography.fonts.heading}
+                  fontFamily="heading"
                 >
                   About {siteConfig.siteName}
                 </Heading>
@@ -320,9 +320,9 @@ const Footer: React.FC = () => {
                   lineHeight="1.75"
                   letterSpacing="0"
                   fontWeight="normal"
-                  fontFamily={siteConfig.theme.typography.fonts.body}
+                  fontFamily="body"
                 >
-                  {siteConfig.legal.footerDescription}
+                  {siteConfig.siteDescription}
                 </Text>
                 
                 {/* Social Links with Official Colors */}
@@ -335,7 +335,7 @@ const Footer: React.FC = () => {
                       mb={4} 
                       textTransform="uppercase" 
                       letterSpacing="wider"
-                      fontFamily={siteConfig.theme.typography.fonts.heading}
+                      fontFamily="heading"
                     >
                       Follow Us
                     </Text>
@@ -372,7 +372,7 @@ const Footer: React.FC = () => {
                   fontWeight="bold"
                   lineHeight="1.25"
                   letterSpacing="-0.025em"
-                  fontFamily={siteConfig.theme.typography.fonts.heading}
+                  fontFamily="heading"
                 >
                   {footerConfig.menus.menu1.title}
                 </Heading>
@@ -406,7 +406,7 @@ const Footer: React.FC = () => {
                   fontWeight="bold"
                   lineHeight="1.25"
                   letterSpacing="-0.025em"
-                  fontFamily={siteConfig.theme.typography.fonts.heading}
+                  fontFamily="heading"
                 >
                   {footerConfig.menus.menu2.title}
                 </Heading>
@@ -440,7 +440,7 @@ const Footer: React.FC = () => {
                   fontWeight="bold"
                   lineHeight="1.25"
                   letterSpacing="-0.025em"
-                  fontFamily={siteConfig.theme.typography.fonts.heading}
+                  fontFamily="heading"
                 >
                   Contact Us
                 </Heading>
@@ -477,7 +477,7 @@ const Footer: React.FC = () => {
                           fontWeight="normal"
                           wordBreak="break-word"
                           whiteSpace="normal"
-                          fontFamily={siteConfig.theme.typography.fonts.body}
+                          fontFamily="body"
                         >
                           {line.trim()}
                         </Text>
@@ -517,7 +517,7 @@ const Footer: React.FC = () => {
                             fontWeight="normal"
                             wordBreak="break-word"
                             whiteSpace="normal"
-                            fontFamily={siteConfig.theme.typography.fonts.body}
+                            fontFamily="body"
                           >
                             <Text as="span" fontWeight="semibold" color="white">
                               {phoneEntry.label}:
@@ -555,7 +555,7 @@ const Footer: React.FC = () => {
                         fontSize={bodyFontSize}
                         color="white"
                         fontWeight="normal"
-                        fontFamily={siteConfig.theme.typography.fonts.body}
+                        fontFamily="body"
                         _hover={{ 
                           color: "kd.tertiary",
                           textDecoration: 'underline'
@@ -604,7 +604,7 @@ const Footer: React.FC = () => {
               color="white" 
               textAlign="center"
               fontWeight="500"
-              fontFamily={siteConfig.theme.typography.fonts.body}
+              fontFamily="body"
               textShadow="0 2px 4px rgba(0,0,0,0.3)"
             >
               {siteConfig.legal.copyrightText}
@@ -614,7 +614,7 @@ const Footer: React.FC = () => {
               color="rgba(255, 255, 255, 0.7)" 
               textAlign="center"
               fontWeight="400"
-              fontFamily={siteConfig.theme.typography.fonts.body}
+              fontFamily="body"
             >
               Crafted with 🕉️ by the Karpatri Dham Framework
             </Text>

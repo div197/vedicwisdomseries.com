@@ -361,7 +361,7 @@ Production Deploy:
 ## 📞 **SUPPORT & COMMUNITY**
 
 ### 🤝 **Professional Support**
-- **📧 Email**: support@vedicwisdomseries.com
+- **📧 Email**: support@vaidikwisdomseries.com
 - **💬 Live Chat**: 24/7 global support availability
 - **📱 WhatsApp**: International consultation booking
 - **🌐 Community**: Global practitioner forum access

@@ -231,7 +231,7 @@ npm run build:visualize
 ## 📞 **DEPLOYMENT SUPPORT**
 
 ### 🤝 **Technical Assistance**
-- **Email**: devops@vedicwisdomseries.com
+- **Email**: devops@vaidikwisdomseries.com
 - **Emergency**: +1-XXX-XXX-XXXX (24/7 critical issues)
 - **Documentation**: Comprehensive guides in `/docs` folder
 - **Community**: GitHub Discussions for peer support

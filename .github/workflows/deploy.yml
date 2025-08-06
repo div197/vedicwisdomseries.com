@@ -1,0 +1,133 @@
+name: 🕉️ Divine Deployment Pipeline
+# Nishkaam Karma: Deploy without attachment to results
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  NODE_VERSION: '18'
+  DEPLOY_ENVIRONMENT: 'production'
+
+jobs:
+  spiritual-validation:
+    name: 🧘 Spiritual Code Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🙏 Invoke Divine Checkout
+        uses: actions/checkout@v4
+        
+      - name: 🕉️ Setup Node Temple
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: 📿 Install Sacred Dependencies
+        run: npm ci
+        
+      - name: 🔍 TypeScript Dharma Check
+        run: npm run type-check
+        
+      - name: ✨ ESLint Purification
+        run: npm run lint
+        
+      - name: 🧪 Run Spiritual Tests
+        run: npm test
+        
+      - name: 📊 Karmic Bundle Analysis
+        run: npm run analyze
+        
+  divine-build:
+    name: 🏗️ Sacred Build Creation
+    needs: spiritual-validation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🙏 Checkout Sacred Code
+        uses: actions/checkout@v4
+        
+      - name: 🕉️ Setup Build Temple
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: 📿 Install Dependencies
+        run: npm ci
+        
+      - name: 🌟 Build with Venus Energy
+        run: |
+          echo "Building on Venus Day $(date +%Y-%m-%d)"
+          npm run build
+        env:
+          VITE_VENUS_DAY: 'true'
+          VITE_BUILD_TIME: ${{ github.event.head_commit.timestamp }}
+          
+      - name: 📦 Archive Divine Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: vedic-wisdom-dist
+          path: dist/
+          retention-days: 7
+          
+  cloudflare-deployment:
+    name: ☁️ Deploy to Cosmic CDN
+    needs: divine-build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: 🙏 Checkout for Deployment
+        uses: actions/checkout@v4
+        
+      - name: 📥 Download Sacred Build
+        uses: actions/download-artifact@v4
+        with:
+          name: vedic-wisdom-dist
+          path: dist/
+          
+      - name: 🚀 Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: vedic-wisdom-series
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: 🎉 Deployment Success Celebration
+        run: |
+          echo "🕉️ Deployment Complete!"
+          echo "🌍 Site Live at: https://vaidikwisdomseries.com"
+          echo "📊 Venus Day Abundance Activated"
+          echo "🙏 May this serve all seekers"
+          
+  post-deployment-validation:
+    name: 🔍 Verify Divine Manifestation
+    needs: cloudflare-deployment
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🌐 Check Site Availability
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://vaidikwisdomseries.com)
+          if [ $response -eq 200 ]; then
+            echo "✅ Site is live and serving seekers!"
+          else
+            echo "❌ Site response: $response"
+            exit 1
+          fi
+          
+      - name: 🔒 Verify Security Headers
+        run: |
+          curl -I https://vaidikwisdomseries.com | grep -E "(X-Frame-Options|X-Content-Type-Options|Strict-Transport-Security)"
+          
+      - name: 📈 Report Deployment Metrics
+        run: |
+          echo "Deployment completed at: $(date)"
+          echo "Commit: ${{ github.sha }}"
+          echo "Deployed by: ${{ github.actor }}"
