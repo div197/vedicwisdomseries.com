@@ -293,14 +293,14 @@ export const siteConfig: SiteConfig = {
   
   contact: {
     email: import.meta.env.VITE_CONTACT_EMAIL || "contact@vaidikwisdomseries.com",
-    phone: import.meta.env.VITE_PHONE_NUMBER || "+1 (555) 123-4567",
-    address: "123 Spiritual Avenue<br>Wisdom City, WC 12345<br>United States",
+    phone: import.meta.env.VITE_PHONE_NUMBER || "+91-961-000-1234",
+    address: "Vedic Wisdom Series<br>Divine Knowledge Center<br>India - Vishwaguru to the World",
     phones: [
       {
         label: "Main",
-        number: "+1 (555) 123-4567",
-        flagUrl: "/assets/images/flags/us.png",
-        countryCode: "US",
+        number: "+91-961-000-1234",
+        flagUrl: "/assets/images/flags/in.png",
+        countryCode: "IN",
         displayBreakpoint: "md" as const,
         enabled: true
       }
@@ -393,9 +393,9 @@ export const siteConfig: SiteConfig = {
         phoneNumbers: [
           {
             label: "Main",
-            number: "+1 (555) 123-4567",
-            flagUrl: "/assets/images/flags/us.png",
-            countryCode: "US",
+            number: "+91-961-000-1234",
+            flagUrl: "/assets/images/flags/in.png",
+            countryCode: "IN",
             displayBreakpoint: "md" as const,
             enabled: true
           }
