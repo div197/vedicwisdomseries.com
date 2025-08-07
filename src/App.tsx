@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { AccessibilityProvider, SkipLinks } from './components/providers/AccessibilityProvider'
 import { SimpleErrorBoundary } from './components/providers/SimpleErrorBoundary'
 
-// Layout Components
+// Layout Components  
 import Header from './components/Header'
 import Footer from './components/Footer'
 
@@ -23,7 +23,7 @@ function App() {
         <SkipLinks />
         <div className="App">
           <SimpleErrorBoundary>
-            <Header id="main-navigation" />
+            <Header />
           </SimpleErrorBoundary>
           <main id="main-content" role="main">
             <SimpleErrorBoundary>

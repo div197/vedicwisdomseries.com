@@ -558,19 +558,19 @@ const Footer: React.FC = () => {
                     {/* Email */}
                     <ContactItem 
                       icon={FaEnvelope} 
-                      href="mailto:contact@vedicwisdomseries.com"
+                      href={`mailto:${siteConfig.contact.email || 'contact@vaidikwisdomseries.com'}`}
                       type="link"
                     >
-                      contact@vedicwisdomseries.com
+                      {siteConfig.contact.email || 'contact@vaidikwisdomseries.com'}
                     </ContactItem>
 
                     {/* Phone */}
                     <ContactItem 
                       icon={FaPhoneAlt}
-                      href="tel:+1-555-WISDOM"
+                      href={`tel:${siteConfig.contact.phone || '+91-961-000-1234'}`}
                       type="link"
                     >
-                      +1 (555) WISDOM (947-366)
+                      {siteConfig.contact.phone || '+91-961-000-1234'}
                     </ContactItem>
                   </VStack>
                 </VStack>
