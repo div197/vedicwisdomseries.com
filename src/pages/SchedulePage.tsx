@@ -49,20 +49,6 @@ import {
   FaCalendarCheck
 } from 'react-icons/fa';
 import {
-  // Premium Layout System
-  Section,
-  Container,
-  VStack,
-  HStack,
-  
-  // Premium Typography
-  Heading,
-  Text,
-  Badge,
-  
-  // Premium Animation System
-  Animation,
-  
   // Premium Core Components
   PremiumCard as Card,
   PremiumButton as Button

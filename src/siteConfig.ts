@@ -257,7 +257,6 @@ export const siteConfig: SiteConfig = {
       { label: 'Home', href: '/', hasHero: true },
       { label: 'About', href: '/about', hasHero: true },
       { label: 'Teachings', href: '/teachings', hasHero: true },
-      { label: 'Schedule', href: '/schedule', hasHero: true },
       { label: 'Testimonials', href: '/testimonials', hasHero: true },
       { label: 'Contact', href: '/contact', hasHero: true }
     ],

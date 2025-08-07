@@ -15,7 +15,6 @@ import ContactPage from './pages/ContactPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsOfServicePage from './pages/TermsOfServicePage'
 import TestimonialsPage from './pages/TestimonialsPage'
-import SchedulePage from './pages/SchedulePage'
 
 function App() {
   return (
@@ -29,98 +28,22 @@ function App() {
           <main id="main-content" role="main">
             <SimpleErrorBoundary>
                 <Routes>
-                  {/* Public Routes - Each wrapped in error boundary */}
-                  <Route path="/" element={
-                    <SimpleErrorBoundary>
-                      <HomePage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/about" element={
-                    <SimpleErrorBoundary>
-                      <AboutPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/teachings" element={
-                    <SimpleErrorBoundary>
-                      <TeachingsPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/schedule" element={
-                    <SimpleErrorBoundary>
-                      <SchedulePage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/testimonials" element={
-                    <SimpleErrorBoundary>
-                      <TestimonialsPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/contact" element={
-                    <SimpleErrorBoundary>
-                      <ContactPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/privacy-policy" element={
-                    <SimpleErrorBoundary>
-                      <PrivacyPolicyPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/terms-of-service" element={
-                    <SimpleErrorBoundary>
-                      <TermsOfServicePage />
-                    </SimpleErrorBoundary>
-                  } />
+                  {/* Core Routes */}
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/teachings" element={<TeachingsPage />} />
+                  <Route path="/testimonials" element={<TestimonialsPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
                   
-                  {/* Teaching Categories */}
-                  <Route path="/teachings/discourses" element={
-                    <SimpleErrorBoundary>
-                      <TeachingsPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/teachings/chanting" element={
-                    <SimpleErrorBoundary>
-                      <TeachingsPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/teachings/teacher-training" element={
-                    <SimpleErrorBoundary>
-                      <TeachingsPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/teachings/lifestyle" element={
-                    <SimpleErrorBoundary>
-                      <TeachingsPage />
-                    </SimpleErrorBoundary>
-                  } />
+                  {/* Teaching Sub-routes */}
+                  <Route path="/teachings/:program" element={<TeachingsPage />} />
                   
-                  {/* Legacy Product Routes - Redirect to Teachings */}
-                  <Route path="/products" element={
-                    <SimpleErrorBoundary>
-                      <TeachingsPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/products/*" element={
-                    <SimpleErrorBoundary>
-                      <TeachingsPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/quality" element={
-                    <SimpleErrorBoundary>
-                      <AboutPage />
-                    </SimpleErrorBoundary>
-                  } />
-                  <Route path="/knowledge-center" element={
-                    <SimpleErrorBoundary>
-                      <TeachingsPage />
-                    </SimpleErrorBoundary>
-                  } />
-
-                  {/* Legacy Routes - Redirect to appropriate pages */}
-                  <Route path="/exports" element={
-                    <SimpleErrorBoundary>
-                      <AboutPage />
-                    </SimpleErrorBoundary>
-                  } />
+                  {/* Legal Pages */}
+                  <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                  <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+                  
+                  {/* Catch-all redirect to home */}
+                  <Route path="*" element={<HomePage />} />
                 </Routes>
             </SimpleErrorBoundary>
           </main>
